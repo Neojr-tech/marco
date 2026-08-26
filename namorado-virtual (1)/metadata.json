@@ -1,0 +1,10 @@
+{
+  "name": "Namorado Virtual",
+  "description": "Aplicativo completo de relacionamento afetivo com avatares e personas modulares, memória adaptativa, multimídia e arquitetura desacoplada de IA.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
