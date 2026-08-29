@@ -1,0 +1,460 @@
+# MAPA DE REFERÊNCIAS TÉCNICAS PARA IMPLEMENTAÇÃO — CHATBOT NAMORADO VIRTUAL
+
+**Projeto:** Chatbot Namorado Virtual
+**Função deste documento:** Referência técnica e registro de soluções encontradas em projetos externos
+**Status:** Documento auxiliar — não substitui nem altera as Etapas 1, 2, 3 e 4
+**Objetivo:** Registrar materiais técnicos relevantes encontrados durante a pesquisa para futura análise, comparação e possível incorporação de soluções ao projeto.
+
+---
+
+## 1. COMO ESTE DOCUMENTO DEVE SER UTILIZADO
+
+Este documento não define a arquitetura do Chatbot Namorado Virtual.
+
+As decisões oficiais continuam sendo aquelas estabelecidas nas **Etapas 1, 2, 3 e 4** e no **Documento de Integração das Etapas 1–4**.
+
+Este material funciona como um **mapa de referências**.
+
+Sempre que for necessário resolver uma questão técnica do projeto, consultar primeiro este documento para verificar se já encontramos uma solução semelhante em algum projeto externo.
+
+Nenhum projeto relacionado abaixo deve ser incorporado automaticamente.
+
+A regra é:
+
+> **Encontrar → estudar → comparar → validar → decidir → somente então utilizar.**
+
+Um projeto não deve ser descartado simplesmente porque não corresponde exatamente ao nosso produto. Uma solução parcial pode fornecer uma informação útil para uma parte específica da nossa estrutura.
+
+---
+
+# 2. REGRA DE COLETA E APROVEITAMENTO
+
+Durante a pesquisa, devem ser preservados materiais que possam fornecer informações sobre:
+
+* arquitetura;
+* memória;
+* personalidade;
+* relacionamento usuário/personagem;
+* conversação;
+* LLM;
+* AI Gateway;
+* voz;
+* TTS;
+* ASR;
+* avatar;
+* lip-sync;
+* animação;
+* vídeo;
+* comunicação em tempo real;
+* WebRTC;
+* interrupção da fala (`barge-in`);
+* execução local;
+* execução em nuvem;
+* arquitetura híbrida;
+* integração entre componentes;
+* frontend/backend;
+* APIs;
+* armazenamento;
+* modelos;
+* configuração;
+* experiência de uso;
+* comportamento de personagens;
+* soluções alternativas para limitações técnicas.
+
+### Regra fundamental
+
+**Nenhum material relevante deve ser descartado antes de ser analisado.**
+
+Mesmo que seja:
+
+* fork;
+* clone;
+* cópia;
+* adaptação;
+* projeto incompleto;
+* projeto diferente do nosso;
+* solução aparentemente simples;
+* solução que resolva somente uma pequena parte do problema.
+
+A utilidade será determinada **depois da análise**, e não pelo nome ou pela aparência do projeto.
+
+---
+
+# 3. REFERÊNCIA PRIORITÁRIA — OPEN-LLM-VTUBER
+
+**Projeto:** Open-LLM-VTuber
+**Fonte:** GitHub
+**Categoria:** Avatar conversacional / LLM / voz / execução local / integração de componentes
+
+### Por que foi considerado relevante
+
+O projeto apresenta uma arquitetura próxima de vários elementos que pretendemos construir.
+
+Entre os pontos de interesse estão:
+
+* conversação com personagem;
+* interação por voz;
+* avatar;
+* Live2D;
+* memória/histórico;
+* utilização de diferentes LLMs;
+* componentes de reconhecimento de voz;
+* síntese de voz;
+* possibilidade de execução local;
+* possibilidade de utilização de serviços externos;
+* arquitetura modular.
+
+### Relação com nosso projeto
+
+Pode servir como referência principalmente para:
+
+**`ai-gateway`**
+
+* separação entre o sistema principal e o provedor de IA;
+* possibilidade de trocar componentes/modelos.
+
+**Voz**
+
+* ASR;
+* TTS;
+* fluxo de entrada e saída de voz.
+
+**Avatar**
+
+* integração entre resposta da IA e representação visual.
+
+**Arquitetura híbrida**
+
+* combinação de processamento local com serviços externos.
+
+### O que devemos estudar posteriormente
+
+* como os componentes são separados;
+* como o LLM é conectado ao restante do sistema;
+* como memória/histórico é tratado;
+* como voz entra e sai do fluxo;
+* como o avatar recebe os eventos da conversa;
+* quais componentes podem ser reproduzidos conceitualmente em nossa arquitetura.
+
+### Atenção
+
+Os assets e modelos utilizados pelo projeto não devem ser considerados automaticamente livres para utilização comercial.
+
+A licença do código e as licenças específicas de modelos, personagens e assets devem ser verificadas individualmente.
+
+---
+
+# 4. REFERÊNCIA — A16Z COMPANION APP
+
+**Projeto:** Companion App
+**Fonte:** GitHub
+**Categoria:** Companheiro virtual / personalidade / memória / LLM
+
+### Por que foi considerado relevante
+
+Este projeto é particularmente importante para estudar a parte de:
+
+* personalidade;
+* memória;
+* histórico;
+* recuperação de informações relevantes;
+* contexto do usuário;
+* persistência de informações.
+
+### Relação com nosso projeto
+
+Tem relação direta com as entidades definidas na Etapa 3:
+
+* `CharacterMemory`;
+* `UserMemory`;
+* `ConversationMemory`;
+* `Relationship`.
+
+### Ponto principal de estudo
+
+Verificar como o projeto organiza:
+
+**conversa → armazenamento → recuperação de memória → contexto → resposta da IA.**
+
+Isso poderá ajudar a validar ou aprimorar posteriormente a implementação definida na Etapa 4.
+
+### Não fazer neste momento
+
+Não substituir nossa estrutura de memória pela estrutura do Companion App.
+
+Primeiro comparar as duas arquiteturas.
+
+---
+
+# 5. REFERÊNCIA — LINLY-TALKER
+
+**Projeto:** Linly-Talker
+**Fonte:** GitHub
+**Categoria:** Conversação por voz + avatar + vídeo + tempo real
+
+### Por que foi considerado relevante
+
+O projeto trabalha com elementos muito próximos da experiência que pretendemos atingir futuramente:
+
+* conversa por voz;
+* avatar falante;
+* sincronização labial;
+* geração de fala;
+* interação em tempo real;
+* WebRTC;
+* comunicação full-duplex;
+* possibilidade de interrupção da fala (`barge-in`).
+
+### Relação com nosso projeto
+
+É especialmente importante para a questão que permaneceu **A DEFINIR** na Etapa 4:
+
+> HTTP/polling ou WebSocket/tempo real?
+
+Além disso, pode fornecer referências para a futura integração de:
+
+* `voice`;
+* `video`;
+* avatar;
+* comunicação em tempo real.
+
+### Ponto de estudo prioritário
+
+A arquitetura **Linly-Talker-Stream** merece análise específica posteriormente para compreender:
+
+* comunicação em tempo real;
+* WebRTC;
+* fluxo full-duplex;
+* interrupção da fala;
+* relação entre ASR → LLM → TTS → avatar.
+
+### Fork encontrado
+
+Também foi identificado um fork do projeto.
+
+**Regra:** não descartar o fork automaticamente.
+
+Ele deve ser tratado como material secundário e comparado com o projeto original caso contenha modificações ou soluções que possam trazer informação útil.
+
+A fonte principal, entretanto, deve continuar sendo o projeto original.
+
+---
+
+# 6. REFERÊNCIA — VIRTUAL GIRLFRIEND
+
+**Projeto:** Virtual Girlfriend
+**Fonte:** GitHub
+**Categoria:** Personagem virtual / chat / voz / avatar / lip-sync
+
+### Por que foi considerado relevante
+
+O projeto apresenta uma integração prática entre:
+
+* frontend;
+* backend;
+* conversa;
+* áudio;
+* lip-sync;
+* expressões;
+* animações;
+* avatar.
+
+### Relação com nosso projeto
+
+Pode ajudar a estudar o fluxo:
+
+```text
+Usuário
+   ↓
+Chat
+   ↓
+Resposta da IA
+   ↓
+Áudio
+   ↓
+Avatar
+   ↓
+Lip-sync / expressão / animação
+```
+
+### Ponto de estudo
+
+Verificar como esses elementos são coordenados tecnicamente sem comprometer a separação de responsabilidades definida em nossa arquitetura.
+
+---
+
+# 7. LICENÇAS E DIREITOS DE USO
+
+A existência de um projeto no GitHub não significa automaticamente que todos os seus componentes possam ser utilizados comercialmente.
+
+Devem ser diferenciados:
+
+1. código-fonte;
+2. modelos de IA;
+3. pesos dos modelos;
+4. personagens;
+5. imagens;
+6. vozes;
+7. músicas;
+8. animações;
+9. datasets;
+10. outros assets.
+
+Cada componente deve ter sua própria licença ou condição de uso verificada.
+
+### Exemplo importante
+
+Materiais relacionados ao Live2D podem possuir condições específicas mesmo quando o código de um projeto possui uma licença permissiva.
+
+Portanto:
+
+> **Código aberto ≠ todos os assets livres para uso comercial.**
+
+Esta verificação deverá ser feita antes de qualquer utilização efetiva no produto.
+
+---
+
+# 8. MAPA INICIAL DE APLICAÇÃO
+
+| Necessidade do nosso projeto    | Referências prioritárias          |
+| ------------------------------- | --------------------------------- |
+| Personalidade                   | Companion App                     |
+| Memória                         | Companion App                     |
+| Memória + contexto              | Companion App / Open-LLM-VTuber   |
+| LLM intercambiável              | Open-LLM-VTuber                   |
+| AI Gateway                      | Open-LLM-VTuber                   |
+| Voz                             | Open-LLM-VTuber / Linly-Talker    |
+| ASR                             | Open-LLM-VTuber / Linly-Talker    |
+| TTS                             | Open-LLM-VTuber / Linly-Talker    |
+| Avatar                          | Open-LLM-VTuber / Linly-Talker    |
+| Lip-sync                        | Linly-Talker / Virtual Girlfriend |
+| Vídeo                           | Linly-Talker                      |
+| Tempo real                      | Linly-Talker                      |
+| WebRTC                          | Linly-Talker                      |
+| Interrupção da fala             | Linly-Talker                      |
+| Integração chat → avatar        | Virtual Girlfriend                |
+| Arquitetura híbrida/local+nuvem | Open-LLM-VTuber                   |
+
+---
+
+# 9. RELAÇÃO COM A ARQUITETURA DO CHATBOT NAMORADO VIRTUAL
+
+As referências acima **não substituem** nossa arquitetura.
+
+Elas serão utilizadas para responder perguntas específicas durante a implementação.
+
+Exemplos:
+
+### Pergunta futura
+
+"Como podemos implementar memória?"
+
+→ consultar primeiro as referências de memória.
+
+### Pergunta futura
+
+"Como podemos fazer o personagem falar e mexer a boca em tempo real?"
+
+→ consultar Linly-Talker, Open-LLM-VTuber e Virtual Girlfriend.
+
+### Pergunta futura
+
+"Como deixar o provedor de IA substituível?"
+
+→ consultar Open-LLM-VTuber e confrontar com o `ai-gateway` definido nas Etapas 1–4.
+
+### Pergunta futura
+
+"Como implementar interrupção natural enquanto o personagem fala?"
+
+→ consultar principalmente Linly-Talker.
+
+---
+
+# 10. ESTADO DE CADA REFERÊNCIA
+
+| Referência           | Estado atual            | Próxima ação                            |
+| -------------------- | ----------------------- | --------------------------------------- |
+| Open-LLM-VTuber      | Relevante               | Auditoria técnica                       |
+| Companion App        | Relevante               | Auditoria de memória/persona            |
+| Linly-Talker         | Muito relevante         | Auditoria de tempo real/voz/avatar      |
+| Fork do Linly-Talker | Preservado para análise | Comparar com original                   |
+| Virtual Girlfriend   | Relevante               | Auditoria da integração chat/voz/avatar |
+
+**Importante:** "Relevante" não significa "será utilizado".
+
+Significa apenas:
+
+> **Existe material técnico suficientemente próximo do nosso problema para justificar estudo.**
+
+---
+
+# 11. PRÓXIMA FASE DA PESQUISA
+
+A pesquisa não deve continuar simplesmente acumulando nomes de projetos.
+
+O próximo passo é transformar cada referência em **soluções técnicas identificadas**.
+
+Para cada projeto, analisar:
+
+1. O que ele resolve?
+2. Como resolve?
+3. Qual componente da nossa arquitetura corresponde a essa solução?
+4. A solução é compatível com nossa arquitetura?
+5. Podemos reproduzir o conceito?
+6. Existe código que possa ser aproveitado legalmente?
+7. Existe alguma limitação?
+8. Existe uma solução melhor em outro projeto?
+9. Essa solução resolve algum dos pontos que deixamos "A DEFINIR"?
+10. Deve ser candidata a implementação, apenas referência ou descartada após análise?
+
+---
+
+# 12. REGRA PARA NOVOS MATERIAIS
+
+Sempre que novos projetos forem encontrados, eles devem ser acrescentados a este documento ou a uma versão posterior deste mapa, mantendo o mesmo padrão.
+
+Não criar uma nova etapa da arquitetura simplesmente porque um novo projeto foi encontrado.
+
+O material externo serve como **fonte de soluções**, não como autoridade sobre o projeto.
+
+A arquitetura do Chatbot Namorado Virtual continua sendo a referência principal.
+
+---
+
+# 13. PRINCÍPIO CENTRAL
+
+O objetivo desta pesquisa não é encontrar um projeto para copiar.
+
+É encontrar **soluções comprovadas para problemas que teremos que resolver**.
+
+A estratégia é:
+
+```text
+Nossa arquitetura
+      ↓
+Problema técnico
+      ↓
+Pesquisar projetos que já resolveram algo semelhante
+      ↓
+Encontrar soluções
+      ↓
+Comparar soluções
+      ↓
+Validar compatibilidade
+      ↓
+Escolher a melhor abordagem
+      ↓
+Implementar na nossa própria arquitetura
+```
+
+O resultado final deve ser um aplicativo próprio, com arquitetura coerente, utilizando quando apropriado ideias, técnicas, componentes e referências encontradas em projetos existentes.
+
+---
+
+**Documento de referência técnica — versão inicial**
+
+**Não é uma Etapa do projeto.**
+**Não substitui as Etapas 1–4.**
+**Não define decisões definitivas.**
+**Serve para preservar e organizar as soluções técnicas encontradas durante a pesquisa.**
