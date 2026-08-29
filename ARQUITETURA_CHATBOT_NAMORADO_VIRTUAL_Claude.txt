@@ -1,0 +1,2401 @@
+ARQUITETURA TÉCNICA DO CHATBOT NAMORADO VIRTUAL
+Fonte: CLAUDE IA
+Projeto:CHATBOT NAMORADO VIRTUAL
+https://claude.ai/share/91bebbe8-7dba-4093-a014-d966f2724fea
+
+Show, com base e nisso monto uma proposta. Já que vai ser web + celular, o mais prático pra você (que é leigo) é usar **uma tecnologia só que gera os dois ao mesmo tempo**, em vez de duas equipes/códigos separados. Isso reduz muito a complexidade de manutenção.
+
+**Stack recomendada:**
+- **Flutter** → um único código gera app Android, iOS e também versão web. É a opção mais simples de manter sozinho.
+- **Backend** em Node.js (ou Python) → cuida da conversa com a IA, memória do usuário, login, pagamentos.
+- **Banco de dados** PostgreSQL → guarda usuários, histórico de conversas, assinaturas.
+- **IA de conversação** via API (ex: OpenAI, Anthropic, ou outro provedor) → você não precisa treinar modelo próprio nem rodar nada pesado localmente pra isso.
+
+**Estrutura de pastas proposta:**
+
+```
+namorado-virtual/
+├── app/                    → código do Flutter (tela, chat, perfil, assinatura)
+│   ├── lib/
+│   │   ├── screens/        → telas (login, chat, configurações, planos)
+│   │   ├── widgets/        → componentes reutilizáveis (bolha de chat, avatar)
+│   │   ├── services/       → conexão com o backend
+│   │   └── models/         → estrutura dos dados (usuário, mensagem)
+│   └── assets/              → imagens, ícones, avatar do personagem
+│
+├── backend/                → servidor
+│   ├── src/
+│   │   ├── routes/          → endpoints (chat, login, pagamento)
+│   │   ├── services/        → lógica (chamar IA, salvar memória)
+│   │   ├── models/          → tabelas do banco (usuário, conversa, plano)
+│   │   └── config/          → chaves de API, configurações
+│   └── database/            → scripts do banco de dados
+│
+└── docs/                    → documentação do projeto (esse tipo de arquivo que você já vem escrevendo)
+```
+
+Isso cobre: cadastro/login, chat com memória, sistema de assinatura/pagamento (pra monetizar) e uma base pronta pra depois plugar outras funções.
+
+Quer que eu detalhe cada pasta (o que vai dentro de `services`, por exemplo) ou prefere que eu já monte esse esqueleto de arquivos de verdade pra você?
+
+
+Perfeito. Aqui está a estrutura de telas e fluxo do usuário:
+
+## Fluxo principal (jornada do usuário)
+
+```
+Abertura do app
+      ↓
+Onboarding (boas-vindas + verificação de idade 18+)
+      ↓
+Cadastro / Login
+      ↓
+Criação do personagem (nome, aparência, personalidade)
+      ↓
+Tela de Chat (tela principal)
+      ↓
+Explorar / Configurações / Perfil
+```
+
+## Telas detalhadas
+
+**1. Onboarding**
+- Tela de boas-vindas (apresenta o app rapidamente)
+- Verificação de idade (18+)
+- Aceite de termos de uso e política de privacidade
+
+**2. Cadastro / Login**
+- Login por e-mail, ou login social (Google/Apple)
+- Recuperação de senha
+
+**3. Criação do personagem**
+- Escolha de nome
+- Escolha de aparência (avatar/estilo visual)
+- Escolha de personalidade/traços (ex: carinhoso, engraçado, atencioso)
+- Isso pode ser simples no início e evoluir depois
+
+**4. Tela de Chat (tela principal, onde o usuário passa mais tempo)**
+- Histórico de mensagens
+- Campo de digitação + envio de mensagem
+- Indicador de "digitando..."
+- Acesso rápido ao perfil do personagem (avatar clicável no topo)
+
+**5. Perfil do personagem**
+- Foto/avatar
+- Personalidade (editável)
+- Nível de relacionamento/progresso (se você quiser gamificar)
+
+**6. Configurações**
+- Conta (dados do usuário, senha)
+- Notificações
+- Plano/assinatura (só quando você decidir ativar isso)
+- Suporte/ajuda
+- Sair da conta
+
+**7. Menu de navegação**
+Geralmente esses apps usam navegação simples, tipo:
+```
+[ Chat ]   [ Perfil do Personagem ]   [ Configurações ]
+```
+Três abas já cobrem bem o essencial no começo — dá pra crescer depois.
+
+## Fluxo de uma conversa (dentro da tela de chat)
+```
+Usuário digita mensagem
+      ↓
+Mensagem enviada ao backend
+      ↓
+Backend chama a IA de conversação
+      ↓
+IA responde considerando a memória salva
+      ↓
+Resposta aparece no chat
+      ↓
+Mensagem é salva no histórico/memória
+```
+
+Quer que eu continue pra próxima estrutura, ou prefere que eu detalhe alguma dessas telas antes (tipo, o que exatamente entra na tela de criação do personagem)?
+
+_________________________________________________________________
+
+
+ARQUITETURA TÉCNICA DO CHATBOT NAMORADO VIRTUAL
+
+## 0. Premissa geral
+
+A stack proposta (Flutter + Node.js + PostgreSQL + APIs de IA externas) é adequada para este projeto e será mantida como ponto de partida, com um ajuste de enfoque: a arquitetura não deve ser organizada em torno de "um chatbot", mas em torno de **entidades configuráveis** (personagens, avatares, conversas, memórias) que o chatbot consome. Isso muda a lógica interna das pastas propostas originalmente, mesmo mantendo os nomes de alto nível (`app/`, `backend/`, `docs/`).
+
+Nenhuma decisão de modelo de IA, preço ou design visual é tomada nesta etapa — apenas onde essas decisões vão "encaixar" futuramente.
+
+# ETAPA 1 — ARQUITETURA TÉCNICA DO CHATBOT NAMORADO VIRTUAL
+
+## 1. Árvore completa da arquitetura proposta
+
+```
+namorado-virtual/
+│
+├── app/                              # Cliente Flutter (mobile + web/desktop)
+│   ├── lib/
+│   │   ├── screens/                  # Telas (uma pasta por fluxo)
+│   │   │   ├── onboarding/
+│   │   │   ├── auth/
+│   │   │   ├── character_creation/
+│   │   │   ├── chat/
+│   │   │   ├── character_profile/
+│   │   │   └── settings/
+│   │   │
+│   │   ├── widgets/                  # Componentes visuais reutilizáveis
+│   │   │   ├── chat/                 # bolha de mensagem, indicador "digitando"
+│   │   │   ├── character/            # cartão de personagem, avatar
+│   │   │   └── common/               # botões, inputs, modais genéricos
+│   │   │
+│   │   ├── services/                 # Comunicação com o backend (HTTP/WebSocket)
+│   │   │   ├── api/                  # clientes de API (auth_api, chat_api, character_api...)
+│   │   │   └── local/                # cache local, sessão
+│   │   │
+│   │   ├── models/                   # Estruturas de dados do lado cliente
+│   │   │   ├── character_model.dart
+│   │   │   ├── message_model.dart
+│   │   │   └── user_model.dart
+│   │   │
+│   │   ├── state/                    # Gerenciamento de estado (ex: Provider/Riverpod/Bloc)
+│   │   │
+│   │   └── platform/                 # Código específico de plataforma quando inevitável
+│   │       ├── mobile/
+│   │       └── web_desktop/
+│   │
+│   └── assets/                       # Imagens estáticas, ícones, fontes
+│
+├── backend/                          # Servidor Node.js
+│   ├── src/
+│   │   ├── routes/                   # Definição de endpoints (fino, sem lógica de negócio)
+│   │   │   ├── auth.routes.js
+│   │   │   ├── chat.routes.js
+│   │   │   ├── character.routes.js
+│   │   │   └── user.routes.js
+│   │   │
+│   │   ├── services/                 # Lógica de negócio
+│   │   │   ├── auth/
+│   │   │   ├── chat/                 # orquestra conversa individual e em grupo
+│   │   │   ├── character/            # gerencia personas e avatares
+│   │   │   ├── memory/               # lê/escreve as diferentes camadas de memória
+│   │   │   └── ai-gateway/           # camada de abstração de IA (ver seção 6)
+│   │   │
+│   │   ├── models/                   # Definição das tabelas/entidades (ORM)
+│   │   │   ├── user.model.js
+│   │   │   ├── character.model.js
+│   │   │   ├── avatar.model.js
+│   │   │   ├── conversation.model.js
+│   │   │   ├── message.model.js
+│   │   │   └── memory.model.js
+│   │   │
+│   │   ├── config/                   # Configurações, variáveis de ambiente, chaves de API
+│   │   │
+│   │   └── middleware/               # Autenticação, validação, tratamento de erro
+│   │
+│   └── database/
+│       ├── migrations/               # Alterações versionadas do schema
+│       └── seeds/                    # Dados iniciais (ex: personagens padrão de exemplo)
+│
+└── docs/                             # Documentação técnica e de produto
+    ├── architecture.md               # Este tipo de documento — fonte oficial da arquitetura
+    ├── characters/                   # Regras e fichas de personagens/personas
+    ├── ai-models.md                  # Registro de quais modelos estão em uso por função
+    ├── memory-system.md
+    ├── database-schema.md
+    ├── api-reference.md
+    └── decisions-log.md              # Registro de decisões técnicas (o que foi definido, testado, descartado)
+```
+
+---
+
+## 2 e 3. Explicação e responsabilidade de cada pasta
+
+### `app/lib/screens/`
+**Função:** cada subpasta representa um fluxo completo de tela (não um componente isolado).
+**Entra:** os arquivos de tela em si (ex: `chat_screen.dart`) e, quando necessário, sub-componentes que só fazem sentido *dentro* daquele fluxo específico.
+**Não entra:** lógica de chamada de API (isso vai para `services/`) nem componentes reutilizáveis em outras telas (isso vai para `widgets/`).
+**Relação:** consome `widgets/`, `services/` e `models/`; não é consumida por ninguém (é a camada mais "de fora").
+**Motivo:** ao crescer o número de personagens/fluxos, cada tela permanece isolada e fácil de localizar.
+
+### `app/lib/widgets/`
+**Função:** peças visuais reaproveitáveis em mais de uma tela.
+**Entra:** bolha de chat, avatar circular, cartão de personagem, botões padronizados.
+**Não entra:** nada que dependa de uma tela específica só ela usa — isso deveria estar dentro da própria pasta da tela.
+**Relação:** usada por `screens/`; não deve depender de `screens/`.
+**Motivo:** evita duplicar visual quando novos personagens/telas forem adicionados.
+
+### `app/lib/services/`
+**Função:** ponte entre o app e o backend.
+**Entra:** funções que fazem requisições HTTP/WebSocket, tratam resposta, tratam erro de rede.
+**Não entra:** lógica de IA, regras de negócio (isso é responsabilidade do backend).
+**Relação:** chamada por `screens/`; consome `models/` para tipar os dados.
+**Motivo:** se amanhã trocar a forma de comunicação (ex: REST → WebSocket para chat em tempo real), só essa camada muda.
+
+### `app/lib/models/`
+**Função:** representar os dados que circulam no app (o "formato" de um personagem, uma mensagem, um usuário).
+**Entra:** classes de dados e conversão de/para JSON.
+**Não entra:** lógica de tela ou chamada de rede.
+**Relação:** usada por `services/`, `widgets/` e `screens/`.
+
+### `app/lib/platform/`
+**Função:** isolar as poucas diferenças reais entre mobile e web/desktop (ex: notificações push só existem em mobile).
+**Motivo:** mantém o resto do código 100% compartilhado; só aqui existe ramificação por plataforma (ver seção 11).
+
+---
+
+### `backend/src/routes/`
+**Função:** definir *quais* endpoints existem e para qual serviço encaminhar a chamada. Deve ser "fino" — sem regra de negócio.
+**Não entra:** lógica de IA, cálculo de memória, validação complexa.
+**Relação:** chama `services/`; é o ponto de entrada do backend.
+
+### `backend/src/services/`
+**Função:** onde a lógica de negócio realmente acontece.
+**Subpastas e responsabilidade:**
+- `auth/`: cadastro, login, sessão.
+- `chat/`: orquestra o envio/recebimento de mensagens, decide se é conversa individual ou em grupo, monta o contexto que será enviado à IA.
+- `character/`: CRUD de personagens, personas e avatares; regras de qual persona pode usar qual avatar.
+- `memory/`: lê e grava as diferentes camadas de memória (seção 7), decide o que entra no contexto de uma conversa.
+- `ai-gateway/`: única camada que efetivamente conversa com provedores de IA externos (seção 6).
+**Motivo:** se uma regra de negócio muda, o ponto de alteração é sempre aqui — nunca em `routes/` nem no app.
+
+### `backend/src/models/`
+**Função:** representar as tabelas do banco via ORM.
+**Não entra:** lógica de negócio (fica em `services/`).
+
+### `backend/src/config/`
+**Função:** variáveis de ambiente, chaves de API, parâmetros que mudam entre desenvolvimento e produção.
+**Motivo:** nenhuma chave sensível deve estar espalhada pelo código.
+
+### `backend/database/`
+**Função:** controle de versão do schema (migrations) e dados de exemplo (seeds).
+
+### `docs/`
+**Função:** cada arquivo é a **fonte oficial** de um assunto — não deve haver dois documentos falando da mesma coisa. `decisions-log.md` registra o que foi **Definido / Em teste / Descartado**, evitando redecidir a mesma coisa depois.
+
+---
+
+## 4 e 5. Personagens: separação entre avatar e persona
+
+O sistema não deve tratar "personagem" como uma pasta ou arquivo fixo (ex: `marco/`). Em vez disso, existem **duas entidades separadas no banco de dados**, ligadas entre si:
+
+```
+Avatar                         Persona (Personagem)
+─────────────────              ──────────────────────
+- aparência/imagem             - nome
+- (futuro: voz, vídeo)         - personalidade
+- id                            - forma de falar
+                                 - história/backstory
+                                 - regras de comportamento
+                                 - avatar_id (referência)
+                                 - relacionamento com o usuário
+```
+
+Uma **Persona** referencia um **Avatar**, mas não é o mesmo registro. Isso permite:
+- o mesmo avatar visual ser reaproveitado por mais de uma persona (ex: mesmo rosto, personalidades diferentes em contextos diferentes);
+- trocar a personalidade de um personagem sem mexer na parte visual, e vice-versa;
+- no futuro, suportar personagens masculinos, femininos, casais, grupos — cada um é apenas um novo registro de Persona, não uma nova pasta ou novo código.
+
+Essa separação vive em `backend/src/services/character/` e nas tabelas `character.model.js` / `avatar.model.js`.
+
+---
+
+## 6. Sistema de IA (camada de abstração)
+
+Toda comunicação com modelos de IA passa exclusivamente por `backend/src/services/ai-gateway/`. Nenhuma outra parte do sistema (nem o app, nem as rotas, nem `chat/`) fala diretamente com um provedor de IA.
+
+Estrutura interna sugerida:
+
+```
+ai-gateway/
+├── conversation/        # interface única para "gerar resposta de texto"
+├── vision/               # interface única para "analisar imagem"
+├── image-generation/     # interface única para "gerar imagem"
+├── video-generation/     # interface única para "gerar vídeo"
+├── voice/                # interface única para "texto→voz / voz→texto"
+└── index.js               # ponto único de entrada, decide qual provedor usar por função
+```
+
+Cada subpasta define **uma interface fixa** (ex: `gerarResposta(contexto) → texto`), e por trás dela pode existir qualquer provedor específico, plugado ou trocado sem que `chat/`, `character/` ou o app percebam diferença. Essa é a camada que garante o requisito "trocar modelos depois sem reconstruir o app".
+
+---
+
+## 7. Memória e contexto
+
+Camadas separadas, todas geridas por `backend/src/services/memory/`:
+
+| Camada | O que guarda | Escopo |
+|---|---|---|
+| Histórico de conversa | mensagens trocadas | por conversa |
+| Contexto atual | recorte recente enviado à IA a cada chamada | por conversa, temporário |
+| Memória do personagem | traços fixos daquela persona (não muda por usuário) | por persona |
+| Memória do usuário | preferências, fatos que o usuário compartilhou | por usuário |
+| Relacionamento usuário↔personagem | histórico específico daquele vínculo (nível, marcos, tom) | por par usuário+persona |
+| Memória de grupo *(futuro)* | o que aconteceu numa conversa com múltiplos personagens | por conversa em grupo |
+
+Tecnicamente, isso se traduz em tabelas separadas no banco (não um único "campo memória"), permitindo consultar só o necessário para montar o contexto de cada chamada de IA — evitando enviar memória irrelevante e mantendo custo/latência controlados.
+
+---
+
+## 8. Conversas individuais e em grupo
+
+`backend/src/services/chat/` é responsável por decidir o tipo de conversa e montar o contexto adequado:
+
+- **Individual:** contexto = histórico da conversa + memória daquela persona + memória do usuário + relacionamento.
+- **Grupo:** o serviço de chat, a cada mensagem, monta o contexto **por personagem** (cada persona "vê" a conversa toda, mas responde com sua própria personalidade), e decide a ordem/quem responde. Isso exige que `conversation.model.js` suporte múltiplos participantes (não um campo fixo "personagem_id", mas uma tabela de participantes).
+
+Nada disso é implementado agora — apenas a divisão em `chat/` (orquestração) e `memory/` (dados) já comporta essa evolução sem redesenho.
+
+---
+
+## 9. Resumo de responsabilidades do backend
+
+| Responsabilidade | Onde fica |
+|---|---|
+| Autenticação | `services/auth/` |
+| Usuários | `services/` (auth) + `models/user.model.js` |
+| Personagens/avatares | `services/character/` |
+| Conversas (individual/grupo) | `services/chat/` |
+| Memória | `services/memory/` |
+| Comunicação com IA | `services/ai-gateway/` |
+| Pagamentos *(futuro)* | novo módulo `services/billing/`, isolado do resto |
+| Geração de mídia | dentro de `ai-gateway/image-generation` e `video-generation` |
+| Armazenamento de arquivos | novo módulo `services/storage/` quando necessário |
+| Configurações do sistema | `config/` |
+
+---
+
+## 10. Frontend (detalhamento)
+
+- `screens/`: um fluxo por pasta, sem lógica de rede.
+- `widgets/`: qualquer peça usada em 2+ telas.
+- `services/`: só comunicação com backend, nunca lógica de IA.
+- `models/`: formato de dados espelhando o que o backend envia.
+- `assets/`: estáticos que fazem parte do app em si (ícones, fontes); avatares/imagens **geradas** de personagens não ficam aqui — vêm do backend/storage, pois são dinâmicos.
+
+---
+
+## 11. Web/Desktop e Mobile
+
+**Compartilhado (a grande maioria):** `screens/`, `widgets/`, `services/`, `models/`, `state/` — é justamente a vantagem do Flutter, um único código para as três saídas.
+
+**Específico por plataforma (isolado em `app/lib/platform/`):** notificações push, acesso a câmera/microfone do dispositivo, comportamento de teclado/tela, atalhos de desktop. Tudo isso fica atrás de uma interface comum, e cada plataforma implementa sua versão dentro de `platform/mobile/` ou `platform/web_desktop/`.
+
+---
+
+## 12. Documentação
+
+Um arquivo por assunto, sem redundância:
+- `architecture.md` — esta arquitetura, atualizada conforme decisões avançam.
+- `characters/` — uma ficha por persona/avatar quando existirem.
+- `ai-models.md` — qual modelo está em uso em cada função do `ai-gateway`.
+- `memory-system.md`, `database-schema.md`, `api-reference.md` — cada um cobre exclusivamente seu assunto.
+- `decisions-log.md` — histórico do tipo "Definido / Em teste / Descartado", para nunca perder o porquê de uma escolha.
+
+---
+
+## 13. Decisões que ainda precisam ser tomadas antes de programar
+
+1. Gerenciador de estado do Flutter (Provider, Riverpod, Bloc etc.).
+2. Protocolo de chat em tempo real: HTTP simples (polling) ou WebSocket.
+3. Provedor(es) de IA de conversação a plugar no `ai-gateway` (não decidido nesta etapa).
+4. Estratégia de armazenamento de mídia gerada (avatares, futura imagem/vídeo) — serviço de storage próprio ou externo.
+5. Estrutura exata do banco para "conversa em grupo" (tabela de participantes).
+6. Autenticação: e-mail/senha, login social, ou ambos, desde o início.
+
+Essas ficam registradas para decisão na próxima etapa, junto com a transformação desta planta em esqueleto real de pastas e arquivos.
+
+___________________________________________________________
+
+
+ESQUELETO REAL DE PASTAS E ARQUIVOS
+
+Prontinho — Etapa 2 completa, com a árvore física de pastas/arquivos, a tabela de responsabilidade de cada arquivo do frontend e backend, a estrutura de personagem (Character → Persona + Avatar como entidades separadas e reutilizáveis), organização de prompts, entidades do banco, assets e documentação. Nenhuma implementação real, só nome e responsabilidade de cada peça, como pedido.
+
+# ETAPA 2 — ESQUELETO REAL DE PASTAS E ARQUIVOS
+
+Baseado exclusivamente na arquitetura aprovada na Etapa 1. Nenhum arquivo aqui contém implementação — apenas nome, caminho e responsabilidade. Nenhuma escolha de modelo de IA, preço ou visual é feita aqui.
+
+---
+
+## 1. Árvore completa de pastas e arquivos
+
+```
+namorado-virtual/
+│
+├── app/
+│   └── lib/
+│       ├── screens/
+│       │   ├── onboarding/
+│       │   │   └── onboarding_screen.dart
+│       │   ├── auth/
+│       │   │   ├── login_screen.dart
+│       │   │   └── register_screen.dart
+│       │   ├── character_creation/
+│       │   │   ├── character_creation_screen.dart
+│       │   │   ├── avatar_picker_step.dart
+│       │   │   └── personality_setup_step.dart
+│       │   ├── chat/
+│       │   │   ├── individual_chat_screen.dart
+│       │   │   └── group_chat_screen.dart
+│       │   ├── character_profile/
+│       │   │   └── character_profile_screen.dart
+│       │   └── settings/
+│       │       └── settings_screen.dart
+│       │
+│       ├── widgets/
+│       │   ├── chat/
+│       │   │   ├── message_bubble.dart
+│       │   │   ├── typing_indicator.dart
+│       │   │   └── speaker_tag.dart
+│       │   ├── character/
+│       │   │   ├── character_card.dart
+│       │   │   └── avatar_circle.dart
+│       │   └── common/
+│       │       ├── app_button.dart
+│       │       └── app_text_field.dart
+│       │
+│       ├── services/
+│       │   ├── api/
+│       │   │   ├── auth_api.dart
+│       │   │   ├── chat_api.dart
+│       │   │   ├── character_api.dart
+│       │   │   └── user_api.dart
+│       │   └── local/
+│       │       ├── session_storage.dart
+│       │       └── cache_service.dart
+│       │
+│       ├── models/
+│       │   ├── user_model.dart
+│       │   ├── character_model.dart
+│       │   ├── avatar_model.dart
+│       │   ├── message_model.dart
+│       │   └── conversation_model.dart
+│       │
+│       ├── state/
+│       │   ├── auth_state.dart
+│       │   ├── chat_state.dart
+│       │   └── character_state.dart
+│       │
+│       └── platform/
+│           ├── mobile/
+│           │   └── push_notifications_mobile.dart
+│           └── web_desktop/
+│               └── push_notifications_web.dart
+│
+├── backend/
+│   ├── src/
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js
+│   │   │   ├── user.routes.js
+│   │   │   ├── character.routes.js
+│   │   │   ├── chat.routes.js
+│   │   │   └── group.routes.js
+│   │   │
+│   │   ├── services/
+│   │   │   ├── auth/
+│   │   │   │   └── auth.service.js
+│   │   │   ├── user/
+│   │   │   │   └── user.service.js
+│   │   │   ├── character/
+│   │   │   │   ├── character.service.js
+│   │   │   │   ├── persona.service.js
+│   │   │   │   └── avatar.service.js
+│   │   │   ├── chat/
+│   │   │   │   ├── individual_chat.service.js
+│   │   │   │   └── group_chat.service.js
+│   │   │   ├── memory/
+│   │   │   │   ├── conversation_memory.service.js
+│   │   │   │   ├── character_memory.service.js
+│   │   │   │   ├── user_memory.service.js
+│   │   │   │   └── relationship_memory.service.js
+│   │   │   └── ai-gateway/
+│   │   │       ├── conversation/
+│   │   │       │   └── conversation_gateway.js
+│   │   │       ├── vision/
+│   │   │       │   └── vision_gateway.js
+│   │   │       ├── image-generation/
+│   │   │       │   └── image_gateway.js
+│   │   │       ├── video-generation/
+│   │   │       │   └── video_gateway.js
+│   │   │       ├── voice/
+│   │   │       │   └── voice_gateway.js
+│   │   │       └── index.js
+│   │   │
+│   │   ├── prompts/
+│   │   │   ├── system/
+│   │   │   │   └── system_base.prompt.md
+│   │   │   ├── personas/
+│   │   │   │   └── _template.persona.prompt.md
+│   │   │   ├── behavior/
+│   │   │   │   └── _template.behavior.prompt.md
+│   │   │   ├── relationship/
+│   │   │   │   └── _template.relationship.prompt.md
+│   │   │   ├── memory/
+│   │   │   │   └── memory_injection.prompt.md
+│   │   │   ├── group/
+│   │   │   │   └── group_turn.prompt.md
+│   │   │   └── media/
+│   │   │       ├── vision.prompt.md
+│   │   │       ├── image.prompt.md
+│   │   │       ├── video.prompt.md
+│   │   │       └── voice.prompt.md
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.model.js
+│   │   │   ├── character.model.js
+│   │   │   ├── persona.model.js
+│   │   │   ├── avatar.model.js
+│   │   │   ├── conversation.model.js
+│   │   │   ├── participant.model.js
+│   │   │   ├── message.model.js
+│   │   │   ├── memory.model.js
+│   │   │   ├── relationship.model.js
+│   │   │   └── subscription.model.js
+│   │   │
+│   │   ├── config/
+│   │   │   ├── env.js
+│   │   │   ├── database.config.js
+│   │   │   └── ai_providers.config.js
+│   │   │
+│   │   └── middleware/
+│   │       ├── auth.middleware.js
+│   │       └── error_handler.middleware.js
+│   │
+│   └── database/
+│       ├── migrations/
+│       │   └── _template_migration.js
+│       └── seeds/
+│           └── _template_seed.js
+│
+├── docs/
+│   ├── architecture.md
+│   ├── decisions-log.md
+│   ├── database-schema.md
+│   ├── api-reference.md
+│   ├── ai-models.md
+│   ├── memory-system.md
+│   └── characters/
+│       └── _template-character-sheet.md
+│
+├── .env.example
+├── app/pubspec.yaml
+└── backend/package.json
+```
+
+---
+
+## 2. Frontend — arquivos principais
+
+| Arquivo | Caminho | Função | O que deverá conter futuramente | Dependências | Não deve conter |
+|---|---|---|---|---|---|
+| `individual_chat_screen.dart` | `app/lib/screens/chat/` | Tela de conversa 1:1 | Lista de mensagens, campo de envio, indicador de digitação | `message_bubble.dart`, `chat_api.dart`, `chat_state.dart` | Regra de negócio de memória ou IA |
+| `group_chat_screen.dart` | `app/lib/screens/chat/` | Tela de conversa com múltiplos personagens | Mesma base do chat individual + `speaker_tag.dart` pra indicar quem está falando | `chat_api.dart`, `chat_state.dart` | Lógica de decidir ordem das respostas (isso é backend) |
+| `character_creation_screen.dart` | `app/lib/screens/character_creation/` | Fluxo de criação de personagem | Orquestra os passos (`avatar_picker_step`, `personality_setup_step`) | `character_api.dart` | Regras de qual persona combina com qual avatar (backend decide) |
+| `character_profile_screen.dart` | `app/lib/screens/character_profile/` | Exibe/edita um personagem existente | Dados de persona + avatar vinculado | `character_model.dart`, `character_api.dart` | — |
+| `ai_service` *(equivalente a)* `chat_api.dart` | `app/lib/services/api/` | Comunicação com o backend para envio/recebimento de mensagens | Chamadas HTTP/WebSocket ao endpoint de chat | `message_model.dart` | Personalidade do personagem, prompts, lógica de IA (tudo isso é backend) |
+| `character_api.dart` | `app/lib/services/api/` | CRUD de personagens via backend | Criar, editar, listar personagens do usuário | `character_model.dart` | Geração de imagem/avatar em si |
+| `session_storage.dart` | `app/lib/services/local/` | Guarda sessão/token localmente | Token de autenticação, preferências leves | — | Dados de conversa (isso deve vir sempre do backend) |
+| `character_model.dart` | `app/lib/models/` | Formato de dados de um personagem no app | Campos espelhando `character.model.js` do backend | — | Lógica |
+| `chat_state.dart` | `app/lib/state/` | Estado da conversa em memória no app | Mensagens carregadas, status de "digitando" | `chat_api.dart` | Persistência permanente |
+
+---
+
+## 3. Backend — arquivos principais
+
+| Arquivo | Responsabilidade | Não implementa ainda |
+|---|---|---|
+| `auth.service.js` | Cadastro, login, verificação de sessão | Login social (fica preparado, não implementado) |
+| `user.service.js` | Dados de conta do usuário | Preferências avançadas |
+| `character.service.js` | CRUD de personagens (a entidade "guarda-chuva" que liga persona + avatar) | — |
+| `persona.service.js` | Regras de personalidade, comportamento, história de cada persona | Geração automática de persona por IA |
+| `avatar.service.js` | Gerencia identidade visual, permite reaproveitar avatar entre personas | Geração de imagem em si (isso é `ai-gateway/image-generation`) |
+| `individual_chat.service.js` | Orquestra conversa 1:1: monta contexto, chama `ai-gateway/conversation`, salva mensagem | Lógica de grupo |
+| `group_chat.service.js` | Orquestra conversa com múltiplos personagens: define ordem de resposta, contexto por personagem | Interação espontânea entre personagens (fica preparado, não implementado) |
+| `conversation_memory.service.js` | Histórico de mensagens de uma conversa específica | — |
+| `character_memory.service.js` | Traços fixos daquela persona, independente de usuário | — |
+| `user_memory.service.js` | Fatos/preferências que o usuário compartilhou | — |
+| `relationship_memory.service.js` | Vínculo específico usuário↔persona (nível, marcos) | — |
+| `ai-gateway/index.js` | Ponto único de entrada da camada de IA, decide qual gateway específico chamar por função | Escolha do provedor real (fica em config) |
+| `conversation_gateway.js`, `vision_gateway.js`, `image_gateway.js`, `video_gateway.js`, `voice_gateway.js` | Interface fixa para cada função de IA, isolando o provedor por trás dela | Implementação de nenhum provedor específico ainda |
+| `env.js` | Carrega variáveis de ambiente | Nunca contém valores reais — só leitura de `.env` |
+| `ai_providers.config.js` | Mapeia qual gateway usa qual provedor/URL de API | Chaves reais (ficam em `.env`, fora do controle de versão) |
+| `auth.middleware.js` | Verifica token em cada requisição protegida | — |
+| `error_handler.middleware.js` | Padroniza resposta de erro | — |
+
+---
+
+## 4. Estrutura dos personagens (o núcleo do sistema)
+
+Em vez de um arquivo por personagem, existem **três entidades genéricas e reutilizáveis**, cada uma responsável por uma parte:
+
+```
+Character (character.model.js)      → entidade "guarda-chuva": liga persona + avatar + dono (usuário/sistema)
+   ├── Persona (persona.model.js)   → nome, personalidade, forma de falar, história, regras
+   ├── Avatar (avatar.model.js)     → aparência, imagem, futuramente voz/vídeo
+   └── (config de IA por personagem, se precisar sobrescrever o padrão)
+```
+
+Cada nova "persona" (masculina, feminina, casal como duas personas ligadas à mesma conversa, etc.) é **um novo registro no banco**, nunca um novo arquivo de código. Os arquivos (`character.service.js`, `persona.service.js`, `avatar.service.js`) são genéricos e atendem qualquer quantidade de personagens.
+
+Ficha de referência de cada persona (para uso da equipe, não do sistema em runtime) fica em `docs/characters/`, um arquivo markdown por personagem quando existirem.
+
+---
+
+## 5. Conversas individuais e em grupo
+
+| Responsabilidade | Arquivo |
+|---|---|
+| Participantes de uma conversa (1 ou vários personagens) | `participant.model.js` — tabela que liga `conversation` a um ou mais `character` |
+| Mensagens | `message.model.js` — cada mensagem referencia quem enviou (usuário ou qual personagem) |
+| Contexto enviado à IA | montado dinamicamente por `individual_chat.service.js` ou `group_chat.service.js`, não fica salvo como arquivo fixo |
+| Ordem das respostas em grupo | `group_chat.service.js` |
+| Identificação de quem falou | campo `sender_id` + `sender_type` (usuário/personagem) em `message.model.js`; exibido no app via `speaker_tag.dart` |
+| Relacionamento entre personagens (futuro) | ficaria em `relationship.model.js`, generalizado para também representar personagem↔personagem, não só usuário↔personagem |
+| Memória da conversa em grupo | `conversation_memory.service.js` já é genérico o suficiente (não distingue individual/grupo na camada de dados) |
+
+---
+
+## 6. Camada de IA
+
+Já detalhada na árvore (seção 1): `ai-gateway/` com uma subpasta por função (`conversation`, `vision`, `image-generation`, `video-generation`, `voice`) e um `index.js` que roteia a chamada. `ai_providers.config.js` mapeia qual provedor está plugado em cada gateway — trocar de provedor é editar essa configuração, sem tocar em `chat/`, `character/` ou no app.
+
+---
+
+## 7. Prompts
+
+```
+prompts/
+├── system/            → regras gerais do sistema, válidas para qualquer personagem
+├── personas/           → um arquivo-modelo por persona (nome, tom, história) — preenchido quando as personas forem definidas
+├── behavior/            → regras de comportamento (o que a persona pode/não pode fazer)
+├── relationship/        → como o tom muda conforme o nível de relacionamento
+├── memory/              → como a memória é injetada no prompt final
+├── group/                → regras de como um personagem deve reagir à fala de outro personagem
+└── media/                 → prompts usados pelos gateways de visão/imagem/vídeo/voz
+```
+
+Cada tipo de prompt fica isolado para poder ser versionado e ajustado independentemente — por exemplo, mudar a regra de "grupo" não deve exigir mexer no prompt de "sistema".
+
+---
+
+## 8. Banco de dados — entidades e arquivos
+
+| Entidade | Model | Resumo |
+|---|---|---|
+| Usuário | `user.model.js` | Conta, autenticação |
+| Personagem | `character.model.js` | Liga persona + avatar |
+| Persona | `persona.model.js` | Personalidade, comportamento, história |
+| Avatar | `avatar.model.js` | Identidade visual |
+| Conversa | `conversation.model.js` | Uma conversa (individual ou grupo) |
+| Participante | `participant.model.js` | Liga conversa a personagem(ns) |
+| Mensagem | `message.model.js` | Cada mensagem trocada |
+| Memória | `memory.model.js` | Pode ser especializado por tipo (usuário/personagem/relacionamento) conforme services correspondentes |
+| Relacionamento | `relationship.model.js` | Vínculo usuário↔persona (e futuramente persona↔persona) |
+| Assinatura | `subscription.model.js` | Preparado para quando a monetização for ativada — sem lógica ainda |
+
+Migrações (`database/migrations/`) e seeds (`database/seeds/`) seguem um arquivo por alteração, nunca um arquivo único gigante — permite rastrear a evolução do schema.
+
+---
+
+## 9. Assets
+
+```
+app/assets/
+├── icons/               → ícones fixos da interface (não de personagens)
+├── ui/                    → imagens fixas de fundo, ilustrações de onboarding
+└── characters/            → subpasta só existe se houver avatares estáticos de exemplo/placeholder
+    └── _placeholder/
+```
+
+Avatares e mídias **geradas** (reais, de cada personagem criado por um usuário) não ficam em `assets/` do app — isso viraria uma pasta gigante e não versionável. Eles ficam armazenados pelo backend (futuro `services/storage/`) e são carregados dinamicamente via URL. `assets/` guarda apenas o que é fixo do próprio app.
+
+---
+
+## 10. Documentação — documentos oficiais
+
+| Arquivo | Assunto exclusivo |
+|---|---|
+| `architecture.md` | A arquitetura aprovada (Etapa 1), atualizada conforme evolui |
+| `decisions-log.md` | O que foi Definido / Em teste / Descartado, com data |
+| `database-schema.md` | Todas as entidades e relações do banco |
+| `api-reference.md` | Lista de endpoints do backend |
+| `ai-models.md` | Qual provedor está plugado em cada gateway de IA |
+| `memory-system.md` | Como as camadas de memória funcionam |
+| `characters/` | Uma ficha por persona, quando existirem |
+
+Nenhum outro documento solto deve ser criado fora dessa lista sem antes decidir qual desses arquivos ele deveria atualizar.
+
+---
+
+## 11. Arquivos de configuração
+
+- `.env.example` (raiz) — modelo de variáveis de ambiente, **sem valores reais**, versionado no Git.
+- `.env` (não versionado) — valores reais, existe só localmente/no servidor.
+- `backend/src/config/env.js` — carrega e valida as variáveis.
+- `backend/src/config/database.config.js` — configuração de conexão com PostgreSQL.
+- `backend/src/config/ai_providers.config.js` — mapeamento gateway→provedor.
+- `app/pubspec.yaml` — dependências e configuração do Flutter.
+- `backend/package.json` — dependências do Node.js.
+
+---
+
+## Observação final
+
+Esta é a estrutura física preparada para a Etapa 3 (definição detalhada de dados e entidades) e Etapa 4 (implementação). Nenhum arquivo aqui contém código funcional — apenas nome, local e responsabilidade, conforme solicitado.
+
+______________________________________________________________
+
+
+DEFINIÇÃO DETALHADA DOS DADOS E ENTIDADES
+
+Pronto — Etapa 3 completa: todas as entidades com campos e tipos, relacionamentos entre User/Character/Persona/Avatar, estrutura de conversas/participantes/mensagens, as quatro camadas de memória, relacionamento usuário↔personagem, preparação para grupo e assinatura, regras de integridade, tabela de obrigatório/opcional/futuro por entidade, e a ordem sugerida de migrations. Os pontos que dependem de decisões futuras (gênero da persona, gamificação, política de exclusão de conta, plano de assinatura) ficaram marcados como "A definir", sem inventar valores.
+
+# ETAPA 3 — DEFINIÇÃO DETALHADA DOS DADOS E ENTIDADES
+
+Baseado exclusivamente na arquitetura da Etapa 1 e no esqueleto de arquivos da Etapa 2. Nenhuma implementação, modelo de IA, prompt final, ficha de personagem ou preço é definido aqui — apenas estrutura de dados. Onde uma decisão ainda depende de escolha futura, está marcado como **A definir**.
+
+Convenção usada: `PK` = chave primária, `FK` = chave estrangeira, tipos em formato genérico (equivalentes diretos existem em PostgreSQL).
+
+---
+
+## 1. Entidades e campos
+
+### 1.1 `User`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| email | string, único | Obrigatório |
+| password_hash | string | Obrigatório (nulo se login social) |
+| display_name | string | Obrigatório |
+| birth_date | date | Obrigatório (necessário para verificação de idade) |
+| auth_provider | enum: `email`, `google`, `apple` | Obrigatório |
+| created_at | timestamp | Obrigatório |
+| updated_at | timestamp | Obrigatório |
+| status | enum: `active`, `suspended`, `deleted` | Obrigatório |
+| onboarding_completed_at | timestamp | Opcional |
+
+### 1.2 `Avatar`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| owner_type | enum: `system`, `user` | Obrigatório (define se é avatar padrão do sistema ou criado por um usuário) |
+| owner_id | UUID (FK → User.id), nulo se `owner_type = system` | Obrigatório se aplicável |
+| image_url | string | Obrigatório |
+| voice_ref | string | Futuro |
+| video_ref | string | Futuro |
+| created_at | timestamp | Obrigatório |
+
+### 1.3 `Persona`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| owner_type | enum: `system`, `user` | Obrigatório |
+| owner_id | UUID (FK → User.id), nulo se `owner_type = system` | Obrigatório se aplicável |
+| name | string | Obrigatório |
+| gender | enum: `male`, `female`, `other` — valores exatos: **a definir** | Obrigatório |
+| personality_summary | text | Obrigatório |
+| speech_style | text | Opcional |
+| backstory | text | Opcional |
+| behavior_rules | text/JSON | Opcional |
+| default_avatar_id | UUID (FK → Avatar.id) | Obrigatório |
+| created_at | timestamp | Obrigatório |
+| updated_at | timestamp | Obrigatório |
+
+> A mesma `Persona` referencia um `default_avatar_id`, mas a ligação real usada em cada `Character` (seção 1.4) pode sobrescrever esse avatar — é isso que permite reaproveitar um avatar em mais de uma persona.
+
+### 1.4 `Character`
+Entidade "guarda-chuva" que representa um personagem como ele existe para um usuário específico (liga persona + avatar + eventual customização).
+
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| user_id | UUID (FK → User.id) | Obrigatório |
+| persona_id | UUID (FK → Persona.id) | Obrigatório |
+| avatar_id | UUID (FK → Avatar.id) | Obrigatório |
+| nickname | string | Opcional (nome que o usuário dá, pode diferir do `Persona.name`) |
+| ai_config_override | JSON | Futuro (permitir sobrescrever config padrão de IA por personagem) |
+| created_at | timestamp | Obrigatório |
+| archived_at | timestamp | Opcional |
+
+### 1.5 `Conversation`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| user_id | UUID (FK → User.id) | Obrigatório |
+| type | enum: `individual`, `group` | Obrigatório |
+| title | string | Opcional |
+| created_at | timestamp | Obrigatório |
+| last_message_at | timestamp | Obrigatório |
+| status | enum: `active`, `archived` | Obrigatório |
+
+### 1.6 `Participant`
+Liga uma `Conversation` a um ou mais `Character` (permite tanto individual quanto grupo com a mesma estrutura).
+
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| conversation_id | UUID (FK → Conversation.id) | Obrigatório |
+| character_id | UUID (FK → Character.id) | Obrigatório |
+| joined_at | timestamp | Obrigatório |
+| role_in_group | string | Futuro (ex: papel/dinâmica dentro do grupo) |
+
+> Regra de integridade: uma `Conversation.type = individual` deve ter exatamente 1 registro em `Participant`; `type = group` deve ter 2 ou mais. Essa validação fica na camada de serviço (`chat/`), não no banco.
+
+### 1.7 `Message`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| conversation_id | UUID (FK → Conversation.id) | Obrigatório |
+| sender_type | enum: `user`, `character` | Obrigatório |
+| sender_id | UUID (FK → User.id **ou** Character.id, conforme `sender_type`) | Obrigatório |
+| content | text | Obrigatório |
+| content_type | enum: `text`, `image`, `audio`, `video` — só `text` ativo agora | Obrigatório |
+| media_url | string | Futuro (quando `content_type` ≠ text) |
+| created_at | timestamp | Obrigatório |
+| reply_to_message_id | UUID (FK → Message.id) | Futuro (referenciar a quem uma resposta se dirige, útil em grupo) |
+
+### 1.8 Memória — quatro entidades separadas
+
+**`ConversationMemory`** (contexto recente de uma conversa específica)
+| Campo | Tipo | Obrigatório/Opcional |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| conversation_id | UUID (FK → Conversation.id) | Obrigatório |
+| summary | text | Obrigatório (resumo condensado, não o histórico bruto — esse já está em `Message`) |
+| updated_at | timestamp | Obrigatório |
+
+**`CharacterMemory`** (traços fixos da persona, independentes de usuário)
+| Campo | Tipo | Obrigatório/Opcional |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| persona_id | UUID (FK → Persona.id) | Obrigatório |
+| fact | text | Obrigatório |
+| created_at | timestamp | Obrigatório |
+
+**`UserMemory`** (fatos que o usuário compartilhou, não ligados a uma persona específica)
+| Campo | Tipo | Obrigatório/Opcional |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| user_id | UUID (FK → User.id) | Obrigatório |
+| fact | text | Obrigatório |
+| source_message_id | UUID (FK → Message.id) | Opcional |
+| created_at | timestamp | Obrigatório |
+
+**`GroupMemory`** *(futuro)* — o que aconteceu numa conversa com múltiplos personagens, além do que já está em `ConversationMemory`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Futuro |
+| conversation_id | UUID (FK → Conversation.id) | Futuro |
+| summary | text | Futuro |
+
+### 1.9 `Relationship`
+Vínculo entre `User` e `Character` (e futuramente entre dois `Character`).
+
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| subject_type | enum: `user_character`, `character_character` | Obrigatório (segundo valor é futuro) |
+| user_id | UUID (FK → User.id), nulo se `subject_type = character_character` | Obrigatório se aplicável |
+| character_id | UUID (FK → Character.id) | Obrigatório |
+| related_character_id | UUID (FK → Character.id), usado só se `character_character` | Futuro |
+| level | integer | Opcional (ex: progresso do vínculo, se decidirem gamificar) |
+| milestones | JSON | Opcional |
+| updated_at | timestamp | Obrigatório |
+
+### 1.10 `Subscription` *(preparação, sem lógica de pagamento)*
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Futuro |
+| user_id | UUID (FK → User.id) | Futuro |
+| plan | enum: **a definir** (depende da Etapa de monetização) | Futuro |
+| status | enum: `active`, `canceled`, `expired` | Futuro |
+| started_at | timestamp | Futuro |
+| ends_at | timestamp | Futuro |
+
+> Esta entidade existe apenas como reserva de espaço no schema. Nenhum valor de plano, preço ou fluxo de pagamento é definido nesta etapa.
+
+---
+
+## 2. Relacionamentos entre User, Character, Persona e Avatar
+
+```
+User (1) ───< (N) Character
+Persona (1) ───< (N) Character        [uma persona pode ser usada em vários Character,
+                                        de usuários diferentes, se owner_type = system]
+Avatar (1) ───< (N) Character         [mesma lógica — reaproveitamento]
+Avatar (1) ───< (N) Persona           [via default_avatar_id]
+```
+
+- `Character` é sempre de 1 usuário (`user_id` obrigatório).
+- `Persona` e `Avatar` podem pertencer ao sistema (`owner_type = system`, ex: personagens padrão oferecidos a todos) ou a um usuário específico (`owner_type = user`, ex: personagem customizado do zero).
+- A separação persona/avatar permanece mesmo dentro de um `Character`: trocar o avatar de um personagem não cria uma nova persona, e vice-versa.
+
+---
+
+## 3. Conversa, Participantes e Mensagens
+
+```
+Conversation (1) ───< (N) Participant >─── (N) Character
+Conversation (1) ───< (N) Message
+Message.sender_id → User.id  OU  Character.id  (conforme sender_type)
+```
+
+- Conversa individual: 1 `Conversation` + 1 `Participant`.
+- Conversa em grupo: 1 `Conversation` + N `Participant` (N ≥ 2).
+- `Message.sender_type` evita precisar de duas tabelas de mensagem (uma para usuário, outra para personagem) — mantém tudo em uma única tabela, ordenável por `created_at`.
+
+---
+
+## 4. Camadas de memória — resumo de uso
+
+| Camada | Escopo | Quando é lida |
+|---|---|---|
+| `Message` (histórico bruto) | por conversa | montagem do contexto recente |
+| `ConversationMemory` | por conversa | quando o histórico bruto fica longo demais para caber no contexto de IA |
+| `CharacterMemory` | por persona | sempre, para manter consistência da persona entre usuários diferentes |
+| `UserMemory` | por usuário | sempre, para personalizar resposta ao usuário específico |
+| `Relationship` | por par (user, character) | para ajustar tom conforme o nível do vínculo |
+| `GroupMemory` *(futuro)* | por conversa em grupo | quando conversas em grupo forem implementadas |
+
+A junção dessas camadas para montar o "contexto final" enviado à IA é responsabilidade do `ai-gateway` + `chat/` (Etapa 1/2), não do banco.
+
+---
+
+## 5. Relacionamento Usuário ↔ Personagem
+
+Já coberto pela entidade `Relationship` (seção 1.9). Pontos de integridade:
+- Um par (`user_id`, `character_id`) deve ser único — não existe mais de um registro de relacionamento para o mesmo par.
+- `level` e `milestones` são opcionais porque a decisão de gamificar ou não o vínculo ainda não foi tomada — **a definir**.
+
+---
+
+## 6. Preparação para conversas em grupo
+
+Já modelado via `Participant` (N para N entre `Conversation` e `Character`) e `Message.sender_type/sender_id`. Pontos que ficam **a definir** antes da implementação real:
+- Regra de quem responde e em que ordem (lógica de serviço, não de dados).
+- Se personagens podem ser adicionados/removidos de uma conversa em grupo já existente (exigiria `left_at` em `Participant` — campo ainda não incluído, marcado como futuro).
+
+---
+
+## 7. Assinatura/monetização — apenas preparação
+
+Coberto pela entidade `Subscription` (seção 1.10). Nenhum plano, preço, gateway de pagamento ou regra de cobrança é definido aqui. A entidade existe só para o schema já prever o relacionamento `User (1) ─── (0..1 ativo) Subscription`.
+
+---
+
+## 8. Relações entre entidades e regras de integridade
+
+```
+User 1 ──< N Character
+User 1 ──< N Conversation
+User 1 ──< N UserMemory
+User 1 ──< 0..1 Subscription (ativa)
+
+Persona 1 ──< N Character
+Persona 1 ──< N CharacterMemory
+Avatar 1 ──< N Character
+Avatar 1 ──< N Persona (via default_avatar_id)
+
+Conversation 1 ──< N Participant
+Conversation 1 ──< N Message
+Conversation 1 ──< 0..1 ConversationMemory
+Conversation 1 ──< 0..1 GroupMemory (futuro, só se type = group)
+
+Character 1 ──< N Participant
+Character 1 ──< N Relationship
+```
+
+**Regras de integridade principais:**
+1. `Character.user_id`, `persona_id`, `avatar_id` são obrigatórios — um Character nunca existe sem os três.
+2. `Message.sender_id` deve corresponder a uma entidade válida conforme `sender_type` (validação em nível de aplicação, já que é chave estrangeira "polimórfica" — bancos relacionais não validam isso nativamente).
+3. `Participant` não permite duplicar o mesmo `character_id` na mesma `Conversation`.
+4. `Relationship` é única por par (`user_id`, `character_id`) quando `subject_type = user_character`.
+5. Exclusão de `User`: **a definir** se será exclusão física (apaga tudo em cascata) ou lógica (`status = deleted`, mantendo dados por período de retenção) — decisão pendente de política de privacidade.
+
+---
+
+## 9. Resumo — obrigatório / opcional / futuro por entidade
+
+| Entidade | Núcleo obrigatório | Opcional já previsto | Futuro (não implementar agora) |
+|---|---|---|---|
+| User | id, email, password_hash/auth_provider, display_name, birth_date | onboarding_completed_at | — |
+| Avatar | id, owner_type, image_url | owner_id | voice_ref, video_ref |
+| Persona | id, owner_type, name, gender, personality_summary, default_avatar_id | speech_style, backstory, behavior_rules | — |
+| Character | id, user_id, persona_id, avatar_id | nickname | ai_config_override |
+| Conversation | id, user_id, type | title | — |
+| Participant | id, conversation_id, character_id | — | role_in_group, left_at |
+| Message | id, conversation_id, sender_type, sender_id, content, content_type | — | media_url, reply_to_message_id |
+| ConversationMemory | id, conversation_id, summary | — | — |
+| CharacterMemory | id, persona_id, fact | — | — |
+| UserMemory | id, user_id, fact | source_message_id | — |
+| GroupMemory | — | — | tudo (entidade inteira é futura) |
+| Relationship | id, subject_type, character_id | level, milestones | related_character_id (character_character) |
+| Subscription | — | — | tudo (entidade inteira é futura/preparação) |
+
+---
+
+## 10. Esquema geral do banco (base para migrations futuras)
+
+```
+users
+avatars
+personas
+characters
+conversations
+participants
+messages
+conversation_memories
+character_memories
+user_memories
+group_memories        -- futura
+relationships
+subscriptions          -- futura
+```
+
+Ordem sugerida de criação das migrations (respeitando dependências de FK):
+1. `users`
+2. `avatars`
+3. `personas` (depende de `avatars`)
+4. `characters` (depende de `users`, `personas`, `avatars`)
+5. `conversations` (depende de `users`)
+6. `participants` (depende de `conversations`, `characters`)
+7. `messages` (depende de `conversations`; `sender_id` validado em aplicação)
+8. `conversation_memories` (depende de `conversations`)
+9. `character_memories` (depende de `personas`)
+10. `user_memories` (depende de `users`; `messages` opcional)
+11. `relationships` (depende de `users`, `characters`)
+12. `subscriptions` (depende de `users`) — criar estrutura vazia, sem uso ainda
+13. `group_memories` (depende de `conversations`) — só quando grupo for implementado
+
+---
+
+## Pontos marcados como "A definir"
+
+- Valores exatos do enum `Persona.gender`.
+- Se `Relationship.level`/`milestones` (gamificação) será usado ou não.
+- Se `Participant` permitirá entrar/sair de uma conversa em grupo já existente (`left_at`).
+- Política de exclusão de conta (`User`): física ou lógica, e prazo de retenção.
+- Valores do enum `Subscription.plan` (depende de decisão de monetização, fora do escopo desta etapa).
+
+Este documento serve de base direta para a Etapa 4 (implementação dos módulos), sem necessidade de redecidir a estrutura de dados já definida aqui.
+
+__________________________________________________________
+
+
+PLANO DE IMPLEMENTAÇÃO DO CHATBOT NAMORADO VIRTUAL
+
+Pronto — Etapa 4 completa: ordem de implementação em fases (banco → auth → personagem → chat simulado → ai-gateway mínimo → memória → frontend), dependências entre módulos, sequência prática do zero até o protótipo individual funcional, e o que fica só preparado (grupo, mídia, assinatura). No final listei 4 pontos como PONTOS A VALIDAR — decisões que ficaram em aberto nas etapas anteriores e que precisam ser resolvidas antes de certas fases, sem que eu tenha alterado nada da arquitetura já aprovada.
+
+# ETAPA 4 — PLANO DE IMPLEMENTAÇÃO DO CHATBOT NAMORADO VIRTUAL
+
+Baseado exclusivamente nas Etapas 1 (Arquitetura), 2 (Esqueleto de pastas/arquivos) e 3 (Dados e Entidades). Nenhuma escolha de modelo de IA, preço, persona ou design é feita aqui. Nenhuma alteração é feita na arquitetura já aprovada — onde algo pareceu precisar de ajuste, foi listado em "PONTOS A VALIDAR" no final, sem correção silenciosa.
+
+---
+
+## 1. Princípio geral da ordem de implementação
+
+A ordem segue a dependência técnica real, não a ordem "visual" de uso do app:
+
+```
+Banco de dados (schema base)
+        ↓
+Backend: autenticação e usuário
+        ↓
+Backend: personagem (character + persona + avatar)
+        ↓
+Backend: conversa individual + mensagens (sem IA ainda, "eco" simulado)
+        ↓
+Backend: ai-gateway (camada de abstração, com um provedor mínimo plugado)
+        ↓
+Backend: memória (camadas de contexto)
+        ↓
+Frontend: onboarding + auth
+        ↓
+Frontend: criação de personagem
+        ↓
+Frontend: tela de chat individual (ligada ao backend real)
+        ↓
+[Protótipo funcional individual pronto]
+        ↓
+Preparação (sem implementar): grupo, assinatura, mídia (imagem/vídeo/voz)
+```
+
+A lógica: nada de frontend deve ser construído contra um backend que ainda não existe, e nenhum backend deve ser construído sem o schema de dados que ele vai usar.
+
+---
+
+## 2. Dependências entre módulos
+
+| Módulo | Depende de | Por quê |
+|---|---|---|
+| `auth` (backend) | schema `users` | precisa da tabela para gravar/ler conta |
+| `character/persona/avatar` (backend) | `auth` | um personagem sempre pertence a um usuário autenticado |
+| `chat individual` (backend) | `character`, schema `conversations`/`participants`/`messages` | precisa de personagem existente para conversar com ele |
+| `ai-gateway` | `chat individual` já orquestrando o fluxo (mesmo sem IA real) | o gateway é chamado *de dentro* do serviço de chat |
+| `memory` (backend) | `chat individual`, `ai-gateway` | memória só faz sentido depois que existe uma conversa e um ponto de injeção no prompt |
+| `onboarding/auth` (frontend) | `auth` (backend) pronto | tela depende do endpoint existir |
+| `criação de personagem` (frontend) | `character/persona/avatar` (backend) pronto | mesma razão |
+| `chat` (frontend) | `chat individual` + `ai-gateway` (backend) prontos | precisa de resposta real, nem que seja de um provedor mínimo |
+| `grupo` (qualquer camada) | tudo do individual já funcionando | reaproveita `Participant`/`Message`, mas a lógica de orquestração é nova |
+| `assinatura` (qualquer camada) | nada tecnicamente, mas fica fora do escopo desta fase | decisão de monetização ainda não tomada (Etapa de negócio, pausada por você) |
+
+---
+
+## 3. Sequência prática — do projeto vazio ao protótipo funcional
+
+**Fase 0 — Base do projeto**
+1. Criar repositório e estrutura de pastas conforme Etapa 2 (vazio, sem lógica).
+2. Configurar `backend/package.json`, `app/pubspec.yaml`, `.env.example`.
+3. Subir PostgreSQL local (ou instância de desenvolvimento) e conectar via `database.config.js`.
+
+**Fase 1 — Banco de dados**
+4. Rodar migrations na ordem definida na Etapa 3, seção 10: `users` → `avatars` → `personas` → `characters` → `conversations` → `participants` → `messages` → `conversation_memories` → `character_memories` → `user_memories` → `relationships` → `subscriptions` (estrutura vazia) → (`group_memories` fica de fora desta fase, é futura).
+
+**Fase 2 — Backend: autenticação e usuário**
+5. Implementar `auth.service.js` (cadastro, login, verificação de sessão) e `auth.middleware.js`.
+6. Implementar `user.service.js` (dados básicos de conta).
+7. Expor `auth.routes.js` e `user.routes.js`.
+
+**Fase 3 — Backend: personagem**
+8. Implementar `avatar.service.js` (CRUD básico, sem geração de imagem — pode receber uma URL fixa/placeholder por enquanto).
+9. Implementar `persona.service.js` (CRUD de persona).
+10. Implementar `character.service.js` (liga persona + avatar + usuário).
+11. Expor `character.routes.js`.
+
+> Neste ponto, **não** existe ainda nenhuma persona real de produto — apenas a capacidade técnica de criar uma. A definição de personas reais (nome, personalidade final) é responsabilidade de uma etapa de conteúdo/produto, fora do escopo técnico desta Etapa 4.
+
+**Fase 4 — Backend: conversa individual (sem IA real ainda)**
+12. Implementar `individual_chat.service.js` com uma resposta simulada (ex: eco da mensagem, ou resposta fixa), apenas para validar o fluxo `Conversation` → `Participant` → `Message` de ponta a ponta.
+13. Expor `chat.routes.js`.
+
+**Fase 5 — Backend: ai-gateway (mínimo viável)**
+14. Criar a estrutura `ai-gateway/index.js` + `conversation/conversation_gateway.js` conforme Etapa 1/2.
+15. Plugar **um único provedor mínimo** (a escolha do provedor é **A DEFINIR** — não decidida nesta etapa) só para validar que a interface funciona.
+16. Substituir a resposta simulada da Fase 4 pela chamada real ao gateway.
+
+**Fase 6 — Backend: memória**
+17. Implementar `conversation_memory.service.js` (resumo de conversa).
+18. Implementar `character_memory.service.js` e `user_memory.service.js`.
+19. Integrar a leitura dessas memórias na montagem do contexto que `individual_chat.service.js` envia ao `ai-gateway`.
+
+**Fase 7 — Frontend: onboarding e autenticação**
+20. Implementar `onboarding_screen.dart`.
+21. Implementar `login_screen.dart` / `register_screen.dart`, ligados a `auth_api.dart`.
+
+**Fase 8 — Frontend: criação de personagem**
+22. Implementar `character_creation_screen.dart` com os passos `avatar_picker_step.dart` e `personality_setup_step.dart`, ligados a `character_api.dart`.
+
+**Fase 9 — Frontend: chat individual**
+23. Implementar `individual_chat_screen.dart`, `message_bubble.dart`, `typing_indicator.dart`, ligados a `chat_api.dart` e `chat_state.dart`.
+
+**→ Neste ponto existe um protótipo funcional individual:** usuário se cadastra, cria um personagem, conversa com ele, e a resposta vem de um provedor de IA real (mesmo que mínimo/provisório), com memória básica funcionando.
+
+**Fase 10 — Preparado, mas não implementado nesta etapa:**
+- Conversa em grupo (`group_chat_screen.dart`, `group_chat.service.js`, `GroupMemory`).
+- `vision`, `image-generation`, `video-generation`, `voice` dentro do `ai-gateway`.
+- `subscription`/pagamentos.
+- Perfil detalhado do personagem (`character_profile_screen.dart`) além do essencial.
+- Configurações avançadas (`settings_screen.dart`) além do essencial de conta.
+
+---
+
+## 4. Relação entre frontend Flutter e backend Node.js
+
+- Comunicação via **HTTP REST** para a maior parte das ações (login, CRUD de personagem).
+- Para o chat, o protocolo definitivo (HTTP simples com polling vs. WebSocket) está listado desde a Etapa 2 como **A DEFINIR** — nesta Etapa 4, a Fase 9 pode começar com HTTP simples (mais rápido de implementar) e migrar para WebSocket depois, sem alterar a estrutura de pastas.
+- Toda comunicação passa exclusivamente pela camada `app/lib/services/api/` — nenhuma tela chama o backend diretamente.
+
+---
+
+## 5–7. Ordem de implementação — banco, backend e frontend
+
+Já detalhadas na sequência da seção 3 (Fases 1, 2–6, e 7–9 respectivamente). Resumo direto:
+
+- **Banco:** `users → avatars → personas → characters → conversations → participants → messages → memórias → relationships → subscriptions (vazia)`.
+- **Backend:** `auth/user → character/persona/avatar → chat individual (simulado) → ai-gateway (mínimo) → memória`.
+- **Frontend:** `onboarding/auth → criação de personagem → chat individual`.
+
+---
+
+## 8. Comunicação frontend-backend
+
+```
+Tela (screens/) 
+   → chama serviço (services/api/*.dart)
+      → requisição HTTP para routes/ do backend
+         → routes/ encaminha para services/ do backend
+            → services/ aplica regra de negócio, consulta models/, chama ai-gateway/ quando necessário
+         ← resposta formatada
+      ← services/api/ converte JSON em models/ do app
+   ← tela atualiza state/ e renderiza
+```
+
+Nenhuma tela ou widget do Flutter deve montar a URL da API diretamente — isso fica isolado em `services/api/`, exatamente como definido na Etapa 1.
+
+---
+
+## 9. Integração de personagens, personas e avatares
+
+1. Backend expõe endpoints separados para `avatar` e `persona` (permitindo, futuramente, montar uma tela que escolhe avatar e persona de forma independente).
+2. `character.service.js` é o único ponto que "junta" os três (usuário + persona + avatar) em um `Character` utilizável.
+3. No frontend, `character_creation_screen.dart` chama `character_api.dart`, que internamente pode fazer 1 chamada composta (criar tudo de uma vez) ou 3 chamadas (avatar, depois persona, depois character) — **a definir** conforme a experiência de criação que for desenhada depois (não é uma decisão de arquitetura, é de fluxo de produto).
+
+---
+
+## 10. Integração de conversas, mensagens e memória
+
+1. `individual_chat.service.js` recebe a mensagem do usuário, grava em `Message`, monta o contexto (histórico recente + `CharacterMemory` + `UserMemory` + `Relationship`, conforme Etapa 3 seção 4).
+2. Contexto montado é enviado ao `ai-gateway/conversation`.
+3. Resposta da IA é gravada como novo `Message` (`sender_type = character`).
+4. Periodicamente (regra exata **A DEFINIR** — ex: a cada N mensagens, ou por tamanho de contexto), `conversation_memory.service.js` gera/atualiza o resumo em `ConversationMemory`, para não depender só do histórico bruto crescendo indefinidamente.
+
+---
+
+## 11. Integração futura do ai-gateway (sem escolher provedor agora)
+
+- A interface (`conversation_gateway.js`, `vision_gateway.js`, etc.) já é criada na Fase 5, mesmo que só `conversation` tenha um provedor real plugado.
+- `ai_providers.config.js` centraliza qual provedor está ativo em cada gateway — trocar de provedor, ou ativar `vision`/`image-generation`/`video-generation`/`voice` depois, é uma questão de configuração + implementar aquele gateway específico, sem alterar `chat/`, `character/` ou o frontend.
+- Escolha do(s) provedor(es) real(is): **A DEFINIR**, fora do escopo desta etapa.
+
+---
+
+## 12. Partes que ficam preparadas, mas não implementadas agora
+
+- Conversas em grupo (estrutura de dados já existe desde a Etapa 3; orquestração e telas ficam para depois).
+- `GroupMemory`.
+- Gateways de `vision`, `image-generation`, `video-generation`, `voice`.
+- `Subscription` (schema existe, sem lógica de cobrança).
+- `Relationship.subject_type = character_character` (relacionamento entre personagens).
+- `platform/` (diferenças mobile vs. web/desktop) além do mínimo necessário para rodar.
+
+---
+
+## 13. Pontos de decisão necessários antes de cada fase
+
+| Antes da fase | Decisão pendente |
+|---|---|
+| Fase 5 (ai-gateway) | Qual provedor de IA de conversação usar, mesmo que "mínimo" |
+| Fase 6 (memória) | Regra de quando gerar/atualizar `ConversationMemory` |
+| Fase 7 (auth frontend) | Login social incluído já na Fase 7 ou só e-mail/senha primeiro |
+| Fase 9 (chat frontend) | Protocolo definitivo: HTTP polling ou WebSocket |
+| Fase 10 (grupo) | Regra de ordem de resposta entre personagens |
+| Qualquer fase de mídia | Modelos/provedores de imagem, vídeo e voz |
+| Antes de produção | Política de exclusão de conta (Etapa 3, física vs. lógica) |
+
+---
+
+## 14. Sequência prática resumida (visão de topo)
+
+```
+1. Estrutura de pastas vazia
+2. Banco de dados (migrations)
+3. Auth + Usuário
+4. Personagem (persona + avatar + character)
+5. Chat individual simulado
+6. ai-gateway com 1 provedor mínimo
+7. Memória (3 camadas ativas)
+8. Frontend: onboarding + auth
+9. Frontend: criação de personagem
+10. Frontend: chat individual real
+   ⇒ PROTÓTIPO FUNCIONAL INDIVIDUAL
+11. (Preparado, não implementado): grupo, mídia, assinatura
+```
+
+---
+
+## PONTOS A VALIDAR (inconsistências ou lacunas entre as Etapas 1–3, não corrigidas silenciosamente)
+
+1. **Protocolo de chat (HTTP vs. WebSocket):** a Etapa 1 já listava isso como decisão em aberto (seção 13, item 2); mantido em aberto aqui também — nenhuma etapa anterior decidiu, e esta Etapa 4 não decide por conta própria.
+2. **Regra de geração do `ConversationMemory`** (quando resumir o histórico bruto): não foi definida em nenhuma etapa anterior. Necessária antes da Fase 6.
+3. **Fluxo de criação de personagem (1 chamada composta vs. 3 chamadas separadas):** a Etapa 2 estruturou `avatar.service.js`, `persona.service.js` e `character.service.js` como serviços separados, mas não definiu se a criação no frontend é un único passo ou vários — fica como decisão de produto, não de arquitetura.
+4. **Política de exclusão de conta:** já estava marcada como "A definir" na Etapa 3 (seção 9) e permanece pendente; impacta a Fase 2 (implementação de `auth`/`user`), mesmo que a exclusão em si só seja implementada depois.
+
+Nenhum desses pontos exigiu alterar a arquitetura, o esqueleto de arquivos ou o schema de dados já aprovados — são decisões complementares necessárias antes das fases indicadas.
+
+____________________________________________________________________
+
+ARQUITETURA TÉCNICA DO CHATBOT NAMORADO VIRTUAL
+
+Prontinho — arquitetura completa da Etapa 1, cobrindo separação de avatar/persona, camada de IA trocável, memória em camadas, suporte a conversas individuais e em grupo, e as responsabilidades de cada pasta do frontend e backend. As decisões ainda em aberto ficaram listadas no final (seção 13) pra sua área técnica avaliar junto com você.
+
+# ETAPA 1 — ARQUITETURA TÉCNICA DO CHATBOT NAMORADO VIRTUAL
+
+## 0. Premissa geral
+
+A stack proposta (Flutter + Node.js + PostgreSQL + APIs de IA externas) é adequada para este projeto e será mantida como ponto de partida, com um ajuste de enfoque: a arquitetura não deve ser organizada em torno de "um chatbot", mas em torno de **entidades configuráveis** (personagens, avatares, conversas, memórias) que o chatbot consome. Isso muda a lógica interna das pastas propostas originalmente, mesmo mantendo os nomes de alto nível (`app/`, `backend/`, `docs/`).
+
+Nenhuma decisão de modelo de IA, preço ou design visual é tomada nesta etapa — apenas onde essas decisões vão "encaixar" futuramente.
+
+---
+
+## 1. Árvore completa da arquitetura proposta
+
+```
+namorado-virtual/
+│
+├── app/                              # Cliente Flutter (mobile + web/desktop)
+│   ├── lib/
+│   │   ├── screens/                  # Telas (uma pasta por fluxo)
+│   │   │   ├── onboarding/
+│   │   │   ├── auth/
+│   │   │   ├── character_creation/
+│   │   │   ├── chat/
+│   │   │   ├── character_profile/
+│   │   │   └── settings/
+│   │   │
+│   │   ├── widgets/                  # Componentes visuais reutilizáveis
+│   │   │   ├── chat/                 # bolha de mensagem, indicador "digitando"
+│   │   │   ├── character/            # cartão de personagem, avatar
+│   │   │   └── common/               # botões, inputs, modais genéricos
+│   │   │
+│   │   ├── services/                 # Comunicação com o backend (HTTP/WebSocket)
+│   │   │   ├── api/                  # clientes de API (auth_api, chat_api, character_api...)
+│   │   │   └── local/                # cache local, sessão
+│   │   │
+│   │   ├── models/                   # Estruturas de dados do lado cliente
+│   │   │   ├── character_model.dart
+│   │   │   ├── message_model.dart
+│   │   │   └── user_model.dart
+│   │   │
+│   │   ├── state/                    # Gerenciamento de estado (ex: Provider/Riverpod/Bloc)
+│   │   │
+│   │   └── platform/                 # Código específico de plataforma quando inevitável
+│   │       ├── mobile/
+│   │       └── web_desktop/
+│   │
+│   └── assets/                       # Imagens estáticas, ícones, fontes
+│
+├── backend/                          # Servidor Node.js
+│   ├── src/
+│   │   ├── routes/                   # Definição de endpoints (fino, sem lógica de negócio)
+│   │   │   ├── auth.routes.js
+│   │   │   ├── chat.routes.js
+│   │   │   ├── character.routes.js
+│   │   │   └── user.routes.js
+│   │   │
+│   │   ├── services/                 # Lógica de negócio
+│   │   │   ├── auth/
+│   │   │   ├── chat/                 # orquestra conversa individual e em grupo
+│   │   │   ├── character/            # gerencia personas e avatares
+│   │   │   ├── memory/               # lê/escreve as diferentes camadas de memória
+│   │   │   └── ai-gateway/           # camada de abstração de IA (ver seção 6)
+│   │   │
+│   │   ├── models/                   # Definição das tabelas/entidades (ORM)
+│   │   │   ├── user.model.js
+│   │   │   ├── character.model.js
+│   │   │   ├── avatar.model.js
+│   │   │   ├── conversation.model.js
+│   │   │   ├── message.model.js
+│   │   │   └── memory.model.js
+│   │   │
+│   │   ├── config/                   # Configurações, variáveis de ambiente, chaves de API
+│   │   │
+│   │   └── middleware/               # Autenticação, validação, tratamento de erro
+│   │
+│   └── database/
+│       ├── migrations/               # Alterações versionadas do schema
+│       └── seeds/                    # Dados iniciais (ex: personagens padrão de exemplo)
+│
+└── docs/                             # Documentação técnica e de produto
+    ├── architecture.md               # Este tipo de documento — fonte oficial da arquitetura
+    ├── characters/                   # Regras e fichas de personagens/personas
+    ├── ai-models.md                  # Registro de quais modelos estão em uso por função
+    ├── memory-system.md
+    ├── database-schema.md
+    ├── api-reference.md
+    └── decisions-log.md              # Registro de decisões técnicas (o que foi definido, testado, descartado)
+```
+
+---
+
+## 2 e 3. Explicação e responsabilidade de cada pasta
+
+### `app/lib/screens/`
+**Função:** cada subpasta representa um fluxo completo de tela (não um componente isolado).
+**Entra:** os arquivos de tela em si (ex: `chat_screen.dart`) e, quando necessário, sub-componentes que só fazem sentido *dentro* daquele fluxo específico.
+**Não entra:** lógica de chamada de API (isso vai para `services/`) nem componentes reutilizáveis em outras telas (isso vai para `widgets/`).
+**Relação:** consome `widgets/`, `services/` e `models/`; não é consumida por ninguém (é a camada mais "de fora").
+**Motivo:** ao crescer o número de personagens/fluxos, cada tela permanece isolada e fácil de localizar.
+
+### `app/lib/widgets/`
+**Função:** peças visuais reaproveitáveis em mais de uma tela.
+**Entra:** bolha de chat, avatar circular, cartão de personagem, botões padronizados.
+**Não entra:** nada que dependa de uma tela específica só ela usa — isso deveria estar dentro da própria pasta da tela.
+**Relação:** usada por `screens/`; não deve depender de `screens/`.
+**Motivo:** evita duplicar visual quando novos personagens/telas forem adicionados.
+
+### `app/lib/services/`
+**Função:** ponte entre o app e o backend.
+**Entra:** funções que fazem requisições HTTP/WebSocket, tratam resposta, tratam erro de rede.
+**Não entra:** lógica de IA, regras de negócio (isso é responsabilidade do backend).
+**Relação:** chamada por `screens/`; consome `models/` para tipar os dados.
+**Motivo:** se amanhã trocar a forma de comunicação (ex: REST → WebSocket para chat em tempo real), só essa camada muda.
+
+### `app/lib/models/`
+**Função:** representar os dados que circulam no app (o "formato" de um personagem, uma mensagem, um usuário).
+**Entra:** classes de dados e conversão de/para JSON.
+**Não entra:** lógica de tela ou chamada de rede.
+**Relação:** usada por `services/`, `widgets/` e `screens/`.
+
+### `app/lib/platform/`
+**Função:** isolar as poucas diferenças reais entre mobile e web/desktop (ex: notificações push só existem em mobile).
+**Motivo:** mantém o resto do código 100% compartilhado; só aqui existe ramificação por plataforma (ver seção 11).
+
+---
+
+### `backend/src/routes/`
+**Função:** definir *quais* endpoints existem e para qual serviço encaminhar a chamada. Deve ser "fino" — sem regra de negócio.
+**Não entra:** lógica de IA, cálculo de memória, validação complexa.
+**Relação:** chama `services/`; é o ponto de entrada do backend.
+
+### `backend/src/services/`
+**Função:** onde a lógica de negócio realmente acontece.
+**Subpastas e responsabilidade:**
+- `auth/`: cadastro, login, sessão.
+- `chat/`: orquestra o envio/recebimento de mensagens, decide se é conversa individual ou em grupo, monta o contexto que será enviado à IA.
+- `character/`: CRUD de personagens, personas e avatares; regras de qual persona pode usar qual avatar.
+- `memory/`: lê e grava as diferentes camadas de memória (seção 7), decide o que entra no contexto de uma conversa.
+- `ai-gateway/`: única camada que efetivamente conversa com provedores de IA externos (seção 6).
+**Motivo:** se uma regra de negócio muda, o ponto de alteração é sempre aqui — nunca em `routes/` nem no app.
+
+### `backend/src/models/`
+**Função:** representar as tabelas do banco via ORM.
+**Não entra:** lógica de negócio (fica em `services/`).
+
+### `backend/src/config/`
+**Função:** variáveis de ambiente, chaves de API, parâmetros que mudam entre desenvolvimento e produção.
+**Motivo:** nenhuma chave sensível deve estar espalhada pelo código.
+
+### `backend/database/`
+**Função:** controle de versão do schema (migrations) e dados de exemplo (seeds).
+
+### `docs/`
+**Função:** cada arquivo é a **fonte oficial** de um assunto — não deve haver dois documentos falando da mesma coisa. `decisions-log.md` registra o que foi **Definido / Em teste / Descartado**, evitando redecidir a mesma coisa depois.
+
+---
+
+## 4 e 5. Personagens: separação entre avatar e persona
+
+O sistema não deve tratar "personagem" como uma pasta ou arquivo fixo (ex: `marco/`). Em vez disso, existem **duas entidades separadas no banco de dados**, ligadas entre si:
+
+```
+Avatar                         Persona (Personagem)
+─────────────────              ──────────────────────
+- aparência/imagem             - nome
+- (futuro: voz, vídeo)         - personalidade
+- id                            - forma de falar
+                                 - história/backstory
+                                 - regras de comportamento
+                                 - avatar_id (referência)
+                                 - relacionamento com o usuário
+```
+
+Uma **Persona** referencia um **Avatar**, mas não é o mesmo registro. Isso permite:
+- o mesmo avatar visual ser reaproveitado por mais de uma persona (ex: mesmo rosto, personalidades diferentes em contextos diferentes);
+- trocar a personalidade de um personagem sem mexer na parte visual, e vice-versa;
+- no futuro, suportar personagens masculinos, femininos, casais, grupos — cada um é apenas um novo registro de Persona, não uma nova pasta ou novo código.
+
+Essa separação vive em `backend/src/services/character/` e nas tabelas `character.model.js` / `avatar.model.js`.
+
+---
+
+## 6. Sistema de IA (camada de abstração)
+
+Toda comunicação com modelos de IA passa exclusivamente por `backend/src/services/ai-gateway/`. Nenhuma outra parte do sistema (nem o app, nem as rotas, nem `chat/`) fala diretamente com um provedor de IA.
+
+Estrutura interna sugerida:
+
+```
+ai-gateway/
+├── conversation/        # interface única para "gerar resposta de texto"
+├── vision/               # interface única para "analisar imagem"
+├── image-generation/     # interface única para "gerar imagem"
+├── video-generation/     # interface única para "gerar vídeo"
+├── voice/                # interface única para "texto→voz / voz→texto"
+└── index.js               # ponto único de entrada, decide qual provedor usar por função
+```
+
+Cada subpasta define **uma interface fixa** (ex: `gerarResposta(contexto) → texto`), e por trás dela pode existir qualquer provedor específico, plugado ou trocado sem que `chat/`, `character/` ou o app percebam diferença. Essa é a camada que garante o requisito "trocar modelos depois sem reconstruir o app".
+
+---
+
+## 7. Memória e contexto
+
+Camadas separadas, todas geridas por `backend/src/services/memory/`:
+
+| Camada | O que guarda | Escopo |
+|---|---|---|
+| Histórico de conversa | mensagens trocadas | por conversa |
+| Contexto atual | recorte recente enviado à IA a cada chamada | por conversa, temporário |
+| Memória do personagem | traços fixos daquela persona (não muda por usuário) | por persona |
+| Memória do usuário | preferências, fatos que o usuário compartilhou | por usuário |
+| Relacionamento usuário↔personagem | histórico específico daquele vínculo (nível, marcos, tom) | por par usuário+persona |
+| Memória de grupo *(futuro)* | o que aconteceu numa conversa com múltiplos personagens | por conversa em grupo |
+
+Tecnicamente, isso se traduz em tabelas separadas no banco (não um único "campo memória"), permitindo consultar só o necessário para montar o contexto de cada chamada de IA — evitando enviar memória irrelevante e mantendo custo/latência controlados.
+
+---
+
+## 8. Conversas individuais e em grupo
+
+`backend/src/services/chat/` é responsável por decidir o tipo de conversa e montar o contexto adequado:
+
+- **Individual:** contexto = histórico da conversa + memória daquela persona + memória do usuário + relacionamento.
+- **Grupo:** o serviço de chat, a cada mensagem, monta o contexto **por personagem** (cada persona "vê" a conversa toda, mas responde com sua própria personalidade), e decide a ordem/quem responde. Isso exige que `conversation.model.js` suporte múltiplos participantes (não um campo fixo "personagem_id", mas uma tabela de participantes).
+
+Nada disso é implementado agora — apenas a divisão em `chat/` (orquestração) e `memory/` (dados) já comporta essa evolução sem redesenho.
+
+---
+
+## 9. Resumo de responsabilidades do backend
+
+| Responsabilidade | Onde fica |
+|---|---|
+| Autenticação | `services/auth/` |
+| Usuários | `services/` (auth) + `models/user.model.js` |
+| Personagens/avatares | `services/character/` |
+| Conversas (individual/grupo) | `services/chat/` |
+| Memória | `services/memory/` |
+| Comunicação com IA | `services/ai-gateway/` |
+| Pagamentos *(futuro)* | novo módulo `services/billing/`, isolado do resto |
+| Geração de mídia | dentro de `ai-gateway/image-generation` e `video-generation` |
+| Armazenamento de arquivos | novo módulo `services/storage/` quando necessário |
+| Configurações do sistema | `config/` |
+
+---
+
+## 10. Frontend (detalhamento)
+
+- `screens/`: um fluxo por pasta, sem lógica de rede.
+- `widgets/`: qualquer peça usada em 2+ telas.
+- `services/`: só comunicação com backend, nunca lógica de IA.
+- `models/`: formato de dados espelhando o que o backend envia.
+- `assets/`: estáticos que fazem parte do app em si (ícones, fontes); avatares/imagens **geradas** de personagens não ficam aqui — vêm do backend/storage, pois são dinâmicos.
+
+---
+
+## 11. Web/Desktop e Mobile
+
+**Compartilhado (a grande maioria):** `screens/`, `widgets/`, `services/`, `models/`, `state/` — é justamente a vantagem do Flutter, um único código para as três saídas.
+
+**Específico por plataforma (isolado em `app/lib/platform/`):** notificações push, acesso a câmera/microfone do dispositivo, comportamento de teclado/tela, atalhos de desktop. Tudo isso fica atrás de uma interface comum, e cada plataforma implementa sua versão dentro de `platform/mobile/` ou `platform/web_desktop/`.
+
+---
+
+## 12. Documentação
+
+Um arquivo por assunto, sem redundância:
+- `architecture.md` — esta arquitetura, atualizada conforme decisões avançam.
+- `characters/` — uma ficha por persona/avatar quando existirem.
+- `ai-models.md` — qual modelo está em uso em cada função do `ai-gateway`.
+- `memory-system.md`, `database-schema.md`, `api-reference.md` — cada um cobre exclusivamente seu assunto.
+- `decisions-log.md` — histórico do tipo "Definido / Em teste / Descartado", para nunca perder o porquê de uma escolha.
+
+---
+
+## 13. Decisões que ainda precisam ser tomadas antes de programar
+
+1. Gerenciador de estado do Flutter (Provider, Riverpod, Bloc etc.).
+2. Protocolo de chat em tempo real: HTTP simples (polling) ou WebSocket.
+3. Provedor(es) de IA de conversação a plugar no `ai-gateway` (não decidido nesta etapa).
+4. Estratégia de armazenamento de mídia gerada (avatares, futura imagem/vídeo) — serviço de storage próprio ou externo.
+5. Estrutura exata do banco para "conversa em grupo" (tabela de participantes).
+6. Autenticação: e-mail/senha, login social, ou ambos, desde o início.
+
+Essas ficam registradas para decisão na próxima etapa, junto com a transformação desta planta em esqueleto real de pastas e arquivos.
+
+_____________________________________________________________________
+
+
+2. Frontend — arquivos principais
+
+Prontinho — Etapa 2 completa, com a árvore física de pastas/arquivos, a tabela de responsabilidade de cada arquivo do frontend e backend, a estrutura de personagem (Character → Persona + Avatar como entidades separadas e reutilizáveis), organização de prompts, entidades do banco, assets e documentação. Nenhuma implementação real, só nome e responsabilidade de cada peça, como pedido.
+
+# ETAPA 2 — ESQUELETO REAL DE PASTAS E ARQUIVOS
+
+Baseado exclusivamente na arquitetura aprovada na Etapa 1. Nenhum arquivo aqui contém implementação — apenas nome, caminho e responsabilidade. Nenhuma escolha de modelo de IA, preço ou visual é feita aqui.
+
+---
+
+## 1. Árvore completa de pastas e arquivos
+
+```
+namorado-virtual/
+│
+├── app/
+│   └── lib/
+│       ├── screens/
+│       │   ├── onboarding/
+│       │   │   └── onboarding_screen.dart
+│       │   ├── auth/
+│       │   │   ├── login_screen.dart
+│       │   │   └── register_screen.dart
+│       │   ├── character_creation/
+│       │   │   ├── character_creation_screen.dart
+│       │   │   ├── avatar_picker_step.dart
+│       │   │   └── personality_setup_step.dart
+│       │   ├── chat/
+│       │   │   ├── individual_chat_screen.dart
+│       │   │   └── group_chat_screen.dart
+│       │   ├── character_profile/
+│       │   │   └── character_profile_screen.dart
+│       │   └── settings/
+│       │       └── settings_screen.dart
+│       │
+│       ├── widgets/
+│       │   ├── chat/
+│       │   │   ├── message_bubble.dart
+│       │   │   ├── typing_indicator.dart
+│       │   │   └── speaker_tag.dart
+│       │   ├── character/
+│       │   │   ├── character_card.dart
+│       │   │   └── avatar_circle.dart
+│       │   └── common/
+│       │       ├── app_button.dart
+│       │       └── app_text_field.dart
+│       │
+│       ├── services/
+│       │   ├── api/
+│       │   │   ├── auth_api.dart
+│       │   │   ├── chat_api.dart
+│       │   │   ├── character_api.dart
+│       │   │   └── user_api.dart
+│       │   └── local/
+│       │       ├── session_storage.dart
+│       │       └── cache_service.dart
+│       │
+│       ├── models/
+│       │   ├── user_model.dart
+│       │   ├── character_model.dart
+│       │   ├── avatar_model.dart
+│       │   ├── message_model.dart
+│       │   └── conversation_model.dart
+│       │
+│       ├── state/
+│       │   ├── auth_state.dart
+│       │   ├── chat_state.dart
+│       │   └── character_state.dart
+│       │
+│       └── platform/
+│           ├── mobile/
+│           │   └── push_notifications_mobile.dart
+│           └── web_desktop/
+│               └── push_notifications_web.dart
+│
+├── backend/
+│   ├── src/
+│   │   ├── routes/
+│   │   │   ├── auth.routes.js
+│   │   │   ├── user.routes.js
+│   │   │   ├── character.routes.js
+│   │   │   ├── chat.routes.js
+│   │   │   └── group.routes.js
+│   │   │
+│   │   ├── services/
+│   │   │   ├── auth/
+│   │   │   │   └── auth.service.js
+│   │   │   ├── user/
+│   │   │   │   └── user.service.js
+│   │   │   ├── character/
+│   │   │   │   ├── character.service.js
+│   │   │   │   ├── persona.service.js
+│   │   │   │   └── avatar.service.js
+│   │   │   ├── chat/
+│   │   │   │   ├── individual_chat.service.js
+│   │   │   │   └── group_chat.service.js
+│   │   │   ├── memory/
+│   │   │   │   ├── conversation_memory.service.js
+│   │   │   │   ├── character_memory.service.js
+│   │   │   │   ├── user_memory.service.js
+│   │   │   │   └── relationship_memory.service.js
+│   │   │   └── ai-gateway/
+│   │   │       ├── conversation/
+│   │   │       │   └── conversation_gateway.js
+│   │   │       ├── vision/
+│   │   │       │   └── vision_gateway.js
+│   │   │       ├── image-generation/
+│   │   │       │   └── image_gateway.js
+│   │   │       ├── video-generation/
+│   │   │       │   └── video_gateway.js
+│   │   │       ├── voice/
+│   │   │       │   └── voice_gateway.js
+│   │   │       └── index.js
+│   │   │
+│   │   ├── prompts/
+│   │   │   ├── system/
+│   │   │   │   └── system_base.prompt.md
+│   │   │   ├── personas/
+│   │   │   │   └── _template.persona.prompt.md
+│   │   │   ├── behavior/
+│   │   │   │   └── _template.behavior.prompt.md
+│   │   │   ├── relationship/
+│   │   │   │   └── _template.relationship.prompt.md
+│   │   │   ├── memory/
+│   │   │   │   └── memory_injection.prompt.md
+│   │   │   ├── group/
+│   │   │   │   └── group_turn.prompt.md
+│   │   │   └── media/
+│   │   │       ├── vision.prompt.md
+│   │   │       ├── image.prompt.md
+│   │   │       ├── video.prompt.md
+│   │   │       └── voice.prompt.md
+│   │   │
+│   │   ├── models/
+│   │   │   ├── user.model.js
+│   │   │   ├── character.model.js
+│   │   │   ├── persona.model.js
+│   │   │   ├── avatar.model.js
+│   │   │   ├── conversation.model.js
+│   │   │   ├── participant.model.js
+│   │   │   ├── message.model.js
+│   │   │   ├── memory.model.js
+│   │   │   ├── relationship.model.js
+│   │   │   └── subscription.model.js
+│   │   │
+│   │   ├── config/
+│   │   │   ├── env.js
+│   │   │   ├── database.config.js
+│   │   │   └── ai_providers.config.js
+│   │   │
+│   │   └── middleware/
+│   │       ├── auth.middleware.js
+│   │       └── error_handler.middleware.js
+│   │
+│   └── database/
+│       ├── migrations/
+│       │   └── _template_migration.js
+│       └── seeds/
+│           └── _template_seed.js
+│
+├── docs/
+│   ├── architecture.md
+│   ├── decisions-log.md
+│   ├── database-schema.md
+│   ├── api-reference.md
+│   ├── ai-models.md
+│   ├── memory-system.md
+│   └── characters/
+│       └── _template-character-sheet.md
+│
+├── .env.example
+├── app/pubspec.yaml
+└── backend/package.json
+```
+
+---
+
+## 2. Frontend — arquivos principais
+
+| Arquivo | Caminho | Função | O que deverá conter futuramente | Dependências | Não deve conter |
+|---|---|---|---|---|---|
+| `individual_chat_screen.dart` | `app/lib/screens/chat/` | Tela de conversa 1:1 | Lista de mensagens, campo de envio, indicador de digitação | `message_bubble.dart`, `chat_api.dart`, `chat_state.dart` | Regra de negócio de memória ou IA |
+| `group_chat_screen.dart` | `app/lib/screens/chat/` | Tela de conversa com múltiplos personagens | Mesma base do chat individual + `speaker_tag.dart` pra indicar quem está falando | `chat_api.dart`, `chat_state.dart` | Lógica de decidir ordem das respostas (isso é backend) |
+| `character_creation_screen.dart` | `app/lib/screens/character_creation/` | Fluxo de criação de personagem | Orquestra os passos (`avatar_picker_step`, `personality_setup_step`) | `character_api.dart` | Regras de qual persona combina com qual avatar (backend decide) |
+| `character_profile_screen.dart` | `app/lib/screens/character_profile/` | Exibe/edita um personagem existente | Dados de persona + avatar vinculado | `character_model.dart`, `character_api.dart` | — |
+| `ai_service` *(equivalente a)* `chat_api.dart` | `app/lib/services/api/` | Comunicação com o backend para envio/recebimento de mensagens | Chamadas HTTP/WebSocket ao endpoint de chat | `message_model.dart` | Personalidade do personagem, prompts, lógica de IA (tudo isso é backend) |
+| `character_api.dart` | `app/lib/services/api/` | CRUD de personagens via backend | Criar, editar, listar personagens do usuário | `character_model.dart` | Geração de imagem/avatar em si |
+| `session_storage.dart` | `app/lib/services/local/` | Guarda sessão/token localmente | Token de autenticação, preferências leves | — | Dados de conversa (isso deve vir sempre do backend) |
+| `character_model.dart` | `app/lib/models/` | Formato de dados de um personagem no app | Campos espelhando `character.model.js` do backend | — | Lógica |
+| `chat_state.dart` | `app/lib/state/` | Estado da conversa em memória no app | Mensagens carregadas, status de "digitando" | `chat_api.dart` | Persistência permanente |
+
+---
+
+## 3. Backend — arquivos principais
+
+| Arquivo | Responsabilidade | Não implementa ainda |
+|---|---|---|
+| `auth.service.js` | Cadastro, login, verificação de sessão | Login social (fica preparado, não implementado) |
+| `user.service.js` | Dados de conta do usuário | Preferências avançadas |
+| `character.service.js` | CRUD de personagens (a entidade "guarda-chuva" que liga persona + avatar) | — |
+| `persona.service.js` | Regras de personalidade, comportamento, história de cada persona | Geração automática de persona por IA |
+| `avatar.service.js` | Gerencia identidade visual, permite reaproveitar avatar entre personas | Geração de imagem em si (isso é `ai-gateway/image-generation`) |
+| `individual_chat.service.js` | Orquestra conversa 1:1: monta contexto, chama `ai-gateway/conversation`, salva mensagem | Lógica de grupo |
+| `group_chat.service.js` | Orquestra conversa com múltiplos personagens: define ordem de resposta, contexto por personagem | Interação espontânea entre personagens (fica preparado, não implementado) |
+| `conversation_memory.service.js` | Histórico de mensagens de uma conversa específica | — |
+| `character_memory.service.js` | Traços fixos daquela persona, independente de usuário | — |
+| `user_memory.service.js` | Fatos/preferências que o usuário compartilhou | — |
+| `relationship_memory.service.js` | Vínculo específico usuário↔persona (nível, marcos) | — |
+| `ai-gateway/index.js` | Ponto único de entrada da camada de IA, decide qual gateway específico chamar por função | Escolha do provedor real (fica em config) |
+| `conversation_gateway.js`, `vision_gateway.js`, `image_gateway.js`, `video_gateway.js`, `voice_gateway.js` | Interface fixa para cada função de IA, isolando o provedor por trás dela | Implementação de nenhum provedor específico ainda |
+| `env.js` | Carrega variáveis de ambiente | Nunca contém valores reais — só leitura de `.env` |
+| `ai_providers.config.js` | Mapeia qual gateway usa qual provedor/URL de API | Chaves reais (ficam em `.env`, fora do controle de versão) |
+| `auth.middleware.js` | Verifica token em cada requisição protegida | — |
+| `error_handler.middleware.js` | Padroniza resposta de erro | — |
+
+---
+
+## 4. Estrutura dos personagens (o núcleo do sistema)
+
+Em vez de um arquivo por personagem, existem **três entidades genéricas e reutilizáveis**, cada uma responsável por uma parte:
+
+```
+Character (character.model.js)      → entidade "guarda-chuva": liga persona + avatar + dono (usuário/sistema)
+   ├── Persona (persona.model.js)   → nome, personalidade, forma de falar, história, regras
+   ├── Avatar (avatar.model.js)     → aparência, imagem, futuramente voz/vídeo
+   └── (config de IA por personagem, se precisar sobrescrever o padrão)
+```
+
+Cada nova "persona" (masculina, feminina, casal como duas personas ligadas à mesma conversa, etc.) é **um novo registro no banco**, nunca um novo arquivo de código. Os arquivos (`character.service.js`, `persona.service.js`, `avatar.service.js`) são genéricos e atendem qualquer quantidade de personagens.
+
+Ficha de referência de cada persona (para uso da equipe, não do sistema em runtime) fica em `docs/characters/`, um arquivo markdown por personagem quando existirem.
+
+---
+
+## 5. Conversas individuais e em grupo
+
+| Responsabilidade | Arquivo |
+|---|---|
+| Participantes de uma conversa (1 ou vários personagens) | `participant.model.js` — tabela que liga `conversation` a um ou mais `character` |
+| Mensagens | `message.model.js` — cada mensagem referencia quem enviou (usuário ou qual personagem) |
+| Contexto enviado à IA | montado dinamicamente por `individual_chat.service.js` ou `group_chat.service.js`, não fica salvo como arquivo fixo |
+| Ordem das respostas em grupo | `group_chat.service.js` |
+| Identificação de quem falou | campo `sender_id` + `sender_type` (usuário/personagem) em `message.model.js`; exibido no app via `speaker_tag.dart` |
+| Relacionamento entre personagens (futuro) | ficaria em `relationship.model.js`, generalizado para também representar personagem↔personagem, não só usuário↔personagem |
+| Memória da conversa em grupo | `conversation_memory.service.js` já é genérico o suficiente (não distingue individual/grupo na camada de dados) |
+
+---
+
+## 6. Camada de IA
+
+Já detalhada na árvore (seção 1): `ai-gateway/` com uma subpasta por função (`conversation`, `vision`, `image-generation`, `video-generation`, `voice`) e um `index.js` que roteia a chamada. `ai_providers.config.js` mapeia qual provedor está plugado em cada gateway — trocar de provedor é editar essa configuração, sem tocar em `chat/`, `character/` ou no app.
+
+---
+
+## 7. Prompts
+
+```
+prompts/
+├── system/            → regras gerais do sistema, válidas para qualquer personagem
+├── personas/           → um arquivo-modelo por persona (nome, tom, história) — preenchido quando as personas forem definidas
+├── behavior/            → regras de comportamento (o que a persona pode/não pode fazer)
+├── relationship/        → como o tom muda conforme o nível de relacionamento
+├── memory/              → como a memória é injetada no prompt final
+├── group/                → regras de como um personagem deve reagir à fala de outro personagem
+└── media/                 → prompts usados pelos gateways de visão/imagem/vídeo/voz
+```
+
+Cada tipo de prompt fica isolado para poder ser versionado e ajustado independentemente — por exemplo, mudar a regra de "grupo" não deve exigir mexer no prompt de "sistema".
+
+---
+
+## 8. Banco de dados — entidades e arquivos
+
+| Entidade | Model | Resumo |
+|---|---|---|
+| Usuário | `user.model.js` | Conta, autenticação |
+| Personagem | `character.model.js` | Liga persona + avatar |
+| Persona | `persona.model.js` | Personalidade, comportamento, história |
+| Avatar | `avatar.model.js` | Identidade visual |
+| Conversa | `conversation.model.js` | Uma conversa (individual ou grupo) |
+| Participante | `participant.model.js` | Liga conversa a personagem(ns) |
+| Mensagem | `message.model.js` | Cada mensagem trocada |
+| Memória | `memory.model.js` | Pode ser especializado por tipo (usuário/personagem/relacionamento) conforme services correspondentes |
+| Relacionamento | `relationship.model.js` | Vínculo usuário↔persona (e futuramente persona↔persona) |
+| Assinatura | `subscription.model.js` | Preparado para quando a monetização for ativada — sem lógica ainda |
+
+Migrações (`database/migrations/`) e seeds (`database/seeds/`) seguem um arquivo por alteração, nunca um arquivo único gigante — permite rastrear a evolução do schema.
+
+---
+
+## 9. Assets
+
+```
+app/assets/
+├── icons/               → ícones fixos da interface (não de personagens)
+├── ui/                    → imagens fixas de fundo, ilustrações de onboarding
+└── characters/            → subpasta só existe se houver avatares estáticos de exemplo/placeholder
+    └── _placeholder/
+```
+
+Avatares e mídias **geradas** (reais, de cada personagem criado por um usuário) não ficam em `assets/` do app — isso viraria uma pasta gigante e não versionável. Eles ficam armazenados pelo backend (futuro `services/storage/`) e são carregados dinamicamente via URL. `assets/` guarda apenas o que é fixo do próprio app.
+
+---
+
+## 10. Documentação — documentos oficiais
+
+| Arquivo | Assunto exclusivo |
+|---|---|
+| `architecture.md` | A arquitetura aprovada (Etapa 1), atualizada conforme evolui |
+| `decisions-log.md` | O que foi Definido / Em teste / Descartado, com data |
+| `database-schema.md` | Todas as entidades e relações do banco |
+| `api-reference.md` | Lista de endpoints do backend |
+| `ai-models.md` | Qual provedor está plugado em cada gateway de IA |
+| `memory-system.md` | Como as camadas de memória funcionam |
+| `characters/` | Uma ficha por persona, quando existirem |
+
+Nenhum outro documento solto deve ser criado fora dessa lista sem antes decidir qual desses arquivos ele deveria atualizar.
+
+---
+
+## 11. Arquivos de configuração
+
+- `.env.example` (raiz) — modelo de variáveis de ambiente, **sem valores reais**, versionado no Git.
+- `.env` (não versionado) — valores reais, existe só localmente/no servidor.
+- `backend/src/config/env.js` — carrega e valida as variáveis.
+- `backend/src/config/database.config.js` — configuração de conexão com PostgreSQL.
+- `backend/src/config/ai_providers.config.js` — mapeamento gateway→provedor.
+- `app/pubspec.yaml` — dependências e configuração do Flutter.
+- `backend/package.json` — dependências do Node.js.
+
+---
+
+## Observação final
+
+Esta é a estrutura física preparada para a Etapa 3 (definição detalhada de dados e entidades) e Etapa 4 (implementação). Nenhum arquivo aqui contém código funcional — apenas nome, local e responsabilidade, conforme solicitado.
+
+________________________________________________________________
+
+
+DEFINIÇÃO DETALHADA DOS DADOS E ENTIDADES
+
+Pronto — Etapa 3 completa: todas as entidades com campos e tipos, relacionamentos entre User/Character/Persona/Avatar, estrutura de conversas/participantes/mensagens, as quatro camadas de memória, relacionamento usuário↔personagem, preparação para grupo e assinatura, regras de integridade, tabela de obrigatório/opcional/futuro por entidade, e a ordem sugerida de migrations. Os pontos que dependem de decisões futuras (gênero da persona, gamificação, política de exclusão de conta, plano de assinatura) ficaram marcados como "A definir", sem inventar valores.
+
+
+# ETAPA 3 — DEFINIÇÃO DETALHADA DOS DADOS E ENTIDADES
+
+Baseado exclusivamente na arquitetura da Etapa 1 e no esqueleto de arquivos da Etapa 2. Nenhuma implementação, modelo de IA, prompt final, ficha de personagem ou preço é definido aqui — apenas estrutura de dados. Onde uma decisão ainda depende de escolha futura, está marcado como **A definir**.
+
+Convenção usada: `PK` = chave primária, `FK` = chave estrangeira, tipos em formato genérico (equivalentes diretos existem em PostgreSQL).
+
+---
+
+## 1. Entidades e campos
+
+### 1.1 `User`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| email | string, único | Obrigatório |
+| password_hash | string | Obrigatório (nulo se login social) |
+| display_name | string | Obrigatório |
+| birth_date | date | Obrigatório (necessário para verificação de idade) |
+| auth_provider | enum: `email`, `google`, `apple` | Obrigatório |
+| created_at | timestamp | Obrigatório |
+| updated_at | timestamp | Obrigatório |
+| status | enum: `active`, `suspended`, `deleted` | Obrigatório |
+| onboarding_completed_at | timestamp | Opcional |
+
+### 1.2 `Avatar`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| owner_type | enum: `system`, `user` | Obrigatório (define se é avatar padrão do sistema ou criado por um usuário) |
+| owner_id | UUID (FK → User.id), nulo se `owner_type = system` | Obrigatório se aplicável |
+| image_url | string | Obrigatório |
+| voice_ref | string | Futuro |
+| video_ref | string | Futuro |
+| created_at | timestamp | Obrigatório |
+
+### 1.3 `Persona`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| owner_type | enum: `system`, `user` | Obrigatório |
+| owner_id | UUID (FK → User.id), nulo se `owner_type = system` | Obrigatório se aplicável |
+| name | string | Obrigatório |
+| gender | enum: `male`, `female`, `other` — valores exatos: **a definir** | Obrigatório |
+| personality_summary | text | Obrigatório |
+| speech_style | text | Opcional |
+| backstory | text | Opcional |
+| behavior_rules | text/JSON | Opcional |
+| default_avatar_id | UUID (FK → Avatar.id) | Obrigatório |
+| created_at | timestamp | Obrigatório |
+| updated_at | timestamp | Obrigatório |
+
+> A mesma `Persona` referencia um `default_avatar_id`, mas a ligação real usada em cada `Character` (seção 1.4) pode sobrescrever esse avatar — é isso que permite reaproveitar um avatar em mais de uma persona.
+
+### 1.4 `Character`
+Entidade "guarda-chuva" que representa um personagem como ele existe para um usuário específico (liga persona + avatar + eventual customização).
+
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| user_id | UUID (FK → User.id) | Obrigatório |
+| persona_id | UUID (FK → Persona.id) | Obrigatório |
+| avatar_id | UUID (FK → Avatar.id) | Obrigatório |
+| nickname | string | Opcional (nome que o usuário dá, pode diferir do `Persona.name`) |
+| ai_config_override | JSON | Futuro (permitir sobrescrever config padrão de IA por personagem) |
+| created_at | timestamp | Obrigatório |
+| archived_at | timestamp | Opcional |
+
+### 1.5 `Conversation`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| user_id | UUID (FK → User.id) | Obrigatório |
+| type | enum: `individual`, `group` | Obrigatório |
+| title | string | Opcional |
+| created_at | timestamp | Obrigatório |
+| last_message_at | timestamp | Obrigatório |
+| status | enum: `active`, `archived` | Obrigatório |
+
+### 1.6 `Participant`
+Liga uma `Conversation` a um ou mais `Character` (permite tanto individual quanto grupo com a mesma estrutura).
+
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| conversation_id | UUID (FK → Conversation.id) | Obrigatório |
+| character_id | UUID (FK → Character.id) | Obrigatório |
+| joined_at | timestamp | Obrigatório |
+| role_in_group | string | Futuro (ex: papel/dinâmica dentro do grupo) |
+
+> Regra de integridade: uma `Conversation.type = individual` deve ter exatamente 1 registro em `Participant`; `type = group` deve ter 2 ou mais. Essa validação fica na camada de serviço (`chat/`), não no banco.
+
+### 1.7 `Message`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| conversation_id | UUID (FK → Conversation.id) | Obrigatório |
+| sender_type | enum: `user`, `character` | Obrigatório |
+| sender_id | UUID (FK → User.id **ou** Character.id, conforme `sender_type`) | Obrigatório |
+| content | text | Obrigatório |
+| content_type | enum: `text`, `image`, `audio`, `video` — só `text` ativo agora | Obrigatório |
+| media_url | string | Futuro (quando `content_type` ≠ text) |
+| created_at | timestamp | Obrigatório |
+| reply_to_message_id | UUID (FK → Message.id) | Futuro (referenciar a quem uma resposta se dirige, útil em grupo) |
+
+### 1.8 Memória — quatro entidades separadas
+
+**`ConversationMemory`** (contexto recente de uma conversa específica)
+| Campo | Tipo | Obrigatório/Opcional |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| conversation_id | UUID (FK → Conversation.id) | Obrigatório |
+| summary | text | Obrigatório (resumo condensado, não o histórico bruto — esse já está em `Message`) |
+| updated_at | timestamp | Obrigatório |
+
+**`CharacterMemory`** (traços fixos da persona, independentes de usuário)
+| Campo | Tipo | Obrigatório/Opcional |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| persona_id | UUID (FK → Persona.id) | Obrigatório |
+| fact | text | Obrigatório |
+| created_at | timestamp | Obrigatório |
+
+**`UserMemory`** (fatos que o usuário compartilhou, não ligados a uma persona específica)
+| Campo | Tipo | Obrigatório/Opcional |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| user_id | UUID (FK → User.id) | Obrigatório |
+| fact | text | Obrigatório |
+| source_message_id | UUID (FK → Message.id) | Opcional |
+| created_at | timestamp | Obrigatório |
+
+**`GroupMemory`** *(futuro)* — o que aconteceu numa conversa com múltiplos personagens, além do que já está em `ConversationMemory`
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Futuro |
+| conversation_id | UUID (FK → Conversation.id) | Futuro |
+| summary | text | Futuro |
+
+### 1.9 `Relationship`
+Vínculo entre `User` e `Character` (e futuramente entre dois `Character`).
+
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Obrigatório |
+| subject_type | enum: `user_character`, `character_character` | Obrigatório (segundo valor é futuro) |
+| user_id | UUID (FK → User.id), nulo se `subject_type = character_character` | Obrigatório se aplicável |
+| character_id | UUID (FK → Character.id) | Obrigatório |
+| related_character_id | UUID (FK → Character.id), usado só se `character_character` | Futuro |
+| level | integer | Opcional (ex: progresso do vínculo, se decidirem gamificar) |
+| milestones | JSON | Opcional |
+| updated_at | timestamp | Obrigatório |
+
+### 1.10 `Subscription` *(preparação, sem lógica de pagamento)*
+| Campo | Tipo | Obrigatório/Opcional/Futuro |
+|---|---|---|
+| id | UUID (PK) | Futuro |
+| user_id | UUID (FK → User.id) | Futuro |
+| plan | enum: **a definir** (depende da Etapa de monetização) | Futuro |
+| status | enum: `active`, `canceled`, `expired` | Futuro |
+| started_at | timestamp | Futuro |
+| ends_at | timestamp | Futuro |
+
+> Esta entidade existe apenas como reserva de espaço no schema. Nenhum valor de plano, preço ou fluxo de pagamento é definido nesta etapa.
+
+---
+
+## 2. Relacionamentos entre User, Character, Persona e Avatar
+
+```
+User (1) ───< (N) Character
+Persona (1) ───< (N) Character        [uma persona pode ser usada em vários Character,
+                                        de usuários diferentes, se owner_type = system]
+Avatar (1) ───< (N) Character         [mesma lógica — reaproveitamento]
+Avatar (1) ───< (N) Persona           [via default_avatar_id]
+```
+
+- `Character` é sempre de 1 usuário (`user_id` obrigatório).
+- `Persona` e `Avatar` podem pertencer ao sistema (`owner_type = system`, ex: personagens padrão oferecidos a todos) ou a um usuário específico (`owner_type = user`, ex: personagem customizado do zero).
+- A separação persona/avatar permanece mesmo dentro de um `Character`: trocar o avatar de um personagem não cria uma nova persona, e vice-versa.
+
+---
+
+## 3. Conversa, Participantes e Mensagens
+
+```
+Conversation (1) ───< (N) Participant >─── (N) Character
+Conversation (1) ───< (N) Message
+Message.sender_id → User.id  OU  Character.id  (conforme sender_type)
+```
+
+- Conversa individual: 1 `Conversation` + 1 `Participant`.
+- Conversa em grupo: 1 `Conversation` + N `Participant` (N ≥ 2).
+- `Message.sender_type` evita precisar de duas tabelas de mensagem (uma para usuário, outra para personagem) — mantém tudo em uma única tabela, ordenável por `created_at`.
+
+---
+
+## 4. Camadas de memória — resumo de uso
+
+| Camada | Escopo | Quando é lida |
+|---|---|---|
+| `Message` (histórico bruto) | por conversa | montagem do contexto recente |
+| `ConversationMemory` | por conversa | quando o histórico bruto fica longo demais para caber no contexto de IA |
+| `CharacterMemory` | por persona | sempre, para manter consistência da persona entre usuários diferentes |
+| `UserMemory` | por usuário | sempre, para personalizar resposta ao usuário específico |
+| `Relationship` | por par (user, character) | para ajustar tom conforme o nível do vínculo |
+| `GroupMemory` *(futuro)* | por conversa em grupo | quando conversas em grupo forem implementadas |
+
+A junção dessas camadas para montar o "contexto final" enviado à IA é responsabilidade do `ai-gateway` + `chat/` (Etapa 1/2), não do banco.
+
+---
+
+## 5. Relacionamento Usuário ↔ Personagem
+
+Já coberto pela entidade `Relationship` (seção 1.9). Pontos de integridade:
+- Um par (`user_id`, `character_id`) deve ser único — não existe mais de um registro de relacionamento para o mesmo par.
+- `level` e `milestones` são opcionais porque a decisão de gamificar ou não o vínculo ainda não foi tomada — **a definir**.
+
+---
+
+## 6. Preparação para conversas em grupo
+
+Já modelado via `Participant` (N para N entre `Conversation` e `Character`) e `Message.sender_type/sender_id`. Pontos que ficam **a definir** antes da implementação real:
+- Regra de quem responde e em que ordem (lógica de serviço, não de dados).
+- Se personagens podem ser adicionados/removidos de uma conversa em grupo já existente (exigiria `left_at` em `Participant` — campo ainda não incluído, marcado como futuro).
+
+---
+
+## 7. Assinatura/monetização — apenas preparação
+
+Coberto pela entidade `Subscription` (seção 1.10). Nenhum plano, preço, gateway de pagamento ou regra de cobrança é definido aqui. A entidade existe só para o schema já prever o relacionamento `User (1) ─── (0..1 ativo) Subscription`.
+
+---
+
+## 8. Relações entre entidades e regras de integridade
+
+```
+User 1 ──< N Character
+User 1 ──< N Conversation
+User 1 ──< N UserMemory
+User 1 ──< 0..1 Subscription (ativa)
+
+Persona 1 ──< N Character
+Persona 1 ──< N CharacterMemory
+Avatar 1 ──< N Character
+Avatar 1 ──< N Persona (via default_avatar_id)
+
+Conversation 1 ──< N Participant
+Conversation 1 ──< N Message
+Conversation 1 ──< 0..1 ConversationMemory
+Conversation 1 ──< 0..1 GroupMemory (futuro, só se type = group)
+
+Character 1 ──< N Participant
+Character 1 ──< N Relationship
+```
+
+**Regras de integridade principais:**
+1. `Character.user_id`, `persona_id`, `avatar_id` são obrigatórios — um Character nunca existe sem os três.
+2. `Message.sender_id` deve corresponder a uma entidade válida conforme `sender_type` (validação em nível de aplicação, já que é chave estrangeira "polimórfica" — bancos relacionais não validam isso nativamente).
+3. `Participant` não permite duplicar o mesmo `character_id` na mesma `Conversation`.
+4. `Relationship` é única por par (`user_id`, `character_id`) quando `subject_type = user_character`.
+5. Exclusão de `User`: **a definir** se será exclusão física (apaga tudo em cascata) ou lógica (`status = deleted`, mantendo dados por período de retenção) — decisão pendente de política de privacidade.
+
+---
+
+## 9. Resumo — obrigatório / opcional / futuro por entidade
+
+| Entidade | Núcleo obrigatório | Opcional já previsto | Futuro (não implementar agora) |
+|---|---|---|---|
+| User | id, email, password_hash/auth_provider, display_name, birth_date | onboarding_completed_at | — |
+| Avatar | id, owner_type, image_url | owner_id | voice_ref, video_ref |
+| Persona | id, owner_type, name, gender, personality_summary, default_avatar_id | speech_style, backstory, behavior_rules | — |
+| Character | id, user_id, persona_id, avatar_id | nickname | ai_config_override |
+| Conversation | id, user_id, type | title | — |
+| Participant | id, conversation_id, character_id | — | role_in_group, left_at |
+| Message | id, conversation_id, sender_type, sender_id, content, content_type | — | media_url, reply_to_message_id |
+| ConversationMemory | id, conversation_id, summary | — | — |
+| CharacterMemory | id, persona_id, fact | — | — |
+| UserMemory | id, user_id, fact | source_message_id | — |
+| GroupMemory | — | — | tudo (entidade inteira é futura) |
+| Relationship | id, subject_type, character_id | level, milestones | related_character_id (character_character) |
+| Subscription | — | — | tudo (entidade inteira é futura/preparação) |
+
+---
+
+## 10. Esquema geral do banco (base para migrations futuras)
+
+```
+users
+avatars
+personas
+characters
+conversations
+participants
+messages
+conversation_memories
+character_memories
+user_memories
+group_memories        -- futura
+relationships
+subscriptions          -- futura
+```
+
+Ordem sugerida de criação das migrations (respeitando dependências de FK):
+1. `users`
+2. `avatars`
+3. `personas` (depende de `avatars`)
+4. `characters` (depende de `users`, `personas`, `avatars`)
+5. `conversations` (depende de `users`)
+6. `participants` (depende de `conversations`, `characters`)
+7. `messages` (depende de `conversations`; `sender_id` validado em aplicação)
+8. `conversation_memories` (depende de `conversations`)
+9. `character_memories` (depende de `personas`)
+10. `user_memories` (depende de `users`; `messages` opcional)
+11. `relationships` (depende de `users`, `characters`)
+12. `subscriptions` (depende de `users`) — criar estrutura vazia, sem uso ainda
+13. `group_memories` (depende de `conversations`) — só quando grupo for implementado
+
+---
+
+## Pontos marcados como "A definir"
+
+- Valores exatos do enum `Persona.gender`.
+- Se `Relationship.level`/`milestones` (gamificação) será usado ou não.
+- Se `Participant` permitirá entrar/sair de uma conversa em grupo já existente (`left_at`).
+- Política de exclusão de conta (`User`): física ou lógica, e prazo de retenção.
+- Valores do enum `Subscription.plan` (depende de decisão de monetização, fora do escopo desta etapa).
+
+Este documento serve de base direta para a Etapa 4 (implementação dos módulos), sem necessidade de redecidir a estrutura de dados já definida aqui.
+
+________________________________________________________________
+
+
+DOCUMENTO DE INTEGRAÇÃO DAS ETAPAS 1–4 — CHATBOT NAMORADO VIRTUAL
+
+Pronto — documento de integração criado. Ele não repete as Etapas 1–4, só mostra como se encaixam: função de cada uma, como uma alimenta a outra, os dois fluxos principais (criação de personagem e conversa individual) já usando apenas componentes existentes, a cadeia de dependências, as regras de acoplamento entre camadas, a ordem de construção (só referenciada, não recriada) e os 9 pontos pendentes consolidados das etapas anteriores — nenhum deles resolvido aqui.
+
+# DOCUMENTO DE INTEGRAÇÃO DAS ETAPAS 1–4 — CHATBOT NAMORADO VIRTUAL
+
+As Etapas 1, 2, 3 e 4 continuam sendo os documentos oficiais e independentes do projeto. Este documento não substitui, resume nem altera nenhuma delas — apenas mostra como se conectam.
+
+---
+
+## 1. Função de cada etapa
+
+- **Etapa 1 — Arquitetura:** define os princípios (avatar separado de persona, IA em camada trocável, memória em camadas, individual/grupo) e a divisão macro de responsabilidades.
+- **Etapa 2 — Esqueleto de pastas e arquivos:** materializa a Etapa 1 em pastas, arquivos e responsabilidades concretas, sem implementação.
+- **Etapa 3 — Dados e entidades:** define os campos, tabelas e relacionamentos que os arquivos da Etapa 2 vão manipular.
+- **Etapa 4 — Plano de implementação:** define a ordem em que tudo isso deve ser construído.
+
+---
+
+## 2. Como uma etapa alimenta a seguinte
+
+**Etapa 1 → Etapa 2**
+Cada princípio da arquitetura virou uma pasta/arquivo específico: a separação persona/avatar gerou `persona.service.js` e `avatar.service.js` separados; o `ai-gateway` da Etapa 1 virou a pasta `ai-gateway/` com uma subpasta por função (conversação, visão, imagem, vídeo, voz).
+
+**Etapa 2 → Etapa 3**
+Os arquivos e serviços da Etapa 2 (`character.service.js`, `chat.service.js`, `memory/*.service.js`) foram o ponto de partida para decidir quais entidades e campos a Etapa 3 precisava definir — cada serviço da Etapa 2 tem uma ou mais entidades correspondentes na Etapa 3.
+
+**Etapa 3 → Etapa 4**
+As dependências entre entidades (`Character` depende de `Persona`+`Avatar`; `Message` depende de `Conversation`+`Participant`) determinaram diretamente a ordem das migrations e das fases de backend na Etapa 4.
+
+**Etapa 1 → Etapa 4**
+A Etapa 4 não implementa nada fora da arquitetura da Etapa 1 — por isso o `ai-gateway` entra como camada isolada (Fase 5) mesmo antes de haver um provedor definitivo, e grupo/mídia/assinatura ficam explicitamente fora do escopo do protótipo, exatamente como a Etapa 1 já os tratava como extensões futuras.
+
+---
+
+## 3. Fluxos principais de integração
+
+**Criação de personagem:**
+```
+Tela (character_creation_screen.dart)
+  → character_api.dart
+    → character.routes.js
+      → character.service.js (+ persona.service.js, avatar.service.js)
+        → entidades Character / Persona / Avatar
+          → banco (PostgreSQL)
+```
+
+**Conversa individual:**
+```
+Tela (individual_chat_screen.dart)
+  → chat_api.dart
+    → chat.routes.js
+      → individual_chat.service.js
+        → memory/*.service.js (monta contexto: ConversationMemory + CharacterMemory + UserMemory + Relationship)
+          → ai-gateway/conversation
+            → resposta
+              → gravada como Message
+                → retorna ao frontend
+```
+
+---
+
+## 4. Dependências
+
+```
+Banco (Etapa 3) → Backend: auth/user → Backend: personagem (persona/avatar/character)
+   → Backend: conversa individual → ai-gateway (mínimo) → memória
+      → Frontend: onboarding/auth → Frontend: criação de personagem → Frontend: chat
+```
+
+Nenhuma dependência nova é criada aqui — esta é a mesma cadeia já descrita na Etapa 4, seções 1–3.
+
+---
+
+## 5. Regra de acoplamento
+
+- Telas do Flutter **nunca** acessam o backend diretamente — sempre passam por `services/api/`.
+- `routes/` do backend apenas encaminha para `services/`; não contém regra de negócio.
+- `services/` aplica as regras e é o único ponto que acessa `models/` e o `ai-gateway`.
+- O chat **sempre** passa pelo `ai-gateway` — nenhum outro módulo fala diretamente com um provedor de IA.
+- A memória participa da montagem do contexto **antes** de qualquer chamada ao `ai-gateway`, nunca depois.
+- O banco de dados fica isolado atrás de `models/`; nenhuma tela ou rota consulta o banco diretamente.
+
+---
+
+## 6. Ordem de construção (referência à Etapa 4, sem nova ordem)
+
+```
+Estrutura vazia → Banco → Auth/Usuário → Personagem → Chat individual (simulado)
+→ ai-gateway (mínimo) → Memória → Frontend (onboarding → personagem → chat)
+→ Protótipo funcional individual
+→ (preparado, não implementado): grupo, mídia, assinatura
+```
+
+Cada fase da Etapa 4 só pode começar quando a fase anterior desta sequência estiver pronta — isso já estava definido na Etapa 4 e é apenas reafirmado aqui como mapa de consulta.
+
+---
+
+## 7. PONTOS A VALIDAR (já pendentes nas Etapas 1–4, não resolvidos aqui)
+
+1. Protocolo de chat: HTTP (polling) ou WebSocket — pendente desde a Etapa 1.
+2. Regra de quando gerar/atualizar o `ConversationMemory` — pendente desde a Etapa 4.
+3. Fluxo de criação de personagem: uma chamada composta ou chamadas separadas para persona/avatar/character — pendente desde a Etapa 4.
+4. Política de exclusão de conta (física ou lógica) — pendente desde a Etapa 3.
+5. Valores exatos do enum `Persona.gender` — pendente desde a Etapa 3.
+6. Uso ou não de gamificação (`Relationship.level`/`milestones`) — pendente desde a Etapa 3.
+7. Se `Participant` permitirá entrar/sair de uma conversa em grupo já existente — pendente desde a Etapa 3.
+8. Escolha do(s) provedor(es) de IA a plugar no `ai-gateway` — pendente desde a Etapa 1 e reafirmada na Etapa 4.
+9. Valores do enum `Subscription.plan` — pendente desde a Etapa 3, depende de decisão de monetização ainda não retomada.
+
+Nenhum desses pontos foi decidido neste documento.
+
+*** NÃO DIGITAR NADA
+*** NÃO FAZER NENHUM COMENTÁRIO
+*** ESSE AMBIENTE SERÁ SÓ PARA CONSULTA
