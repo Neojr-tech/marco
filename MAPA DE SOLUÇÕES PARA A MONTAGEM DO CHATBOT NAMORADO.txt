@@ -1,0 +1,771 @@
+MAPA DE SOLUÇÕES PARA A MONTAGEM DO CHATBOT NAMORADO VIRTUAL
+Versão 01 — Documento de trabalho e pesquisa
+Data: 29/08/2026
+
+============================================================
+FUNÇÃO DESTE DOCUMENTO
+============================================================
+
+Este documento registra as soluções e referências externas encontradas durante a pesquisa para ajudar na montagem do Chatbot Namorado Virtual.
+
+Ele NÃO substitui as Etapas 1, 2, 3 e 4 e NÃO altera a arquitetura aprovada.
+
+Sua função é servir como uma ponte entre:
+
+- o que as Etapas 1–4 determinam que precisamos construir;
+- e as soluções já existentes que podem fornecer componentes, técnicas, ideias ou caminhos de implementação.
+
+A arquitetura das Etapas 1–4 continua sendo a referência principal do projeto.
+
+Os projetos externos são fontes de soluções e conhecimento. Eles não substituem a arquitetura definida.
+
+============================================================
+REGRA DE TRABALHO
+============================================================
+
+Nenhum material relacionado ao projeto deve ser descartado antes de ser analisado.
+
+Isso vale inclusive para:
+
+- clones;
+- forks;
+- cópias;
+- adaptações;
+- projetos de terceiros;
+- projetos aparentemente incompletos;
+- projetos que não correspondam exatamente ao que queremos.
+
+O princípio adotado é o da "colcha de retalhos":
+
+Cada fonte pode conter uma informação, técnica ou solução que seja útil para uma parte do nosso projeto.
+
+Portanto:
+
+ENCONTRAR
+→ ANALISAR
+→ COMPARAR
+→ ENQUADRAR
+→ DECIDIR
+
+Somente depois:
+
+APROVEITAR ou DESCARTAR.
+
+O fato de um projeto ser clone ou cópia não é motivo suficiente para descartá-lo.
+
+============================================================
+1. SOLUÇÕES ENCONTRADAS — PRIMEIRO MAPA
+============================================================
+
+1.1 AI COMPANION — xanguera/aicompanion
+
+Possíveis funções de interesse:
+
+- conversação por voz;
+- avatar 3D;
+- lip-sync;
+- memória persistente;
+- baixa latência;
+- interrupção da fala (barge-in);
+- execução local.
+
+POR QUE INTERESSA:
+
+Combina várias necessidades que aparecem nas Etapas 1–4:
+
+- conversa;
+- memória;
+- voz;
+- avatar;
+- interação em tempo real.
+
+POSSÍVEL USO:
+
+Não significa adotar o projeto inteiro.
+
+O objetivo inicial é estudar:
+
+- como a memória é organizada;
+- como voz e avatar são integrados;
+- como ocorre a interrupção;
+- como a conversa é processada;
+- quais componentes podem eventualmente ser reaproveitados ou servir de referência.
+
+FONTE:
+
+https://github.com/xanguera/aicompanion
+
+STATUS:
+
+Candidato forte para análise arquitetural.
+
+
+------------------------------------------------------------
+1.2 HIKANEKO / AI-AVATAR
+
+Possíveis funções:
+
+- avatar conversacional em tempo real;
+- WebRTC;
+- VAD;
+- Whisper;
+- Ollama;
+- Gemini;
+- Kokoro TTS;
+- TalkingHead;
+- combinação de processamento local e remoto.
+
+POR QUE INTERESSA:
+
+Tem relação direta com a proposta de arquitetura híbrida do nosso projeto.
+
+Também reúne componentes relacionados a:
+
+- conversa;
+- voz;
+- avatar;
+- reconhecimento de fala;
+- síntese de voz;
+- comunicação em tempo real.
+
+POSSÍVEL USO:
+
+Estudar principalmente:
+
+- fluxo local/remoto;
+- WebRTC;
+- reconhecimento de voz;
+- síntese de voz;
+- integração do avatar;
+- uso de Ollama/Gemini;
+- separação entre componentes.
+
+FONTE:
+
+https://github.com/hikaneko/ai-avatar
+
+STATUS:
+
+Candidato forte para estudo de arquitetura de tempo real.
+
+
+------------------------------------------------------------
+1.3 CYBERVERSE — dsd2077/CyberVerse
+
+Possíveis funções:
+
+- agente humano digital;
+- vídeo em tempo real;
+- WebRTC;
+- persona;
+- histórico;
+- memória;
+- RAG;
+- voz;
+- interrupção;
+- módulos substituíveis.
+
+POR QUE INTERESSA:
+
+É uma referência importante para estudar uma arquitetura modular de agente/avatar em tempo real.
+
+POSSÍVEL USO:
+
+Estudar principalmente:
+
+- separação entre cérebro/LLM;
+- memória;
+- voz;
+- audição;
+- face/avatar;
+- possibilidade de substituir componentes;
+- organização modular.
+
+FONTE:
+
+https://github.com/dsd2077/CyberVerse
+
+STATUS:
+
+Candidato prioritário para comparação estrutural.
+
+
+------------------------------------------------------------
+1.4 CYBERVERSE — Lynpoint/CyberVerse
+
+Possíveis funções:
+
+- WebRTC;
+- memória de persona;
+- RAG;
+- ferramentas;
+- módulos de IA substituíveis.
+
+POR QUE INTERESSA:
+
+É outra implementação/linha relacionada ao CyberVerse e deve ser analisada separadamente.
+
+O fato de ser outra versão não é motivo para descarte.
+
+POSSÍVEL USO:
+
+Comparar com a outra implementação e procurar:
+
+- diferenças;
+- soluções adicionais;
+- componentes;
+- ideias de arquitetura;
+- mecanismos que possam complementar nosso projeto.
+
+FONTE:
+
+https://github.com/Lynpoint/CyberVerse
+
+STATUS:
+
+Material válido para análise.
+
+
+------------------------------------------------------------
+1.5 LINLY-TALKER
+
+Possíveis funções:
+
+- integração com LLMs;
+- reconhecimento de voz;
+- TTS;
+- avatar/talking head;
+- conversa multimodal;
+- MuseTalk para lip-sync.
+
+POR QUE INTERESSA:
+
+É especialmente relevante para a futura camada de:
+
+- avatar;
+- voz;
+- vídeo;
+- sincronização labial.
+
+POSSÍVEL USO:
+
+Extrair:
+
+- componentes;
+- técnicas;
+- referências;
+- requisitos;
+- caminhos de implementação para avatar falante;
+- soluções de lip-sync.
+
+FONTE:
+
+https://github.com/Kedreamix/Linly-Talker
+
+STATUS:
+
+Candidato para análise de componentes.
+
+
+------------------------------------------------------------
+1.6 LINLY-TALKER-COLAB
+
+Possíveis funções:
+
+- adaptação do ecossistema Linly-Talker para execução em Colab;
+- componentes/pesos associados ao projeto.
+
+POR QUE INTERESSA:
+
+Nosso projeto considera o uso de nuvem para tarefas pesadas quando o computador local não for suficiente.
+
+POSSÍVEL USO:
+
+Investigar:
+
+- execução em Colab;
+- utilização de recursos de nuvem;
+- possibilidade de usar a nuvem como ponte para tarefas pesadas;
+- requisitos;
+- limitações.
+
+FONTE:
+
+https://github.com/Hassibayub/Linly-Talker-colab
+
+STATUS:
+
+Material de apoio para estratégia de execução.
+
+
+============================================================
+2. CAPCUT E PIPPIT — REFERÊNCIAS DE PRODUTO
+============================================================
+
+2.1 CAPCUT — AI AVATAR
+
+Relevância:
+
+- criação/seleção de avatar;
+- avatar a partir de foto;
+- vozes de IA;
+- sincronização labial;
+- geração de vídeo.
+
+POSSÍVEL USO:
+
+Não é tratado como núcleo técnico do chatbot.
+
+Serve principalmente como referência de:
+
+- experiência de criação;
+- apresentação do avatar;
+- fluxo de usuário;
+- recursos visuais;
+- experiência de avatar falante.
+
+FONTE:
+
+https://www.capcut.com/pt-br/create/ai-avatar
+
+STATUS:
+
+Referência de produto e UX.
+
+
+------------------------------------------------------------
+2.2 PIPPIT AI
+
+Relevância:
+
+- avatares digitais;
+- avatares personalizados;
+- foto falante;
+- geração de vídeo;
+- criação de conteúdo com avatar.
+
+POSSÍVEL USO:
+
+Estudar:
+
+- experiência do usuário;
+- criação de personagem;
+- apresentação do avatar;
+- fluxo de criação;
+- recursos de avatar.
+
+FONTE:
+
+https://www.pippit.ai/pt-br
+
+STATUS:
+
+Referência de produto e UX.
+
+
+============================================================
+3. PRIMEIRO ENCAIXE COM AS ETAPAS 1–4
+============================================================
+
+------------------------------------------------------------
+3.1 MEMÓRIA
+------------------------------------------------------------
+
+REFERÊNCIAS:
+
+- AI Companion
+- CyberVerse
+
+O QUE PROCURAR:
+
+- memória persistente;
+- memória por personagem;
+- memória por usuário;
+- resumo de conversa;
+- recuperação de informações antigas;
+- armazenamento;
+- recuperação contextual.
+
+ENCAIXE:
+
+Etapa 3:
+
+- ConversationMemory;
+- CharacterMemory;
+- UserMemory.
+
+Etapa 4:
+
+- Fase 6 — memória.
+
+STATUS:
+
+Investigar.
+
+
+------------------------------------------------------------
+3.2 PERSONA / PERSONAGEM
+------------------------------------------------------------
+
+REFERÊNCIAS:
+
+- CyberVerse
+- AI Companion
+
+O QUE PROCURAR:
+
+- separação entre personagem e modelo;
+- personalidade;
+- histórico;
+- regras comportamentais;
+- configuração por personagem;
+- relacionamento com o usuário.
+
+ENCAIXE:
+
+Etapas 1–4:
+
+- Persona;
+- Character;
+- ai-gateway;
+- Relationship.
+
+STATUS:
+
+Investigar.
+
+
+------------------------------------------------------------
+3.3 VOZ / STT / TTS
+------------------------------------------------------------
+
+REFERÊNCIAS:
+
+- AI Companion;
+- hikaneko/ai-avatar;
+- Linly-Talker.
+
+O QUE PROCURAR:
+
+- reconhecimento de fala;
+- síntese de voz;
+- interrupção;
+- baixa latência;
+- streaming;
+- possibilidade de execução local;
+- possibilidade de execução em nuvem.
+
+ENCAIXE:
+
+Etapa 1:
+
+- camada de voz do ai-gateway.
+
+Etapa 4:
+
+- mídia preparada para implementação futura.
+
+STATUS:
+
+Investigar.
+
+
+------------------------------------------------------------
+3.4 AVATAR / LIP-SYNC
+------------------------------------------------------------
+
+REFERÊNCIAS:
+
+- Linly-Talker;
+- hikaneko/ai-avatar;
+- CapCut;
+- Pippit.
+
+O QUE PROCURAR:
+
+- talking head;
+- lip-sync;
+- expressão;
+- movimento;
+- sincronização com áudio;
+- animação;
+- requisitos de GPU;
+- latência.
+
+ENCAIXE:
+
+Etapa 1:
+
+- avatar separado da persona.
+
+Etapa 4:
+
+- mídia preparada, ainda não implementada.
+
+STATUS:
+
+Investigar.
+
+
+------------------------------------------------------------
+3.5 TEMPO REAL
+------------------------------------------------------------
+
+REFERÊNCIAS:
+
+- CyberVerse;
+- hikaneko/ai-avatar.
+
+O QUE PROCURAR:
+
+- WebRTC;
+- WebSocket;
+- streaming;
+- VAD;
+- barge-in;
+- interrupção;
+- comunicação de baixa latência.
+
+ENCAIXE:
+
+Etapa 4:
+
+A decisão entre HTTP/polling e WebSocket permanece aberta.
+
+WebRTC poderá ser relevante principalmente para voz/vídeo em tempo real.
+
+STATUS:
+
+Investigar antes de decidir.
+
+
+------------------------------------------------------------
+3.6 ARQUITETURA HÍBRIDA
+------------------------------------------------------------
+
+REFERÊNCIAS:
+
+- hikaneko/ai-avatar;
+- AI Companion;
+- Linly-Talker-colab.
+
+O QUE PROCURAR:
+
+- o que roda localmente;
+- o que roda em nuvem;
+- como alternar entre provedores;
+- requisitos de hardware;
+- consumo de memória;
+- custo;
+- latência;
+- divisão de responsabilidades.
+
+ENCAIXE:
+
+Princípio geral do projeto:
+
+manter tarefas leves/localmente quando possível e deslocar tarefas pesadas para nuvem.
+
+STATUS:
+
+Candidato importante.
+
+
+============================================================
+4. O QUE JÁ PARECE MAIS PROMISSOR
+============================================================
+
+Neste momento, sem transformar nenhuma opção em decisão definitiva:
+
+1. CyberVerse parece especialmente importante para estudar a arquitetura modular de um agente/avatar em tempo real.
+
+2. AI Companion parece importante para estudar memória persistente, voz, avatar e interrupção.
+
+3. hikaneko/ai-avatar parece importante para estudar uma arquitetura híbrida envolvendo Ollama/Gemini, WebRTC e componentes de voz/avatar.
+
+4. Linly-Talker parece importante para a camada de avatar, voz, vídeo e lip-sync.
+
+5. Linly-Talker-colab é importante para investigar execução de componentes pesados em nuvem.
+
+6. CapCut e Pippit são importantes como referências de experiência de usuário, criação e apresentação de avatares, mas não foram tratados como base arquitetural.
+
+IMPORTANTE:
+
+"Promissor" significa que merece investigação prioritária.
+
+Não significa "escolhido".
+
+
+============================================================
+5. CRITÉRIOS PARA DECIDIR O QUE SERÁ APROVEITADO
+============================================================
+
+Antes de incorporar qualquer solução, verificar:
+
+- compatibilidade com a arquitetura das Etapas 1–4;
+- compatibilidade com nosso hardware;
+- possibilidade de execução local;
+- possibilidade de execução em nuvem;
+- dependências;
+- complexidade de instalação;
+- licença;
+- possibilidade de uso comercial;
+- qualidade do resultado;
+- latência;
+- consumo de memória/GPU;
+- facilidade de integração;
+- possibilidade de substituir o componente posteriormente.
+
+Nenhuma solução será incorporada simplesmente porque parece interessante.
+
+Ela precisa demonstrar utilidade para alguma parte concreta do projeto.
+
+
+============================================================
+6. O QUE NÃO DEVE SER DECIDIDO NESTE DOCUMENTO
+============================================================
+
+Este documento NÃO decide:
+
+- qual LLM será usado;
+- qual modelo de visão será usado;
+- qual modelo de voz será usado;
+- qual avatar será usado;
+- qual provedor será contratado;
+- qual será o preço;
+- qual será a persona definitiva;
+- qual será o design definitivo;
+- qual será o protocolo final de comunicação;
+- qual projeto será incorporado integralmente.
+
+Essas decisões continuam pertencendo às etapas apropriadas do projeto.
+
+
+============================================================
+7. PRÓXIMA FASE DA PESQUISA
+============================================================
+
+A pesquisa deve sair do nível de:
+
+"encontramos projetos"
+
+e passar para:
+
+"entendemos como esses projetos resolvem os problemas que precisamos resolver".
+
+Para cada candidato prioritário, analisar:
+
+1. estrutura de pastas;
+2. componentes principais;
+3. fluxo de dados;
+4. como a conversa chega ao modelo;
+5. como a memória é armazenada;
+6. como a memória é recuperada;
+7. como a persona é configurada;
+8. como voz e áudio entram no sistema;
+9. como o avatar recebe o áudio;
+10. como ocorre o lip-sync;
+11. como funciona a interrupção;
+12. como funciona o tempo real;
+13. requisitos de hardware;
+14. dependências;
+15. licença;
+16. possibilidade de reaproveitamento;
+17. pontos incompatíveis com nossa arquitetura;
+18. soluções que poderiam ser adaptadas ao nosso projeto.
+
+O resultado dessas análises deverá ser registrado neste documento ou em documentos específicos de análise, preservando o histórico das descobertas.
+
+
+============================================================
+8. REGRA PARA NOVOS MATERIAIS
+============================================================
+
+Sempre que um novo projeto, aplicativo, clone, fork, tutorial, biblioteca ou outra fonte relacionada ao Chatbot Namorado Virtual for encontrado:
+
+1. registrar a fonte;
+2. identificar o que ela faz;
+3. identificar qual problema resolve;
+4. relacionar com as Etapas 1–4;
+5. analisar dependências;
+6. verificar licença;
+7. verificar requisitos;
+8. verificar possibilidade de uso;
+9. identificar o que pode ser aproveitado;
+10. somente depois decidir se deve ser mantido ou descartado.
+
+Não descartar antecipadamente porque:
+
+- é clone;
+- é cópia;
+- é de terceiro;
+- não faz exatamente tudo que queremos;
+- parece incompleto;
+- resolve apenas uma parte do problema.
+
+Uma solução parcial pode fornecer uma peça importante da nossa "colcha de retalhos".
+
+
+============================================================
+9. RELAÇÃO COM A ARQUITETURA PRINCIPAL
+============================================================
+
+As Etapas 1–4 permanecem como documento-base.
+
+Este mapa de pesquisa não altera:
+
+- arquitetura;
+- banco de dados;
+- estrutura de pastas;
+- entidades;
+- ordem de implementação.
+
+Ele apenas identifica possíveis soluções externas que podem ajudar a preencher essas estruturas.
+
+A regra é:
+
+ARQUITETURA DO PROJETO
+        ↓
+IDENTIFICAÇÃO DA NECESSIDADE
+        ↓
+PESQUISA DE SOLUÇÕES EXISTENTES
+        ↓
+ANÁLISE
+        ↓
+COMPARAÇÃO
+        ↓
+DECISÃO
+        ↓
+INTEGRAÇÃO, SE APROVADA
+
+
+============================================================
+10. ESTADO ATUAL
+============================================================
+
+Até este ponto, temos um primeiro conjunto de referências técnicas e de produto.
+
+As referências mais importantes para investigação técnica são:
+
+- AI Companion;
+- CyberVerse;
+- hikaneko/ai-avatar;
+- Linly-Talker;
+- Linly-Talker-colab.
+
+As referências mais importantes para experiência de produto/avatar são:
+
+- CapCut;
+- Pippit.
+
+O próximo trabalho não é sair instalando ou copiando esses projetos.
+
+O próximo trabalho é analisar cada um e identificar:
+
+"O que esse projeto sabe fazer que pode resolver uma necessidade já definida nas Etapas 1–4?"
+
+A partir dessa resposta, vamos construindo a solução final por partes.
+
+============================================================
+FIM DA VERSÃO 01
+============================================================
