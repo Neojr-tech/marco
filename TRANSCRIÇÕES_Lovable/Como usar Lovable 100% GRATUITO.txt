@@ -1,0 +1,257 @@
+TRANSCRIÇÃO em 24 de fev. de 2026
+Como usar Lovable 100% GRATUITO (sem gastar créditos)
+https://youtu.be/Xl-6Iqthd8w?si=410gB6QuN5fzKJHd
+
+🔥 Links importantes:
+
+👉 Comunidade Lovable Expert (lives, suporte e networking)
+https://www.lovablebr.club
+
+👉 AppSafe — identifica vulnerabilidades e gera prompts de correção
+https://www.appsafe.ai
+
+👉 AppGuide — gerador do Guia de Projeto com prompts completos
+https://www.appguide.pro
+
+
+
+Então você quer usar o Lovb de graça,
+que é aquele hackzinho, aquela coisa
+para ficar tudo fácil, né? Ou seja, você
+editar projeto sem gastar um crédito
+sequer ou de repente dinheiro nenhum.
+Então pera aí, segura um pouquinho aí,
+não se mexe.
+Tirei uma fotinho sua e vou neste exato
+momento, enviar ela para o Lovable.
+Calma aí, é brincadeira. Fica aqui neste
+vídeo que eu vou te ensinar a partir de
+agora como é que tu pode editar
+aplicativos do Lovbow sem gastar
+créditos. Afinal, eu também já fui atrás
+dessa informação e, por incrível que
+pareça, as instruções também estão lá no
+próprio manual do Lovbow. Vamos ver de
+que forma então a gente pode editar
+aplicativo sem gastar crédito no Lovbo.
+Então agora rapidamente vou passar aqui
+para você alguns passos que você pode
+explorar de forma mais detalhada depois
+que então você vai fazer para conseguir
+editar o seu aplicativo em Lovable de
+forma gratuita. Você vai no seu
+aplicativo Lovable, pode ser criado ou
+um novo que você vai criar e você vai
+vincular ele no GitHub. Então,
+basicamente você faz isso aqui, ó,
+clicando aqui nesse gatinho aqui em cima
+e conectando com o GitHub. Neste
+momento, você vai conectar o seu projeto
+com a sua conta GitHub. Perfeito. Se
+você já o conectou, se ele já tem a
+conexão com GitHub, provavelmente ele
+vai aparecer dessa forma. Fazendo isso,
+o seu projeto ele vai ser transferido
+todo lá pro GitHub. Logo em seguida,
+você vai fazer download do Google
+Antigaravit. E aí você pode digitar
+antigravit
+lá com Yfinal.google
+e você vai fazer o download daquela
+versão que é compatível com o seu
+sistema operacional. Feito isso, quando
+você fizer esse download, instalar,
+provavelmente você vai ter este programa
+aqui aberto no seu computador. E aí você
+vai criar uma pasta para o seu
+aplicativo. Basicamente, após criar a
+pasta do seu aplicativo, você vai clicar
+em open folder, você vai escolher aonde
+está a sua pasta e vai deixar então o
+seu projeto aqui aberto. A partir deste
+momento, o que você tem que fazer é
+copiar URL do seu diretório Git, que
+está lá no GitHub. E para fazer isso,
+você pode voltar aqui no seu projeto do
+Lovable, sua aplicação dentro do
+Lovable, clicar nesse mais e vir aqui no
+GitHub. Esta URL é a URL que você
+precisa para colar lá no antigravit.
+Copia ela aqui, vá novamente no seu
+antigravit. E aí, o que que você vai
+fazer? Você vai vir aqui do lado e aí,
+ó, vai clicar nesses três pontinhos e
+vai na opção clone. Ou seja, você vai
+clonar aqui o repositório do seu GitHub.
+Ao fazer isso, ele vai pedir para você
+indicar em qual pasta você vai colocar o
+repositório. Então, que ele vai baixar.
+Depois que ele fizer o sincronismo de
+tudo, baixar todos os arquivos,
+provavelmente esses arquivos que estão
+aqui, eles são idênticos à aqueles que
+você encontra lá nossa aplicação
+Lovable. Perfeito. Até então os arquivos
+estão lá, mas para as edições
+funcionarem de forma plena, você precisa
+pedir para o Antigravit baixar as
+bibliotecas e dependências de tudo que
+está aqui. E isso é bem simples. Você
+pode simplesmente comandar isso lá no
+prompt agora no antigravit. Então eu
+solicitei aqui que ele instalasse as
+dependências, né? Que ele analisasse o
+código, identificasse, instalasse as
+dependências. E é isso que ele tá
+fazendo, né? Inclusive, ele monta um
+plano basicamente que nem o Lovbasso
+também. Tudo que ele que ele vai
+analisar e projetar, ele te apresenta um
+plano e aí você pode mandar ele proceder
+e então ele executa o plano. Fica de
+olho aqui no chat, ó, porque ele vai te
+pedindo e autorizações, ou seja, que
+você aceite, que você dê run em alguns
+steps e aceite outros. Então você tem
+que ficar sempre de olho no que ele tá
+te pedindo aqui e enfim até que ele
+consiga fazer a análise completa e
+implementar o plano de forma efetiva.
+Então lá ó, conclu a análise, instalação
+das dependências do projeto, o ambiente
+está pronto para edição e verifiquei que
+os testes existentes estão passando.
+Você pode conferir os detalhes no
+walkthrough. Então aqui ele traz um
+walkthrough, né? ele fala onde eu posso
+conferir o meu projeto. Enfim, eu posso
+pedir agora também para ele rodar o
+projeto. Eu posso tanto editar o meu
+projeto localmente na minha máquina,
+assim como eu posso editar aqui e ver a
+alteração, por exemplo, lá no LV. Então,
+vamos lá. Vou simplesmente pedir uma
+breve alteração aqui. Na página inicial
+temos um botão
+no topo,
+eh, que diz começar grátis.
+Vamos alterar ele para inicie agora. E
+aí a óbvio que aqui eu tô mandando algo
+bem breve, né, para ele identificar, ele
+fazer essa breve alteração. E então a
+gente vê se isso aí vai ser refletido lá
+lá no nosso projeto do Lovb. Se nós
+formos lá agora no nosso projeto do
+Lobb, o que que a gente pode perceber
+aqui, ó? Que ao constar o projeto na
+página inicial, né, a gente vai ver aqui
+em cima que tem um botão no topo e o
+label desse botão, se eu não me engano,
+é começar grátis. É aqui que eu pedi a
+nossa alteração. Perfeito. Então, olha
+lá, ó, ele tá dando uma olhada,
+localizou, né, a cultão,
+provavelmente lá na hero section. Então,
+tá certinho. E ele tá pedindo para
+proceder com o plano. Então, o plano ele
+tá aqui, ó. ele vai alterar, né, enfim,
+o que eu pedi. Vamos ver se ele vai
+conseguir executar isso de forma plena.
+Assim que ele fizer a execução aqui, não
+quer dizer que isso vai estar
+automaticamente lá no aplicativo do
+lobo. A gente vai ter que sincronizar
+essa alteração solicitada para que ele
+apareça lá. Agora ele confirmou para mim
+que alterou o texto. Basicamente o que
+eu tenho que fazer é vir aqui no
+sincronismo. Então alteração, né? eu
+fazer um comit aqui e aí a partir desse
+momento sincronizar, né, as modificações
+para que eu possa ver lá no meu projeto
+lovable, certo? Então aqui, ó, ele já
+pegou a alteração e aí às vezes ele
+reflete aqui automaticamente, às vezes
+ele demora alguns segundos. Perfeito?
+Então vamos dar uma olhada. Eu vou dar
+um reload na página para ver se ele já
+identificou a alteração. E agora a gente
+pode perceber que tanto o botão do topo
+quanto esse de baixo está com inicie.
+Agora, se nós olharmos aqui o crédito, a
+gente não teve consumo de créditos no
+caso. Eu não conferi antes, mas você
+pode executar, você vai ver que não que
+não tem, ele não consome créditos algum
+para fazer essas alterações. Bom,
+pessoal, viu como é simples editar sem
+gastar créditos no Lovb? Tudo de forma
+legal? Eu sincronizei o meu projeto no
+repositório privado de código. Peguei o
+código deste meu projeto e sincronizei
+numa IDE que tá no meu computador. Fiz
+uma edição básica. O Lovbow
+automaticamente identifica essa
+alteração e mostra para nós na tela o
+nosso projeto alterado. É claro que para
+você fazer algumas edições mais
+complexas que envolvam migrations, sei
+lá, SQL functions, edic functions em si,
+você vai precisar instalar lá no
+Antigravity um MCP do Supase, que aí
+então você vai conseguir mais
+efetividade nessas alterações. Lembrando
+que pra Lovb Cloud você não consegue
+executar migrations direto dentro lá do
+Supas, mas você pode fazer isso depois
+manualmente. E antes que você diga que,
+ah, então não é de graça, é sim, porque
+as migrations executadas direto no
+painel SQL do Lovb Cloud também não
+geram consumos de créditos. E sendo
+assim, você consegue editar o seu
+projeto fora do Lovb totalmente gratuito
+e conferindo depois as alterações dentro
+do próprio Lovb. Agora, se quando você
+foi executar todos esses passos, esses
+simples passos, de repente gerou uma
+insegurança ou aconteceu diversas coisas
+que não estão aqui no vídeo e você
+gostaria de repente de um acesso mais
+dedicado, mais próximo, na descrição
+desse vídeo aqui tem o link da
+comunidade Lovable Expert. E não precisa
+ser expert para est lá não, viu? Por
+quê? Porque é uma comunidade de
+interações ao vivo. A gente vai todo
+mundo para uma live, você traz sua
+dúvida, traz seu aplicativo, enfim, a
+gente cria coisas ali ao vivo juntos,
+que para mim hoje é a melhor forma de
+você aprender a desenvolver aplicativos,
+até porque treinamento da ferramenta tá
+cheio de forma gratuita e tem o próprio
+manual do Lovb, né? agora criar ao vivo
+com um monte de gente, tirar sua dúvida
+específica do seu projeto e, enfim, a
+gente andar junto, caminhar juntos e
+você poder perguntar ali, eh, trazer o
+seu anseio, enfim, naquele exato
+momento, quando você tá interagindo com
+o seu próprio aplicativo dentro da
+plataforma, só tem um jeito de você
+fazer isso e é participando ali das
+lives da Love Boy Expert. Então é, toda
+semana a comunidade é legal, tá cheia de
+gente bacana lá, desenvolvedores, não
+desenvolvedores, aspirantes, iniciantes,
+enfim. E fica aqui o convite mais uma
+vez, o link tá aqui na descrição. Ah,
+tem mais, viu? Ela sai praticamente de
+graça porque tudo que tu investe nela
+você recebe em desconto em outras
+plataformas como AppSfe ou App Guide. E
+que se você também não conhece, vou
+deixar o link aqui na descrição e falo
+delas num próximo vídeo. Até já. M.
+
