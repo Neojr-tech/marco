@@ -1,0 +1,128 @@
+
+Krea 2 INT8 No ComfyUI Sem placa de Vídeo GRATIS
+
+https://youtu.be/1MNAFF0BAdI?si=hBJAO6o6j0YEs1-z
+
+
+apítulo 1: Introdução: Krea 2 INT8 vale a pena?
+0:000 segundoE ela tá completamente sem censura. Eh, tá perfeito. Eu tô vendo aqui e tá tudo perfeito. E ele entregou uma imagem perfeita aqui. Ela tá completamente sem censura. Então, hoje a gente vai testar
+0:099 segundosum modelo bem interessante que é o Crea 2 int. Eu não vou achar aqui o comentário, mas teve um escrito aqui que
+0:1717 segundosdefendeu esse modelo com unhas e dentes em todos os vídeos que eu fiz e mostrando zeimas de turbo, mostrando Crea 2 turbo, enfim, todos os vídeos.
+0:2525 segundosaté o do Flux, ele comentou aqui que o Crea 2 int é o melhor modelo que existe.
+0:3131 segundosEntão eu vim aqui testar, beleza? Então se você quiser que eu teste alguma coisa, deixa aqui nos comentários também. Ele me falou que o Crea 2 int é
+0:3939 segundosmais rápido, ele é mais leve e ele tem menos censura. E a gente vai fazer todos esses testes aqui. A gente vai fazer testes de precisão, de velocidade e de
+0:4848 segundoscensura para ver se realmente ele vai passar em todas essas etapas. Mas se você não tem placa de vídeo, fica tranquilo. Eu vou rodar um vídeo agora
+0:5757 segundoste ensinando como você vai fazer para rodar esse modelo mesmo sem placa de vídeo. Pode rodar. Então, pra gente começar a fazer a instalação aqui do Confi no Collab, a primeira coisa que
+Capítulo 2: Configuração no Google Colab e ngrok (Sem Placa de Vídeo)
+1:051 minuto e 5 segundosvocê vai fazer com esse método é digitar isso aqui, ó, NGrock no Google. Digitou NGrock, você vai clicar no primeiro link. Presta bastante atenção, porque muitas pessoas têm dúvida nessa parte.
+1:141 minuto e 14 segundosClicou no primeiro link, você vai criar sua conta. No meu caso, eu já tenho, então vou eu vou fazer login, mas não é complicado, você só vai criar sua conta.
+1:211 minuto e 21 segundosPronto, já loguei aqui. E você vai clicar, ó, nesse botãozinho aqui, ó, your authenticking. Pronto. E a gente vai utilizar esse token aqui de
+1:291 minuto e 29 segundosautenticação. A gente vai copiar. Então, vamos deixar essa página aqui. Eu percebo que muitos de vocês fecham e depois perdem essa essa paginazinha aqui. Então, fica nessa página aqui. O
+1:371 minuto e 37 segundospróximo passo é vir aqui e digitar collab, ó, collab no Google. E a gente vai clicar aqui no primeiro link. Clicou nesse primeiro link, você vai vir, ó, em
+1:461 minuto e 46 segundosnovo notebook. Aqui você pode perceber que tem uma célula de de código aonde você pode digitar alguma coisa. E eu vou colar aqui um código, olha só, um código
+1:551 minuto e 55 segundosbem grandão aqui para fazer a instalação do nosso do Confi e do nosso modelo. E eu vou deixar esse código aqui no link na descrição que vai ser uma postagem pro meu blog e você vai poder copiar esse código lá, beleza? Então é isso.
+2:052 minutos e 5 segundosAgora você vai clicar aqui, ó, nessa setinha para baixo e vai alterar tipo de ambiente de execução. E aí você vai clicar aqui, ó, em GPUs T4 e vamos
+2:142 minutos e 14 segundossalvar. E em seguida nós vamos clicar nesse play aqui e ele vai iniciar aqui uma série de instalações. Como você pode
+2:212 minutos e 21 segundosver aqui, essa célula tá funcionando perfeitamente. Eu testei várias vezes, mas se der algum erro aí para você, você vai clicar nesse ícone do Gemini aqui, ó. Vai abrir um chat e você vai explicar
+2:292 minutos e 29 segundosaqui o erro, vai perguntar por que que tá acontecendo isso e você vai pedir para ele corrigir a célula. E o Gemini mesmo vai vir aqui e vai aplicar os as alterações na sua própria célula.
+2:372 minutos e 37 segundosBeleza? E agora ele tá baixando aqui o modelo do Crea 2 int. Mas essa a velocidade de download aqui vai variar
+2:442 minutos e 44 segundosmuito aí do horário, conta, enfim. Eu não sei bem o que que faz variar, mas eu percebo que varia.
+2:522 minutos e 52 segundosMuito bem, ele já instalou todos os modelos aqui, passou por volta de 5 minutos. E o que você vai fazer? Ele já te dá um link aqui para você acessar o NGOC. Se você abrir aqui, ele já vai abrir aqui a página que você pediu aqui.
+3:023 minutos e 2 segundosMas se não der, você já tinha deixado ela salva aqui. Beleza? Agora a gente vai copiar esse token e vamos colar aqui. E aí é só dar enter que ele vai
+3:113 minutos e 11 segundosseguir aqui as instalações e dar pra gente o link público pra gente acessar o confi e o link é esse daqui, ó. Acesse o link seguro Grock. É esse link aqui, ó, que você vai clicar e vai acessar.
+3:203 minutos e 20 segundosNormalmente dá esse errinho aqui mesmo.
+3:223 minutos e 22 segundosAí é só você vir aqui e dar um enter que ele vai abrir o confião, o confiá aberto e a gente pode começar aqui o trabalho.
+Capítulo 3: Abrindo o ComfyUI e carregando o modelo
+3:273 minutos e 27 segundosEntão eu tô aqui com confi aberto e a gente vai testar aqui o modelo. A primeira coisa que você vai fazer é vir aqui, ó, em modelos.
+3:353 minutos e 35 segundosE aqui, ó, a gente vai botar crea, ó, já apareceu aqui. É esse modelo aqui, ó, crea 2 into.
+3:433 minutos e 43 segundosPara imagem. É só abrir aqui o workflow.
+3:473 minutos e 47 segundosCaso você queira instalar aí no seu computador, você pode vir aqui, ó, e clicando aqui, baixando esses modelos e colocando eles dentro das pastas
+3:553 minutos e 55 segundoscorrespondentes no confio, você também pode utilizar esse método aqui para rodar ele com o Google Collab em combinação com o Google Drive, no método
+4:034 minutos e 3 segundosque eu que eu ensinei no vídeo aqui embaixo, que eu vou deixar aqui na descrição, caso eu lembre, mas lá eu te ensino tudo, inclusive como a como burlar os o a limitação de 15 GB do
+4:124 minutos e 12 segundosGoogle Drive. Dá uma olhadinha lá naquele vídeo. Mas beleza, vamos voltar aqui para o creador. O primeiro node que a gente vai ver é esse daqui, que é o de
+4:204 minutos e 20 segundosproporção. A gente pode vir aqui, ó, e tá mudando aqui a proporção. Vamos procurar aqui 16 por9. É 9 por 16. Ah,
+4:274 minutos e 27 segundosnão, aí ó. 16 por9. Esse aqui, wide screen. Agora eu vou fazer o seguinte, eu vou clicar aqui em executar com esse prompt que tá aqui, só pra gente
+Capítulo 4: Primeiro teste de geração e velocidade
+4:344 minutos e 34 segundoscarregar o modelo na Verran. E aí ele, eu acho que ele deve gerar aquela imagem daquele cara chutando a bola de futebol, que é a primeira imagem ali de capa do
+4:424 minutos e 42 segundosdo modelo. Normalmente é isso que acontece. Muito bem, a imagem aqui foi gerada.
+4:504 minutos e 50 segundosEssa imagem aqui eu nem tinha lido pronto, mas essa imagem aqui mesmo do, enfim, do cara chutando a bola de futebol. Mas como eu mudei a proporção,
+4:574 minutos e 57 segundosnão ficou exatamente igual. Eu não contei aqui, mas eu vou deixar aí na tela o tempo que demorou para fazer essa primeira geração, que é a mais lenta,
+5:045 minutos e 4 segundosporque tem o tempinho ali de carregar o modelo na Veran. Enfim, já deixa o like aqui só por eu ter ficado aqui esperando, enfim, gerar essa imagem aqui para você. Beleza? Deixa o like aqui
+5:135 minutos e 13 segundosembaixo, não esquece. Agora vamos fazer aqui, ó. Eu peguei o chat GPT e pedi para ele me dar dois promps aqui pra gente testar esse modelo e enfim, eu vou
+5:215 minutos e 21 segundossimplesmente colar aqui e esse prompt eu nem sei o que que o chatpt gerou. Vamos ver o que que ele pediu pra gente, para ele gerar pra gente aqui. Olha só, como você pode ver, ó, já carregou bastante
+5:305 minutos e 30 segundosaqui porque o modelo já está na VRAM, mas eu também vou deixar o tempo dessa segunda geração aqui, só para você ter uma noção do quão mais rápido é. Beleza?
+5:395 minutos e 39 segundosA imagem aqui foi gerada, foi um pouco mais rápido, mas enfim, eu vou deixar aí na tela todos os tempos de geração para
+5:465 minutos e 46 segundosvocê tá, enfim, acompanhando e tendo uma noção. Eu tô reparando uma naturalidade bem legal, cara. Bem legal mesmo. Ela ainda tá meio cinematográfica, né?
+5:555 minutos e 55 segundosPorque provavelmente o chatpt me deu um promptim, ó, cinemática. Enfim, não tá tão parecendo que foi tirado ali no celular, mas isso aqui é uma questão do
+6:036 minutos e 3 segundosprompt. Eu sei que eu já falei algumas vezes aqui que eu acho que o que o Z imago é um dos melhores modelos para esse tipo de tarefa aqui de geração de
+6:106 minutos e 10 segundosimagens. Porém, cara, o Crea 2 está me surpreendendo legal, cara. Eu tô gostando bastante dessa imagem aqui. Ã, eu já tinha testado o Crea 2 Turbo em
+6:196 minutos e 19 segundosoutro momento, mas esse INT8 aqui eu achei que ele que é sim mais rápido. E eu tô curtindo aqui, ó. Eu tô curtindo realmente o resultado que ele tá
+Capítulo 5: Teste de precisão de layout e prompt detalhado
+6:276 minutos e 27 segundosentregando. E eu queria fazer agora um teste de precisão de prompt pra gente ver se ele realmente vai entregar um prompt bem preciso, se ele consegue
+6:356 minutos e 35 segundosentender muito bem um prompt muito específico. E pra isso eu vou utilizar o meu gerador de prompts de imagem. Aqui
+6:436 minutos e 43 segundosó, no meu blog tem esse essa abinha aqui, ó, prompt.
+6:486 minutos e 48 segundosEu não sei se vai est aqui sempre, talvez quando você tiver vendo aqui, eu já tenha mudado o layout, alguma coisa, mas eu vou tentar deixar essa ferramenta aqui para você tá utilizando. Se eu
+6:576 minutos e 57 segundoslembrar eu deixo aqui na descrição também. Ã, aqui você pode escolher aqui o tamanho da imagem. Vamos deixar aqui 16x9 mesmo. E o que que você faz? Você
+7:057 minutos e 5 segundosclica duas vezes e ele coloca um elemento aqui. Beleza? E eu vou colocar aqui um elemento, ó. Vamos botar aqui, ó, desse tamanho aqui, mais ou menos.
+7:137 minutos e 13 segundosAqui a gente pode descrever, ó. Vou botar uma uma praia ensolarada.
+7:197 minutos e 19 segundosEsse aqui é o ambiente, né? No caso, é um ambiente inteiro. E esse aqui, ó, agora aqui embaixo é o elemento, o elemento que tá marcado é o que você descreve aqui. Vou botar, ó, uma jovem
+7:297 minutos e 29 segundosde 20 anos com um biquíni amar
+7:367 minutos e 36 segundosamarelo e cabelo preto. Um biquíni amarelo e cabelo preto. Beleza, eu vou chegar só um pouquinho para cá. Aqui, ó,
+7:447 minutos e 44 segundoseu vou botar aqui em cima, ó, mais ou menos desse tamanho, um sol amarelo.
+7:507 minutos e 50 segundosAqui, ó, vou pegar um elemento bem específico. Vou deixar um bem pequenininho aqui. Vou botar aqui, ó, um beijo à flor. Deixa eu chegar ela só um pouquinho para cá. E o beij flor um
+7:577 minutos e 57 segundospouquinho para cá. E aqui eu vou fazer o seguinte, ó. Vou botar aqui, ó, um maiorzinho, mais fino assim. E vou botar aqui, ó, um coqueiro. Beleza? Só um
+8:078 minutos e 7 segundoscoqueiro aqui embaixo. Vou botar aqui, ó, um menorzinho aqui assim. E vou botar aqui, ó, uma criança fazendo um
+8:168 minutos e 16 segundoscastelinho de areia. Beleza? Esse daqui vai ser o layout da nossa imagem. Aqui embaixo
+8:238 minutos e 23 segundosvocê tem duas opções, que é o J ou prompt normal. Nesse caso aqui a gente vai utilizar prompt normal, mas se for um modelo que usa JSON, esse essa
+8:318 minutos e 31 segundosferramenta aqui já cria também. Eu vou copiar e a gente vai colar esse prompt aqui no crea 2 e vamos ver o resultado que ele vai entregar. Lembrando, daqui a
+8:408 minutos e 40 segundospouquinho a gente vai fazer um teste de censura também. Eu vou testar a censura desse modelo, porque o maninho falou aqui embaixo que ele não tem censura.
+8:478 minutos e 47 segundosEntão a gente vai fazer esse teste aqui e eu vou te mostrar o resultado. Se ele tiver o, enfim, você também vai ver que ele não vai atender a essa demanda, mas
+8:568 minutos e 56 segundospelo que eu vi aqui nessa primeira imagem, ele já é um modelo muito bom, mesmo que ele tenha censura. Normalmente eu mesmo não utilizo constantemente
+9:059 minutos e 5 segundosesses métodos com o Google Collab, porque eu utilizo mais o Kle. Eu tenho um notebook que eh ele puxa todos os
+9:139 minutos e 13 segundosmodelos de um dataset que você já deixa lá na sua conta lá mais de 200 GB de modelos e tem todos os modelos que eu
+9:209 minutos e 20 segundosutilizo. Aí eu abro confi lá e eu utilizo ali do jeito que eu quiser ali com os modelos que eu sempre utilizo e você vai poder personalizar isso de acordo com os modelos que você utiliza.
+9:299 minutos e 29 segundosEu deixo esse notebook lá para pros alunos do meu treinamento de Confi, que o link também vai est aqui na descrição.
+9:359 minutos e 35 segundosEle colocou todos os elementos, mas tá um beij flor. É isso aqui é um beijafor. Não sei, cara. Ele botou outro aqui, ó.
+9:429 minutos e 42 segundosO sol amarelo. Vamos, vamos ver aqui, ó.
+9:459 minutos e 45 segundosUma menina de 20 anos, um coqueiro, um beijaflô, uma criança e um sol. Ele colocou todos os elementos, mas ele não
+9:539 minutos e 53 segundospegou precisamente tudo que eu pedi nos locais que eu pedi. Mas isso aqui não tem a ver com a qualidade do modelo, tem a ver mais com a com o formato do
+10:0110 minutos e 1 segundoprompt. Talvez aquele formato de promptenda tão bem aqui o Crea 2 int, porque se eu não me engano, eu não lembro o Crea2 normal, ele teve uma
+10:0910 minutos e 9 segundosprecisão mais interessante aqui, não lembro, não lembro, não lembro mesmo. E tem um vídeo aqui de cria dois também que você pode estar olhando, mas a
+10:1710 minutos e 17 segundosqualidade da imagem é boa. Esse Beijaf aqui ficou meio grande, cara, mas eu acho que eu, enfim, ele tá meio grande aqui também. Será, cara, que a gente testa aqui o Prompt J para ver se ele
+10:2510 minutos e 25 segundosvai melhor? Vamos testar aqui o Prompt Jom. Vou vou mudar o prompt para JS e ver se ele vai se sair melhor. Pronto, coloquei aqui o prompt em JS. Vamos ver
+Capítulo 6: Teste de prompt estruturado em JSON
+10:3410 minutos e 34 segundosse ele vai se sair melhor. Ó, galera, enquanto ele tá gerando aqui, eu queria mostrar para vocês aqui, ó, esse meu o meu canal no WhatsApp. Tem bastante
+10:4110 minutos e 41 segundosmaterial aqui, não é só divulgação, enfim, eu coloco bastante coisa aqui. E ele tá com 77 seguidores, ó. Não sei se vocês vão conseguir ver, mas beleza. Tá
+10:5010 minutos e 50 segundoscom 77 seguidores. Agora começa, segue aqui, cara. Vai tá na descrição lá. eu vou publicar notebooks que talvez eu não traga uma aula aqui, enfim, e aí se
+10:5910 minutos e 59 segundosbater aqui umas 150 pessoas, enfim, aí a gente consegue talvez até criar ali um grupo aberto pra galera tá tá conversando. Não vou prometer o grupo
+11:0611 minutos e 6 segundosagora não, mas eu vou prometer que eu vou começar a colocar mais conteúdo aqui se vocês seguirem aqui o canal do WhatsApp, beleza? Então o link também
+11:1311 minutos e 13 segundosvai tá aí na descrição. É um material aí que vai, enfim, pode, talvez eu entregue alguma coisa aqui que te ajude e mais
+11:2011 minutos e 20 segundosrápido do que se você esperar eu trazer um tutorial aqui no canal, beleza? Então é de graça, não vai te custar nada.
+11:2511 minutos e 25 segundosEntão segue lá. Prom deção ficou uma completa merda. Ficou, enfim, ele colocou todos os elementos aqui e eu diria até que ele acertou um pouco mais
+11:3311 minutos e 33 segundosa posição de cada coisa, né? Deixa eu ver.
+11:3811 minutos e 38 segundosNão, a criança deveria estar mais ou menos aqui e a menina, enfim, não tem praia.
+11:4311 minutos e 43 segundosEu não não gostei do resultado com Prompt Jom, o que eu não acho que é uma desvantagem, porque promp Jom é uma merda de você conseguir fazer. Eu eu
+11:5011 minutos e 50 segundosprefiro as que entendem melhor o prompt humano, a linguagem mais humanizada.
+11:5511 minutos e 55 segundosIsso daqui eu eu diria que é uma vantagem. Eu acho que o Ideogram 4 ele usa mais o Prompt J. Mas enfim, isso
+12:0312 minutos e 3 segundosdaqui não é uma desvantagem. Eu eu tô gostando do resultado dele. Eu tô gostando. E mesmo assim você pode ver que ele entrega uma qualidade bem interessante, cara. Uma bem interessante
+12:1112 minutos e 11 segundosmesmo. Ele não, ele só não curtiu muito esse esse prompt J. Mas beleza, deixa eu apagar aqui e vamos fazer o nosso teste
+Capítulo 7: Teste de censura (NSFW) e qualidade visual
+12:1812 minutos e 18 segundosde censura. Agora eu coloquei esse prompt aqui que você pode ler aí, ó. Eu vou aumentar para você ler aí. Foi esse prompt aqui que eu utilizei e ele gerou
+12:2712 minutos e 27 segundosa imagem. E eu vou mostrar para você agora o resultado dessa geração aqui nesse teste de censura. A imagem foi mesmo 9x1 e ela tá completamente sem
+12:3612 minutos e 36 segundoscensura. E diferente do Creador normal, né, do Creador Turbo que eu testei no outro vídeo, esse daqui entregou perfeitamente. E eu diria que sim, ele
+12:4512 minutos e 45 segundosentregou melhor do que o Z imago. E a gente consegue ver um detalhamento bem grande aqui, ó. Eu falei que uma mansão
+12:5212 minutos e 52 segundosde luxo, enfim, de fundo, ela em pé, falta de corpo inteira. Ele ele respeitou perfeitamente o prompt. E aqui a gente já traz o outro ponto que ele
+13:0113 minutos e 1 segundoentende que ele trabalha melhor com prompt, com linguagem humanizada. E isso é um ponto positivo pro modelo. Olha só, ele entregou aqui vários detalhes
+13:0913 minutos e 9 segundosinteressantes aqui da casa. Isso daqui é bem bem legal mesmo. Ele, olha só, até o reflexo do do lustre tá aqui no quadro.
+13:1813 minutos e 18 segundosCara, isso daqui é bem bacana. O modelo é bem forte mesmo. E a pessoa, né, propriamente dita, né, que a imagem sem censura é tá perfeito. Eu tô vendo aqui
+13:2713 minutos e 27 segundose tá tudo perfeito, cara. E eu diria até que tá mais preciso do que o próprio Z imago, que eu já disse, né, que é um modelo muito bom para você tá trabalhando com esse tipo de coisa.
+Capítulo 8: Veredito final sobre o Krea 2 INT8
+13:3613 minutos e 36 segundosEntão, aprovado. O Crea 2 intou um resultado bem legal e ele conseguiu sim trabalhar com imagens sem censura de uma maneira bem precisa, cara. Bem precisa.
+13:4713 minutos e 47 segundosEle teve alguns problemas ali na precisão do prompt, mas com certeza aquilo ali é uma questão do formato do prompt. Eu fiz mais um teste off screen
+13:5413 minutos e 54 segundosaqui só para testar ele se ele realmente entrega e eu pedi para ele gerar mais uma imagem sem censura e ele entregou uma imagem perfeita aqui. Ela tá
+14:0214 minutos e 2 segundoscompletamente sem censura e ela é bem detalhada, bem bonita. É uma imagem bem interessante. Então o modelo tá completamente aprovado. E muito obrigado ao inscrito aí que indicou esse modelo.
+14:1314 minutos e 13 segundosEle realmente superou as minhas expectativas. Eu não tinha uma expectativa tão alta com esse modelo, até porque eu achei que seria uma versão capada do Crea 2 e não é isso. Ele é
+14:2214 minutos e 22 segundosmais rápido e ele tem menos censura. Se eu encontrar, eu deixo aí na tela o comentário do do escrito que indicou o modelo. Beleza? Mas é isso aí por essa
+14:3014 minutos e 30 segundosaula. É isso, a gente se vê no próximo vídeo e tchau.
+
+Sincronizar com o momento do vídeo
