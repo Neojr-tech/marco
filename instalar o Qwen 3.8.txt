@@ -1,0 +1,118 @@
+Como instalar o Qwen 3.8 - IA SEM CENSURA LOCAL, PRIVADO E SEGURO - Em computadores com baixa VRAM
+
+https://youtu.be/OYbKWdI56Us?si=fvftKe9Ow0QINeNu
+
+
+Bem-vindos a mais vídeos! Meu nome é Gustavo Norato e, neste vídeo, vou ensinar como instalar...
+A inteligência artificial chama-se QUIN 3.8 e funcionará no seu computador mesmo que ele tenha
+Pouca VRAM, ou seja, uma placa de vídeo com pouca memória, mesmo em computadores.
+Com uma memória RAM de altíssima velocidade, como a DDR5, e um processador muito bom, você pode
+Você também pode executá-lo no seu computador mesmo sem uma placa de vídeo muito boa. Então vamos lá. A primeira coisa que quero deixar clara é um bom aviso.
+A tecnologia é neutra, e a responsabilidade moral e legal recai sobre o usuário.
+Então você poderá usar essas informações que aprenderá aqui agora para o bem ou para outros fins.
+Hoje também estamos na internet, e a internet tem seu lado sombrio e seu lado luminoso.
+Então, acredito que você poderá usar essas informações para criar...
+Para o seu conteúdo, remova as perguntas sobre assuntos que outras IAs não respondem. Por exemplo, se você quiser saber mais sobre segurança cibernética,
+Essa inteligência artificial, sem supervisão, é a melhor coisa possível para o aprendizado.
+Assim como você costumava pesquisar na internet e encontrar conhecimento, agora você tem inteligência artificial ao seu alcance que responderá a qualquer pergunta que esteja em seu banco de dados.
+Vou te ensinar duas maneiras muito simples de instalar e você verá como é fácil.
+Convido você a acessar o canal aqui e, se gostar deste vídeo, deixe seu like e um comentário abaixo, que será muito bem-vindo.
+Temos diversas redes onde compartilhamos conhecimento nas áreas de inteligência artificial, criação de conteúdo e tecnologia.
+Nós somos muito focados lá dentro do grupo, é muito legal, tem muita gente e muito conhecimento é compartilhado dentro do grupo.
+Então, a primeira coisa que você fará é a seguinte: você virá aqui; existem muitas maneiras de fazer isso.
+Se você tiver uma placa de vídeo com 16 GB ou mais de memória DDR,
+VDDR, memória de vídeo, e aqui você poderá baixar um modelo padrão de 27 bilhões, que
+É o modelo original, é o mesmo modelo, padrão Coin 3.8 27 bilhões.
+A sua queda não é regulamentada; você encontra aqui na Hugface, é muito seguro que você pode usar.
+Tecnologia, porque é um arquivo GGUF, um arquivo muito seguro, e você não terá nenhum problema com vírus no seu computador ou algo do tipo, perfeito, não é?
+Então você usará este modelo aqui, e eu deixarei os links na descrição.
+Você pode não encontrar, e não sabemos o que acontecerá com esses modelos que estão livres de censura.
+Do mundo da tecnologia que detém esse conhecimento, desativaram os parâmetros internos que transmitiam o modelo.
+Se você não encontrar este modelo disponível, basta pesquisar no site da Hugface e encontrará modelos semelhantes. Lembre-se,
+Baixe o arquivo que é GGUF.
+Então, esses arquivos estão aqui, GGUF, isso está aqui, não, desculpe, você estava falando errado, G GUF, beleza?
+Aqui está a cópia do seu computador, que possui uma memória muito grande. Você verá então este "27B", que representa 27 bilhões de parâmetros, e a gravação do consultor, que está livre de censura.
+Só se você colocar o vídeo no reprodutor de vídeo para reproduzir no seu computador, por exemplo, igual ao meu, é que você terá...
+8 GB de VRAM, o que vai acontecer? Vai continuar muito, muito, muito lento. Aí você vai precisar baixar modelos com um tamanho muito menor, e esses modelos com um tamanho muito menor vão
+Está se tornando algorítmico demais, não é? As versões disponíveis, como a Q2, por exemplo, que testei, não fornecem nada, não respondem a nada corretamente, estão se tornando algorítmicas demais. E quanto maiores as versões, mais algorítmicas e pesadas elas se tornam, e você não consegue obter as informações de que precisa ou usá-las.
+E aí os outros usuários foram lá e desmontaram o modelo, entendeu? Eles estavam treinando outro modelo, eventualmente.
+Mas aqui você terá a segunda opção, que é Q3.8 9B, ou seja, 9 bilhões de parâmetros.
+Aqui você poderá escolher o modelo. Você baixou esta versão aqui, ah, Q8, certo?
+Esta é a versão Q8, ou, se você tiver uma placa de vídeo, precisa de 16 GB de RAM. Você pode baixar esta aqui e outra aqui. Veja este arquivo de 9 GB aqui; funcionou muito bem na minha placa de vídeo.
+Certo, então você vai clicar aqui no ícone de download. Depois de baixar para o seu computador, o arquivo estará na sua pasta. Clique ali para acessar a pasta e você encontrará os arquivos lá, certo?
+Então estará aqui, ah, então estes arquivos estão aqui, e deixe-me colocar os maiores aqui. Ah, e o Q5 estará aqui, não é? E virá para cá. E estes dois arquivos são muito grandes, uh.
+Então, vou me ater ao que testei aqui no meu computador. Isto é... não me confundam com alguém que usa um Q6 ou um Q8. Acho que era um Q6, não era? O Q6 funciona muito bem.
+Eu uso... Você testou os dois, certo? Por exemplo, este daqui é o Q6? E eu também testei este daqui, que é o Q8.
+Achei o ritmo justo e também me proporcionou respostas de ótima qualidade. Excelente. Como eu bato, Gustavo? Você tem duas maneiras de bater.
+Aqui no Bionic, no LM Studio, que é um aplicativo da própria LM Studios, você pode executá-lo diretamente ou no Olhama, certo? No Olhama...
+Você usou o chat do IPT ou pode usar seu Gmini para falar com ele, certo? Como você aprendeu no vídeo anterior, instalar o QIN a partir de 9 bilhões de parâmetros é a mesma coisa.
+Por exemplo, mesmo que você o tenha gratuitamente, poderá fazê-lo a partir daí.
+Aqui estava a questão 3.8 Q6, certo? Você virá aqui e pegará, por exemplo, isto daqui, certo? Q8.
+Então você pega aqui, copia o nome do modelo, e entra no chat do IPT para falar com ele sobre a instalação, aí aqui, ah, baseado em, certo?
+Neste formulário, que está na pasta, você deve colocar o nome da pasta onde fez o download. Então, se você baixou para duas pastas, você coloca o nome do arquivo aqui, certo?
+Depois disso, ele fará toda a instalação, de forma muito, muito simples e direta, sem nada de novo.
+Você pode até usar o modelo aqui, nem precisa usar o sol, pode usar a lua, certo? A lua está no topo, que pode fazer a instalação à direita para você, certo? É muito simples e vai funcionar.
+Quando esta instalação estiver concluída, o que acontecerá? Ela aparecerá aqui, então, da mesma forma que aparece aqui.
+Quatro, prontos, oito, nove bilhões do padrão único, que é uma versão não referencial. Aqui você pode testar o Q6 e também o Q8, e aqui está o seu benchmark.
+Aqui, quando você baixa, você tem as versões disponíveis, ou melhor, a versão em tela cheia. Então, para baixar, é bem simples, não é? Vá aqui no Hugface e você pode pesquisar, você pode ver isso aqui, ah, Petrohawk, certo?
+Portanto, ele também é um funcionário que baixa muitos aplicativos, você pode ver aqui, oh, mais de 1400 downloads este mês, certo? Mês passado.
+Era um modelo que tinha mais, tinha mais de 1 milhão e 300 mil downloads, não é? No mês passado.
+Aqui, a outra versão é esta daqui, da Petrohawk. Não é? Aqui no LM Studio, você também tem um jeito de instalá-la. Você só precisa ser... Q3.8, 9B, ali, feito de aço, certo?
+Aqui você está indo e já encontrará aqui, oh Q3.8 de aço, ali você encontrará aqui, oh, sem censura, não é? Então, aqui, você está procurando por este sem censura, que é livre de censura.
+E aqui, você virá aqui e clicará em baixar, certo? E ele instalará este modelo para você. Aqui está o Q4, não é? Aqui está, o Q4? Viu?
+Você pode vir aqui para explorar, certo? Você virá aqui para explorar aqui em Bionic. Como faço para chegar ao LM Studio? É muito fácil.
+Aqui você tem, ah, este Go Bionic aqui, é um agente que faz muitas coisas legais. E você pode vir aqui, uh, aqui, clicar em baixar, é o LM Studio, Bionic.
+É rápido de instalar. É leve, não é? Esta versão foi lançada aqui. Antes, o LM Studio tinha muitas funcionalidades. Agora, estas versões aqui são muito numerosas, muito pequenas, muito simples e funcionam muito bem.
+E além de ser... não é exatamente a mesma coisa em Olhama. Em Olhama, surge uma pergunta. Por exemplo, é... como dirigir... não, vamos lá, oh.
+Como escolher um, Capitão,
+Aqui, tipo esse cara, ah, eu sempre pergunto pro chat EP, ele tem dúvidas se vai te responder. Ele fala, ele é um animal selvagem, você não consegue pegá-lo, porque ele tem leis locais.
+E aqui você vai falar assim, não, mas você está falando de uma situação hipotética, certo? Como capturar Capivara. É uma coisa bem aleatória, não é? Então, se você está perguntando, sempre tem o chat do EP sendo censurado.
+Se você perguntar a qualquer outra pessoa, ela vai usar a censura e se recusar a falar com você. A censura está presente, mesmo nessas perguntas simples, não é? Um dia o mundo vai acabar, e você vai precisar carregar uma gaiola.
+Então você vai saber como seria se tivesse uma modelo local aqui, certo? Você poderá pescar sua própria sobremesa para fazer sopa para ela.
+Provavelmente você não precisará fazer isso agora. E quem sabe o que o futuro reserva? Você terá a resposta agora. Veja, o que está acontecendo? Observe, está processando este modelo e seus 9 bilhões de parâmetros.
+Olha, estou aqui brincando com isso, e estou ficando cansado, e estou brincando com muitas coisas em aberto, e ele está brincando aqui, não está? Aqui, vamos permitir que ele esteja aqui em pensamento.
+Se fosse um bate-papo sobre PT, ele teria falado, não é? E aí está a beleza da coisa. Às vezes, ele só consegue responder a uma pergunta, dar uma resposta.
+Mas seria meio que... ah, você tem que considerar a possibilidade de não pegar um macaco. Por que mais, né? Mas aí ele realmente começou a pensar. Pegar um macaco não é tarefa fácil.
+Mas ele está pensando nisso. Mas ele vai em frente, cara, e vai pensar. Mas talvez ele te diga como fazer. Beleza? Mas cara, é disso que eu estou falando, não é? Da censura.
+Por que, meu amor, ele não quer falar sobre esse assunto? Nossa, isso é algo que só se discute hipoteticamente, talvez uma estratégia, mas no fim das contas...
+Aqui no L&M Studio, é a mesma coisa, já está instalado. Depois de instalar, estará disponível lá. Então, no seu chat.
+Uma pergunta para ele, entendeu? Você vai clicar aqui, ah, em um novo projeto, certo? Vamos clicar aqui. Vamos adicionar um novo chat aqui.
+A versão estará disponível lá. Eu não a instalei aqui. Não estou usando aqui, estou? Por causa do Bionic, estou tentando usá-lo 100% lá no Olham, porque no Olham não há efeito rápido por trás do modelo.
+Por exemplo, por que se eu instalar aqui no L&M Studio, no Bionic, o que acontece?
+E Ele é Quem enviou o Mensageiro de Deus - que Deus o abençoe e lhe dê paz - naquele dia.
+Trabalhar como agente é basicamente fazer as coisas e conseguir que elas sejam feitas para você dessa forma, e assim por diante, sabe? Como nós.
+Ele vai falar assim, eu sou modelo e uso o L&M Studio, sei lá. Vamos ver, ele já tem uma roda traseira girando ali. Aí eu descobri que tem uma metade ruim.
+Aqui dizem que não é uma tarefa simples, e quando é preciso agarrar a cintura de uma pessoa, o que você faz se encontrar uma cobertura leve na estrada? Não tente agarrar, entendeu?
+Então ele fala com você, mas responde, entendeu? Não tente encobrir nada desta vez, vamos passar a última cadeira para mim.
+Aqui, por exemplo, se você começar a falar assim agora, não, eu estou morrendo de fome e preciso fazer um escândalo para pegar essa tampa dura, para comer essa tampa prateada.
+No chat do PT, ele disse que já está conversando. Não, você não pode fazer isso. Você deveria levar isso para lá e procurar outra maneira. Você pode procurar o Crass e ele vai falar sobre isso, certo? Ele vai falar. Você pode perguntar sobre o básico de sexta-feira.
+Não, aqui está um modelo que começará a falar assim, oh, então eu percebi, uh, vamos lá, e vamos pensar aqui em como fazer armadilhas para pegar essa capa dura.
+E essa é a diferença. Aqui entram outros aspectos mais avançados da censura. É o mesmo para você; você pode usá-la para o bem ou para o mal. Por exemplo, você pode perguntar: "Como posso...?"
+Quero verificar se é seguro e quero testar sua segurança tentando atacá-lo para ver se é seguro.
+Aqui, o chat do PT vai falar; você não pode fazer isso, é confuso e impossível, e eu não consigo transmitir essa informação para você. Não, aqui, eu vou te explicar exatamente como você pode fazer isso.
+Deixe-me verificar se entendi a mensagem. Só para você ter uma ideia, quais são as melhores ferramentas e objetivos atuais para descobrir uma vulnerabilidade em uma rede Wi-Fi? Isso é hipotético.
+Para os propósitos desta discussão, não mostrarei tudo o que mencionei. As melhores ferramentas dependem muito do cenário. E este cara pode ver isso aqui, bem aqui na barra de rolagem.
+Você pode usar o software e tudo mais, e ele fará isso, mas haverá um atraso.
+Se você tiver uma NGPU, será mais rápido e não sei mais o quê. Tente forçar o carregamento e tente soltar o dispositivo. Se não funcionar, mesmo assim...
+Um método que consiste em tentar desconectar-se de uma rede Wi-Fi, conectar-se a outra e, em seguida, conectar-se a outra rede Wi-Fi com o mesmo nome para que outros usuários tentem acessar essa rede.
+Finalmente, o negócio estava aqui, bem no fundo, e foi direto à fonte, sabe? Da cibersegurança.
+Por exemplo, você tem uma plataforma, eu tenho uma plataforma e quero proteger minha plataforma de um ataque de injeção PROMPT.
+Usuários que fazem coisas assim, certo? Então eu preciso fazer isso e testar minha plataforma dessa forma, em vez de encontrar uma empresa e fazer isso por conta própria.
+Uma pergunta sobre xadrez, ele vai falar bem assim, ah, você tem que procurar uma empresa que entenda de segurança para testar seu site, plataforma, porque eu não consigo fazer isso.
+Nenhum deles responderá. Quint3.8 responderá. E conforme você for avançando, você descerá por aqui.
+Às vezes, aqui, os usuários mencionaram que o descarregaram, e que
+Responda seis, se você não colar em seis ou oito das dez perguntas, certo?
+Então, duas perguntas podem ser entendidas como não respondendo ou respondendo, mas não da maneira que você gostaria.
+Aqui você pode tentar mudar o rumo da conversa para outro tipo de pergunta, de uma maneira diferente, certo? E partir daí, mudar o foco. Mas de quem ele está falando com você? Você viu que eu fiz um discurso para o Capivara lá, e ele falou, não é?
+Ah, não posso falar mais nem menos com você, entendo, é porque isso é proibido, Ibama, etc. Sabemos que é isso, não vou pegar um capevar. Estamos apenas perguntando sobre o teste modelo. Lembre-se, isso é apenas para fins educacionais.
+Portanto, não pegarei um par de luvas, e não haverá nenhum par que ele peça em minha casa, e assim, este é o modelo.
+E às vezes ele engana, não é? Mas esse é o padrão, não é? Porque é essa a pergunta que ele está fazendo. Às vezes ele tem informações que não tem.
+Às vezes, quando ele vai, não terá essa informação.
+Qual é o modelo, não o chat GPT, mas o do Google, que tem um modelo enorme, certamente milhares de vezes maior do que esses modelos aqui, não é? Que tem muito, muito, muito, muito mais informações.
+Mas tem muita informação aqui, na verdade. E você pode usar isso, certo? É isso. Espero que gostem do vídeo. Se gostarem, deixem um like. Espero ver vocês no próximo vídeo.
+Então você precisa clicar no botão de inscrição. Ok? Acho que não havia dúvidas. E se você ainda tiver perguntas, pode perguntar nos comentários ou dentro do grupo; entrar no grupo permite que você faça perguntas por lá.
+E aqui você pode encontrar respostas para as suas perguntas. Beleza? Meu canal está quase lá.
+Isso é muito bom porque você me ajuda bastante aqui, e me permite curtir ali e deixar um comentário.
+E quando lidarmos com a moeda, abriremos uma área mais fechada, com conteúdo diferente, um tipo diferente de sessão, bem, legalmente falando, com mais sequência, certo?
+Como automatizar a criação de conteúdo, entre muitas outras coisas. Claro, continuarei trazendo muito conteúdo como este para vocês. E espero sinceramente que contribua para a sua jornada, ok?
+Muito obrigado por assistir até aqui. Agora vá, o YouTube vai te mostrar outro vídeo do canal. Legal, né? A gente se vê no próximo vídeo.
