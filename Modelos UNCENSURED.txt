@@ -1,0 +1,21 @@
+MaziyarPanahi/Llama-3.2-3B-Instruct-uncensored-GGUF
+1.23 GB
+
+https://huggingface.co/HauhauCS/Gemma4-26B-A4B-QAT-Uncensored-HauhauCS-Balanced-MTP
+1,45 GB
+
+https://huggingface.co/HauhauCS/Gemma4-31B-QAT-Uncensored-HauhauCS-Balanced-MTP
+1,48GB
+
+https://huggingface.co/Andycurrent/Gemma-3-1B-it-GLM-4.7-Flash-Heretic-Uncensored-Thinking_GGUF
+1.069GB
+
+https://huggingface.co/zaakirio/gemma-4-12b-it-uncensored-GGUF
+646MB
+
+https://huggingface.co/LuffyTheFox/Qwen3-Uncensored-TextEncoders-Klein-Z-Image-Anima-GGUF
+1,2MB
+Codificadores de texto sem censura aprimorados para Flux Klein 9B, Z Image Turbo e Anima via Genesis.
+
+Para Flux Klein, Z Image Turbo e Anima, os codificadores de texto são desprovidos de censura via *heretic*. O codificador de texto do Krea foi mantido na versão padrão (*vanilla*) do Unsloth.
+

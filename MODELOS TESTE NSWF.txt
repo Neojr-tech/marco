@@ -1,0 +1,378 @@
+
+
+Sim. Vamos deixar isso registrado aqui de forma organizada, usando somente os modelos que você trouxe nesta conversa. E vou considerar o seu cenário real: Inspiron 5458, i5-5200U, 8 GB agora e provavelmente 16 GB depois, GeForce 920 2 GB.
+
+A regra que vou usar é:
+
+PC → modelos que fazem sentido tentar localmente no seu equipamento.
+Colab → modelos que dependem de GPU muito mais forte, especialmente geração de imagem/vídeo.
+Conversação → LLMs para conversar, RP, escrita, assistência etc.
+Imagem → modelos de geração/edição de imagem.
+Vídeo → modelos de geração de vídeo.
+Se um modelo serve para mais de uma coisa, ele aparece nas duas categorias, como combinamos.
+
+
+DOCUMENTO 1 — MODELOS PARA O SEU PC
+
+🟢 Prioridade para testar localmente
+Modelo	Tamanho informado	Função	Situação
+AliA456879/pequeno-28m	28,8M parâmetros	Conversação / texto NSFW	🟢 Excelente para teste
+Llama-3.2-1b_NSFW_Amoral_Christmas-GGUF	~1B	Conversação / texto	🟢 Possível
+Qwen2.5-0.5B-NSFW_Amoral_Christmas-GGUF	~0,5B	Conversação / texto	🟢 Possível
+Qwen2.5-0.5B-Instruct-NSFW-U-i1-GGUF	~0,5B	Conversação / texto	🟢 Possível
+Qwen2.5-0.5B-Instruct-NSFW-V2-i1-GGUF	~0,5B	Conversação / texto	🟢 Possível
+Triangulum-1B-DPO_Roleplay_NSFW-GGUF	~1B	Conversação / RP	🟢 Possível
+Mistral-1b-NSFW-Amoral-Christmas	~1B	Conversação / texto	🟢 Possível
+goonsai/qwen2.5-1.5B-goonsai-nsfw-10k	1,5B	Conversação + auxílio para imagem/vídeo	🟢 Bom candidato
+gemma4-e4b-mahou	~4B	Conversação	🟡 Depende da quantização
+Rosa_NSFW_Niche_3B-Q4_0-GGUF	~3B	Conversação / texto	🟡 Testável após 16 GB
+NSFW-6B-GGUF	6B	Conversação	🔴 Pesado para seu PC
+NSFW_DPO_Noromaid-7b-GGUF	7B	Conversação / RP	🔴 Pesado
+Mistral-7B-NSFWSTORY-lora-GGUF	7B	Escrita NSFW	🔴 Pesado
+SniffyOtter-7B-Novel-Writing-NSFW-GGUF	7B	Escrita / RP	🔴 Pesado
+Berghof-NSFW-7B-i1-GGUF	7B	Conversação / RP	🔴 Pesado
+Qwen3-8B-NSFW	8B	Conversação / visão/caption conforme versão	🔴 Muito pesado
+
+
+Minha classificação prática para seu computador
+
+🟢 Testaria primeiro:
+
+Qwen2.5-0.5B NSFW
+Llama 3.2 1B NSFW
+Triangulum 1B
+Goonsai Qwen2.5 1.5B
+Rosa 3B Q4 — depois dos 16 GB
+
+🟡 Segunda etapa: modelos na faixa de 3–4B.
+
+🔴 Não vale a pena insistir localmente: 7B, 8B, 12B, 14B, 70B etc., considerando sua máquina e principalmente a GeForce 920 de 2 GB.
+
+
+DOCUMENTO 2 — MODELOS PARA GOOGLE COLAB
+
+Aqui entram os modelos de imagem e principalmente vídeo, que são justamente os que fazem sentido colocar na nossa estratégia de Colab + T4 16 GB.
+
+
+🎬 VÍDEO
+
+LTX Video 2.3 Uncensored Turbo v1.4
+
+ChrisColeTech/LTX-2.3-uncensored-v1.4-FP8
+
+T2V
+I2V
+FL2VA
+T2VA
+I2VA
+REF2VA
+Audio-to-Video
+Eros10 NSFW
+DMD Distilled
+Detailer/ICLoRA incorporado
+FP8
+
+🟢 Candidato MUITO importante para nossos testes no Colab.
+
+NSFW Wan 14B T2V
+
+NSFW-API/NSFW_Wan_14b
+
+14B parâmetros
+Text-to-Video
+NSFW
+480p
+17 frames no treinamento
+
+🔵 Colab — pesado.
+
+WAN2.2-14B Rapid AllInOne GGUF NSFW v10
+
+DoorZekor/WAN2.2-14B-Rapid-AllInOne-GGUF-NSFW-v10
+
+6,91 GB
+
+Vídeo
+Wan 2.2
+GGUF
+NSFW
+
+🔵 Colab.
+
+Wan2.2-VACE-Fun-A14B-NSFW_Merge
+Vídeo
+Wan 2.2
+VACE
+NSFW
+
+🔵 Colab.
+
+WAN2.2-LORA-NSFW
+LoRA
+Vídeo
+Wan 2.2
+NSFW
+
+🔵 Colab — complemento, não modelo principal.
+
+PinkCherry_NSFW_LTX23
+Vídeo
+LTX 2.3
+NSFW
+
+🔵 Colab.
+
+Esse merece ficar na nossa lista porque apareceu há poucos dias na relação que você encontrou.
+
+🖼️ IMAGEM
+
+WAI-NSFW-Illustrious SDXL v11 GGUF
+
+AnneOrange/WAI-NSFW-illustrious-SDXL-v110-GGUF
+
+2,14 GB
+
+SDXL
+Illustrious
+NSFW
+GGUF
+geração de imagem
+compatível com ComfyUI-GGUF
+
+🔵 Colab — PRIMEIRO candidato de imagem para testar.
+
+Apesar dos 2,14 GB parecerem pequenos, isso não significa que será adequado para sua GeForce 920. O problema é a VRAM e a arquitetura da geração, não apenas o tamanho do arquivo.
+
+WAI-NSFW-Illustrious v140 Q8 GGUF
+
+sothmik/Wai-NSFW-Illustrious-v140-Q8-GGUF
+
+2,74 GB
+
+Imagem
+Illustrious
+NSFW
+GGUF
+Q8
+
+🔵 Colab.
+
+É mais pesado que o v11 e, portanto, eu colocaria depois do v11 nos testes.
+
+WAI-NSFW-Illustrious-SDXL V11 GGUF
+
+O outro repositório que você trouxe da versão convertida/quantizada.
+
+2,14 GB
+
+Imagem
+SDXL
+Illustrious
+GGUF
+Q4/Q5 etc. dependendo do arquivo
+
+🔵 Colab.
+
+Qwen-Image-Edit-Rapid-AIO-NSFW-v23-NVFP4-GGUF
+Imagem
+edição de imagem
+Qwen Image Edit
+Rapid AIO
+NSFW
+GGUF
+
+🔵 Colab.
+
+
+Esse é particularmente interessante para edição, não apenas geração do zero.
+
+
+💬 CONVERSAÇÃO / TEXTO
+
+Aqui temos uma divisão importante: alguns podem rodar no PC; outros ficam muito mais interessantes no Colab.
+
+🟢 PC / modelos pequenos
+
+AliA456879/pequeno-28m
+Qwen2.5-0.5B-NSFW
+Qwen2.5-0.5B-Instruct-NSFW
+Llama 3.2 1B NSFW
+Triangulum 1B
+Mistral 1B NSFW
+Goonsai Qwen2.5 1.5B NSFW
+Rosa NSFW 3B Q4
+🔵 Colab / modelos maiores
+DeepSeek-R1-Distill-NSFW-RPv1
+
+Você encontrou várias quantizações:
+
+Quantização	Tamanho
+Q2_K	3,179 GB
+Q3_K_S	3,665 GB
+Q3_K_M	4,019 GB
+Q3_K_L	4,322 GB
+Q4_0	4,661 GB
+Q4_K_S	4,693 GB
+Q4_K_M	4,921 GB
+Q5_0	5,599 GB
+Q5_K_S	5,599 GB
+Q5_K_M	5,733 GB
+Q6_K	6,596 GB
+Q8_0	8,541 GB
+
+Função: conversação, RP, escrita e raciocínio.
+
+Minha escolha para teste: Q4_K_M.
+
+Não faz sentido colocar isso no seu notebook de 16 GB como primeira opção.
+
+Qwen3-8B-Ziyon-NSFW Q4_K_M
+Conversação
+RP
+NSFW
+Q4_K_M
+8B
+
+🔵 Colab / eventualmente máquina muito mais forte.
+
+Qwen3-8B GGUF + Ziyon QLoRA NSFW
+Conversação
+RP
+NSFW
+
+🔵 Colab.
+
+Qwen3.5-text-9B-NSFW-RP-RolePlay-GGUF
+Conversação
+RP
+texto
+NSFW
+
+🔵 Colab.
+
+Qwen3-VL-8B-NSFW-Caption-V4
+Conversação
+visão
+captioning
+NSFW
+análise de imagem
+
+🔵 Colab.
+
+Esse é diferente dos anteriores porque não é simplesmente um gerador de imagem. É um modelo de visão/linguagem.
+
+nsfwvision-v4_qwen3.5-9b-GGUF
+Conversação
+visão
+análise/caption
+NSFW
+
+🔵 Colab.
+
+nsfwvision-v4_qwen3.5-9b-PRE-RESET-MERGE
+
+Mesma categoria:
+
+🔵 Colab.
+
+
+🔁 MODELOS QUE APARECEM EM MAIS DE UMA CATEGORIA
+
+Como você pediu, vou repetir deliberadamente.
+
+LTX Video 2.3 Uncensored Turbo
+🎬 Vídeo
+🖼️ Imagem → vídeo
+💬 Texto → vídeo
+🔊 Áudio → vídeo
+🔵 Colab
+Qwen-Image-Edit Rapid AIO NSFW
+🖼️ Imagem
+✏️ Edição de imagem
+🔵 Colab
+Qwen3-VL-8B NSFW Caption
+💬 Conversação
+👁️ Visão
+📝 Caption
+🔵 Colab
+Qwen3.5 NSFW Vision
+💬 Conversação
+👁️ Visão
+📝 Caption/análise
+🔵 Colab
+Goonsai Qwen2.5 1.5B
+💬 Conversação
+🖼️ Auxílio para geração de imagem
+🎬 Auxílio para geração de vídeo
+🟢 PC
+DeepSeek-R1-Distill-NSFW-RPv1
+💬 Conversação
+✍️ Escrita
+🎭 RP
+🔵 Colab
+
+
+📌 RESUMO FINAL PARA GUARDAR
+💻 PC — PRIORIDADE
+
+Conversação/texto
+
+AliA456879/pequeno-28m
+Qwen2.5-0.5B NSFW
+Llama 3.2 1B NSFW
+Triangulum 1B
+Mistral 1B NSFW
+Goonsai Qwen2.5 1.5B
+Rosa NSFW 3B Q4
+
+Depois dos 16 GB: podemos experimentar modelos de ~3–4B.
+
+☁️ COLAB — IMAGEM
+WAI-NSFW-Illustrious SDXL v11 — 2,14 GB
+WAI-NSFW-Illustrious v140 Q8 — 2,74 GB
+WAI-NSFW-Illustrious SDXL GGUF
+Qwen-Image-Edit-Rapid-AIO-NSFW-v23
+
+
+☁️ COLAB — VÍDEO
+LTX Video 2.3 Uncensored Turbo v1.4 ⭐
+PinkCherry_NSFW_LTX23
+NSFW Wan 14B T2V — 14B
+WAN2.2-14B Rapid AllInOne GGUF NSFW v10 — 6,91 GB
+Wan2.2-VACE-Fun-A14B-NSFW
+WAN2.2-LORA-NSFW
+
+
+☁️ COLAB — CONVERSAÇÃO/TEXTO
+DeepSeek-R1-Distill-NSFW-RPv1 — Q4_K_M 4,92 GB
+Qwen3-8B-Ziyon NSFW Q4_K_M
+Qwen3-8B + Ziyon QLoRA NSFW
+Qwen3.5-text-9B NSFW RP
+NSFW DPO Noromaid 7B
+SniffyOtter 7B
+Berghof NSFW 7B
+NSFW-6B
+Qwen3-VL-8B NSFW Caption
+nsfwvision-v4 Qwen3.5-9B
+
+
+🎯 E os que eu colocaria no nosso TOP DE TESTES
+
+1. 🥇 LTX Video 2.3 Uncensored Turbo v1.4
+Para vídeo no Colab.
+
+2. 🥈 WAI-NSFW-Illustrious SDXL v11 GGUF — 2,14 GB
+Para imagem no Colab.
+
+3. 🥉 DeepSeek-R1-Distill-NSFW-RPv1 Q4_K_M
+Para conversação/RP no Colab.
+
+4. 🟢 Goonsai Qwen2.5 1.5B
+Para testar conversação localmente.
+
+5. 🟢 Llama 3.2 1B NSFW / Qwen 0.5B NSFW
+Para descobrir até onde nosso PC consegue chegar.
+
+E tem uma distinção que vai ser muito importante quando começarmos os testes: tamanho do arquivo ≠ requisito de VRAM ≠ requisito de RAM. É justamente por isso que aquele WAI de 2,14 GB pode ser ótimo para o Colab, mas não necessariamente para a sua GeForce 920.
+
+Agora temos um mapa dos modelos. Quando você voltar para isso, não precisamos ficar procurando tudo novamente: podemos escolher uma categoria, pegar os candidatos e testar um por um.

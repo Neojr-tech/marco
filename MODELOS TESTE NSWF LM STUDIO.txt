@@ -1,0 +1,381 @@
+🤗
+
+PinkCherry_NSFW_LTX23
+
+sasimi
+
+3 days ago
+
+🤗
+
+Qwen-Image-Edit-Rapid-AIO-NSFW-v23-NVFP4-GGUF
+
+tutuchen2000
+
+3 days ago
+
+🤗
+
+qwen3-8b-ziyon-nsfw-Q4_K_M-GGUF
+
+liuw15
+
+2 days ago
+
+🤗
+
+qwen3-8b-gguf-merge-with-ziyon_qlora_nsfw
+
+liuw15
+
+2 days ago
+
+🤗
+
+qwen3-8b-gguf-merge-with-ziyon_qlora_nsfw-v1
+
+liuw15
+
+1 day ago
+
+🤗
+
+ziyon-nsfw-qlora-gguf
+
+liuw15
+
+1 day ago
+
+🤗
+
+Qwen3.5-text-9B-NSFW-RP-RolePlay-GGUF
+
+DGDGDG12
+
+1 day ago
+
+🤗
+
+Qwen3.5-text-9B-NSFW-RP-RolePlay-GGUF
+
+mradermacher
+
+1 day ago
+
+🤗
+
+qwen3-8b-gguf-merge-with-ziyon_lora_nsfw-v1
+
+liuw15
+
+18 hours ago
+
+🤗
+
+ziyon-lora-nsfw-gguf-v2
+
+🤗
+
+Qwen3-VL-8B-NSFW-Caption-V4-gguf
+
+HDiffusion
+
+298 days ago
+
+🤗
+
+Mistral-7B-NSFWSTORY-lora-GGUF
+
+hrtdind
+
+1029 days ago
+
+🤗
+
+NSFW_DPO_Noromaid-7b-Mistral-7B-Instruct-v0.1-GGUF
+
+QuantFactory
+
+683 days ago
+
+🤗
+
+nsfwcaption-qwen3-vl-8b-v3-gguf
+
+GitMylo
+
+210 days ago
+
+🤗
+
+nsfwvision-v4_qwen3.5-9b-gguf
+
+GitMylo
+
+145 days ago
+
+🤗
+
+comfyui-nsfw-model-pack
+
+dmtryyy
+
+129 days ago
+
+🤗
+
+NSFW_DPO_Noromaid-7b-Mistral-7B-Instruct-v0.1-Q6_K-GGUF
+
+DavidAU
+
+855 days ago
+
+🤗
+
+SniffyOtter-7B-Novel-Writing-NSFW-GGUF
+
+mradermacher
+
+841 days ago
+
+🤗
+
+Looking-Glass-Alice-Thinking-NSFW-RP-GGUF
+
+D1rtyB1rd
+
+311 days ago
+
+🤗
+
+Llama-3-lima-nsfw-16k-test-GGUF
+
+openerotica
+
+829 days ago
+
+🤗
+
+Berghof-NSFW-7B-i1-GGUF
+
+mradermacher
+
+595 days ago
+
+🤗
+
+Triangulum-1B-DPO_Roleplay_NSFW-GGUF
+
+Novaciano
+
+578 days ago
+
+🤗
+
+Wan2.2-VACE-Fun-A14B-NSFW_Merge
+
+PineAmbassador
+
+285 days ago
+
+🤗
+
+gemma4-e4b-mahou
+
+🤗
+
+NSFW_master-x08-8step
+
+Zuntan
+
+709 days ago
+
+🤗
+
+NSFW-6B-GGUF
+
+mradermacher
+
+617 days ago
+
+🤗
+
+Elizezen_-_Berghof-NSFW-7B-gguf
+
+RichardErkhov
+
+704 days ago
+
+🤗
+
+bunnycore_-_NSFWLlama3-8B-gguf
+
+RichardErkhov
+
+703 days ago
+
+🤗
+
+nsfwthrowitaway69_-_Venus-120b-v1.2-gguf
+
+RichardErkhov
+
+668 days ago
+
+🤗
+
+athirdpath-Llama-3.1-Instruct_NSFW-pretrained_e1-plus_reddit-GGUF
+
+featherless-ai-quants
+
+652 days ago
+
+🤗
+
+Ninja-v1-NSFW-128k-GGUF
+
+mradermacher
+
+651 days ago
+
+🤗
+
+Ninja-V3-nsfw-enhance-GGUF
+
+MaziyarPanahi
+
+626 days ago
+
+🤗
+
+NSFW_DPO_Noromaid-7b-GGUF
+
+tensorblock
+
+209 days ago
+
+🤗
+
+Llama-3.2-1b_NSFW_Amoral_Christmas-GGUF
+
+Novaciano
+
+608 days ago
+
+🤗
+
+Qwen2.5-0.5B-NSFW_Amoral_Christmas-GGUF
+
+Novaciano
+
+607 days ago
+
+🤗
+
+Mistral-1b-NSFW_Amoral_Chr
+
+
+🤗
+
+nsfw_models
+
+DasCaptain
+
+4 days ago
+
+🤗
+
+nanbeige2.5-nsfw-merged-i1-GGUF
+
+mradermacher
+
+188 days ago
+
+🤗
+
+GPT-2.5.2-NSFW-Codex-0.4B-GGUF
+
+mradermacher
+
+62 days ago
+
+🤗
+
+nsfwthrowitaway69_-_Venus-120b-v1.2-gguf
+
+Ygolohcysp81
+
+160 days ago
+
+🤗
+
+nsfwvision-v4_qwen3.5-9b-PRE-RESET-MERGE-gguf
+
+GitMylo
+
+145 days ago
+
+🤗
+
+Qwen2.5-0.5B-Instruct-NSFW-U-i1-GGUF
+
+mradermacher
+
+142 days ago
+
+🤗
+
+Qwen2.5-0.5B-Instruct-NSFW-V2-i1-GGUF
+
+mradermacher
+
+141 days ago
+
+🤗
+
+NSFW-22-L-e8
+
+sara-ai-01
+
+96 days ago
+
+🤗
+
+comfyui-nsfw-model-pack
+
+KrazyEyezKillah
+
+136 days ago
+
+🤗
+
+Rosa_NSFW_Niche_3B-Q4_0-GGUF
+
+PJRM
+
+122 days ago
+
+🤗
+
+WAN2.2-LORA-NSFW
+
+shyseven
+
+112 days ago
+
+🤗
+
+Distil-Opus4.7-Minute.Codex.NSFW-0.1B-GGUF
+
+mradermacher
+
+83 days ago
+
+🤗
+
+Distil-Gemini3.2-Pro.Minute.Codex.NSFW-0.1B-GGUF
+
+mradermacher
+
+83 days ago
+

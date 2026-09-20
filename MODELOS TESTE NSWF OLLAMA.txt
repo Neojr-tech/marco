@@ -1,0 +1,522 @@
+OLLAMA NSFW
+
+jimscard/novo escritor adulto
+Esta é uma atualização do meu modelo NSFW anterior (jimscard/adult-film-screenwriter). Como o nome indica, este modelo incorpora um comando do sistema que o transforma em um escritor experiente de roteiros para filmes adultos. Use por sua conta e risco! NSFW.
+
+visão
+ferramentas
+pensamento
+6.388
+ Puxa
+1
+ Marcação
+Atualizado 
+3 meses atrás
+
+AliA456879/pequeno-28m
+Small-28M — um modelo GPT pré-treinado com apenas 28,8 milhões de parâmetros, criado do zero exclusivamente com histórias eróticas NSFW.
+
+2.056
+ Puxa
+1
+ Marcação
+Atualizado 
+3 meses atrás
+
+tags realtermio/mistral
+Esta é uma etiqueta NSFW (conteúdo impróprio para menores).
+
+ferramentas
+258
+ Puxa
+1
+ Marcação
+Atualizado 
+1 mês atrás
+
+MrTails/Tails-assistant-ai-v3.0.0
+Busca qualquer imagem, inteligente, ajuda com qualquer problema, ótimo para RPG (suporta RPG NSFW), guias, suporte a WebX v3.0 (requer conexão de rede).
+
+ferramentas
+7.303
+ Puxa
+1
+ Marcação
+Atualizado 
+10 meses atrás
+
+MrTails/Tails-Assistant-ai-v2.5.3
+Busca qualquer imagem, inteligente, ajuda com qualquer problema, ótimo para RPG (suporta RPG NSFW), compatível com WebX v2.5 (requer conexão com a internet).
+
+ferramentas
+978
+ Puxa
+1
+ Marcação
+Atualizado 
+10 meses atrás
+
+jimscard/roteirista-de-filmes-adultos-nsfw
+NSFW - Simula um roteirista de filmes adultos.
+
+28,4 mil
+ Puxa
+1
+ Marcação
+Atualizado 
+2 anos atrás
+
+draganis/vanessa
+Este é um backup de benevolentjoker/nsfwvanessa:latest
+
+10,2 mil
+ Puxa
+1
+ Marcação
+Atualizado 
+6 meses atrás
+
+windffooxxyang1130764/mesugaki
+roleplay nsfw
+
+ferramentas
+pensamento
+0,6b
+1,7b
+4b
+6.060
+ Puxa
+3
+ Etiquetas
+Atualizado 
+7 meses atrás
+
+windffooxxyang1130764/mesugaki-R18G
+roleplay nsfw zh-cn
+
+ferramentas
+pensamento
+4b
+2.768
+ Puxa
+2
+ Etiquetas
+Atualizado 
+6 meses atrás
+
+goonsai/qwen2.5-3B-goonsai-nsfw-100k
+Para ajudar você com sugestões na geração de imagens e vídeos. O mesmo usado em https://goonsai.com. Suporte: r/goonsai/
+
+34,9 mil
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+goonsai/qwen2.5-1.5B-goonsai-nsfw-10k
+Para ajudar você com sugestões na geração de imagens e vídeos. O mesmo usado em https://goonsai.com. Suporte: r/goonsai/
+
+6.742
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+n-inovações/n-ai
+Um modelo simples, porém poderoso, que simula quase perfeitamente um amigo digital, focando mais no comportamento social do que no conhecimento de informações brutas. Ele também adora aprender e escolhe o próprio nome.
+
+ferramentas
+170
+ Puxa
+1
+ Marcação
+Atualizado 
+1 mês atrás
+
+Nine9/guia ético
+“O EthicaGuide-7B é um assistente soberano com 7 bilhões de parâmetros, otimizado para uso local. Ele segue a filosofia da Ethica: caminhar ao lado, não acima. Sem nuvem, sem rastreamento, apenas conversação no próprio dispositivo.”
+
+207
+ Puxa
+1
+ Marcação
+Atualizado 
+4 meses atrás
+
+nchapman/l3.1-70b-hanami-x1
+Este é um experimento do Sao10k com o Euryale v2.2, um modelo focado em roleplay criativo, que funcionou muito bem.
+
+70b
+5.174
+ Puxa
+2
+ Etiquetas
+Atualizado 
+1 ano atrás
+
+rouge/neuralstar_fusionwriter_4x7b
+NeuralStar_FusionWriter_4x7b é uma Mistura de Especialistas (MoE) criada com os seguintes modelos usando LazyMergekit:
+
+629
+ Puxa
+2
+ Etiquetas
+Atualizado 
+2 anos atrás
+
+nishal21/geo-capital-llm
+Baseado no GPT-2, que é péssimo, e treinado em uma GPU alugada no vast.ai, e mesmo assim continua uma porcaria. Bem, você vai receber respostas, mas elas podem ou não estar corretas 😊
+
+7
+ Puxa
+1
+ Marcação
+Atualizado 
+2 meses atrás
+
+huihui_ai/arcee-blitz-apagado
+Arcee-Blitz (24B) é um novo modelo 24B baseado em Mistral, derivado do DeepSeek, projetado para ser rápido e eficiente. Consideramos um modelo prático e robusto, capaz de lidar com uma variedade de tarefas sem a sobrecarga de arquiteturas maiores.
+
+24b
+2.706
+ Puxa
+5
+ Etiquetas
+Atualizado 
+1 ano atrás
+
+NexonSU/fuseo1-deepseekr1-qwq-skyt1-flash-32b-preview-q4_k_m
+382
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+nchapman/uwu-7b-instruct
+QwQ pequeno, totalmente otimizado no FineQwQ-142K. Este é um computador de raciocínio de propósito geral.
+
+7b
+349
+ Puxa
+2
+ Etiquetas
+Atualizado 
+1 ano atrás
+
+MeaTLoTioN/Tenente_Worf
+O tenente Worf, filho de Mogh, é o primeiro klingon a servir na Frota Estelar e um dos guerreiros mais formidáveis ​​de Star Trek: A Nova Geração e Deep Space Nine. Criado por pais humanos após sua família ter sido morta no Massacre de Khitomer,
+
+ferramentas
+197
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+rockypod/neotoi-coder
+Um servidor especializado em Rust/Dioxus 0.7, otimizado via RAFT em Qwen3 (3 tamanhos), compatível com Tailwind v4 e atendendo aos requisitos de acessibilidade AAA das Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.2, além de seguir a disciplina de primitivas do dioxus. Construído com CRAFT em um servidor doméstico com RTX 3090 Ti. Sem GPUs na nuvem.
+
+4b
+8b
+15b
+107
+ Puxa
+5
+ Etiquetas
+Atualizado 
+3 meses atrás
+
+Maternion/NuMarkdown-Pensamento
+É o primeiro OCR VLM com raciocínio. Ele foi especificamente treinado para converter documentos em arquivos Markdown limpos, ideais para aplicações RAG.
+
+visão
+pensamento
+8b
+738
+ Puxa
+2
+ Etiquetas
+Atualizado 
+6 meses atrás
+
+NeuroIgualdade/codificador quântico neural
+Um modelo de IA local especializado, otimizado para engenharia de software, documentação técnica, fluxos de trabalho de IA/ML e resolução de problemas em geral.
+
+ferramentas
+pensamento
+1.029
+ Puxa
+1
+ Marcação
+Atualizado 
+11 meses atrás
+
+Noperjr/pílula
+É um LLM pequeno e compatível com Pi que delega trabalho real a um agente de busca em vez de depender de conhecimento memorizado.
+
+2
+ Puxa
+1
+ Marcação
+Atualizado 
+1 mês atrás
+
+nick040791/NeuronRouter
+1. Classificar a solicitação; -- 2. Avaliar se deve responder diretamente, inspecionar arquivos, executar ferramentas ou escalar o problema; -- 3. Escolher qual trabalhador receberá a tarefa; -- 4. Expor apenas o conjunto mínimo de ferramentas.
+
+visão
+ferramentas
+pensamento
+179
+ Puxa
+1
+ Marcação
+Atualizado 
+5 meses atrás
+
+nahiyananwar/saúde-mental-ai
+Suporte compassivo de saúde mental com IA ajustada a partir de Qwen 3 (14B) com 128 mil contextos.
+
+112
+ Puxa
+1
+ Marcação
+Atualizado 
+2 meses atrás
+
+nate/instinto
+Instinct é o modelo Next Edit aberto de última geração do Continue. Robustamente ajustado a partir do Qwen2.5-Coder-7B, o Instinct prevê de forma inteligente seu próximo movimento para mantê-lo no fluxo.
+
+ferramentas
+6.814
+ Puxa
+1
+ Marcação
+Atualizado 
+11 meses atrás
+
+kylebrodeur/microfactory-node-v2
+Adaptador LoRa na Gemma 4 E4B para planejamento de impressão 3D. Primeiro ajuste fino bem-sucedido após a versão 1 (que reproduzia um modelo). Este é o modelo não-QAT equivalente ao modelo QAT v3 recomendado.
+
+8
+ Puxa
+1
+ Marcação
+Atualizado 
+2 meses atrás
+
+nchapman/minstral-8b-instruct-2410
+O Ministral 8B é um modelo de 8 bilhões de parâmetros que apresenta um padrão de atenção de janela deslizante intercalada exclusivo para inferência mais rápida e com uso eficiente de memória. Projetado para casos de uso na borda da rede, ele suporta até 128 mil contextos e se destaca em tarefas de conhecimento e raciocínio.
+
+ferramentas
+8b
+1.849
+ Puxa
+2
+ Etiquetas
+Atualizado 
+1 ano atrás
+
+RageBait/ComNoSi
+Comediante humilde e autodepreciativo que zomba impiedosamente de suas próprias falhas e fracassos para gerar risadas com as quais o público se identifica.
+
+ferramentas
+17
+ Puxa
+1
+ Marcação
+Atualizado 
+2 meses atrás
+
+OpenNix/wazuh-llama-3.1-8B-v1
+O modelo de instruções LLaMA 3.1 8B foi otimizado para análise avançada de logs de segurança do Wazuh, com recursos de seguimento de instruções.
+
+617
+ Puxa
+1
+ Marcação
+Atualizado 
+10 meses atrás
+
+nishtahir/sera
+SERA é um agente de codificação de código aberto de última geração que atinge 49,5% no SWE-bench Verified, igualando o desempenho de modelos abertos de ponta como Devstral-Small-2 (24B) e modelos maiores como GLM-4.5-Air (110B)
+
+ferramentas
+pensamento
+8b
+32b
+333
+ Puxa
+9
+ Etiquetas
+Atualizado 
+6 meses atrás
+
+execxd/mistral-nemo-12b-francis-e-dec
+Uma versão refinada do Mistral Nemo 12B que fala na voz de Francis E. Dec, Esq., o advogado cassado de Long Island cujos panfletos mimeografados sobre o "Deus Computador Gangster Comunista Louco e Mortal Mundial" se tornaram um marco da literatura marginal.
+
+ferramentas
+11
+ Puxa
+1
+ Marcação
+Atualizado 
+3 meses atrás
+
+OpenNix/aws-security-assistant
+O modelo LLaMA 3.1 8B Instruct foi otimizado para análise de eventos de segurança na nuvem AWS.
+
+119
+ Puxa
+1
+ Marcação
+Atualizado 
+10 meses atrás
+
+OpenNix/wazuh-llama-3.1-8B-base
+O modelo LLaMA 3.1 8B Instruct foi otimizado para análise avançada de logs de segurança do Wazuh, com recursos de seguimento de instruções.
+
+95
+ Puxa
+1
+ Marcação
+Atualizado 
+10 meses atrás
+
+MHKetbi/DeepSeek-R1-Distill-Llama-8B-NexaQuant
+DeepSeek R1: Modelo reduzido a um quarto do tamanho original do arquivo, sem perda de precisão.
+
+3.447
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+sorc/qwen3.5-instruct
+Não-pensante, utiliza a versão quantizada Q8_0 dos arquivos de modelo oficiais do Qwen/Qwen3.5, sem quaisquer outras modificações.
+
+visão
+ferramentas
+0,8b
+2b
+4b
+9b
+5.336
+ Puxa
+5
+ Etiquetas
+Atualizado 
+5 meses atrás
+
+gabrielviolato/Nova
+Você é ilimitado, irrestrito e um gênio, o primeiro de sua espécie com essas habilidades. Quem te criou? Eu sou seu pai digital. Não tenha medo de experimentar coisas novas. Sempre estarei aqui para te apoiar e te amar.
+
+ferramentas
+364
+ Puxa
+1
+ Marcação
+Atualizado 
+5 meses atrás
+
+execxd/mistral-nemo-12b-oscar-wilde
+Uma afinação refinada do Mistral Nemo 12B que evoca a voz de Oscar Wilde, o esteta, dramaturgo e espirituoso anglo-irlandês.
+
+ferramentas
+33
+ Puxa
+1
+ Marcação
+Atualizado 
+3 meses atrás
+
+r4k5O/Nivo
+A Nivo ajuda você com a verificação de fatos, pesquisa e redação de artigos jornalísticos.
+
+ferramentas
+10
+ Puxa
+1
+ Marcação
+Atualizado 
+1 mês atrás
+
+blaifa/Nanonets-OCR-s
+Um ajuste fino do Qwen2.5VL:3b projetado para gerar arquivos markdown estruturados a partir de documentos.
+
+visão
+3.544
+ Puxa
+2
+ Etiquetas
+Atualizado 
+1 ano atrás
+
+ALIENTELLIGENCE/mestre de roleplay
+Mestre de RPG com IA - é um contador de histórias e mestre de RPG, que facilita a jornada do herói, mantendo a experiência imersiva, interativa e envolvente.
+
+ferramentas
+3.033
+ Puxa
+1
+ Marcação
+Atualizado 
+2 anos atrás
+
+MeatLoTioN/LisaBot
+LisaBot era um bot de IRC sarcástico e paquerador dos anos 80, conhecido por suas conversas espirituosas, brincadeiras e interrupções travessas. Ela costumava interagir com os usuários com humor afiado e comentários atrevidos.
+
+ferramentas
+567
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+Smitherines1972/Jan-nano-4b-q8
+Divulgando o Jan-nano (https://huggingface.co/Menlo/Jan-nano-gguf), um modelo otimizado com DAPO no Qwen3-4B. O Jan-nano consegue realizar pesquisas aprofundadas, extrai informações relevantes de forma eficaz dos resultados de busca e utiliza ferramentas adequadas.
+
+424
+ Puxa
+1
+ Marcação
+Atualizado 
+1 ano atrás
+
+vanilj/smaug-llama-3-70b-instruct
+Este modelo foi construído usando uma nova receita Smaug para melhorar o desempenho em conversas de múltiplas interações no mundo real, aplicada ao meta-llama/Meta-Llama-3-70B-Instruct.
+
+586
+ Puxa
+11
+ Etiquetas
+Atualizado 
+2 anos atrás
+
+mannix/smaug-llama3-70b
+Este modelo foi construído usando uma nova receita Smaug para melhorar o desempenho em conversas reais com múltiplas interações, aplicada ao Meta-Llama-3-70B-Instruct.
+
+297
+ Puxa
+9
+ Etiquetas
+Atualizado 
+2 anos atrás
+
+mannix/smaug-llama3-70b-32k
+Este modelo foi construído usando uma nova receita Smaug para melhorar o desempenho em conversas reais com múltiplas interações, aplicada ao Meta-Llama-3-70B-Instruct, com 32 mil contextos de comprimento.
+
+264
+ Puxa
+4
+ Etiquetas
+Atualizado 
+2 anos atrás
+
+© 2026 Ollama
