@@ -1,0 +1,377 @@
+Chaves de API de IA GRATUITAS e ilimitadas! GPT, Claude, Gemini e muito mais!
+
+https://youtu.be/ZRr7RUNB8DM?si=07NFJoZFx6L8XjqF
+
+
+ou mostrar a vocês alguns dos melhores.
+plataformas para obter acesso gratuito e ilimitado
+Acesso a APIs e IA de mais de 10
+provedores e incluirá premium
+também modelos. Eu pessoalmente testei.
+essas plataformas e neste vídeo eu vou
+mostrar qual deles realmente funciona e
+como acessá-los e como você pode usá-los.
+Incorpore-os em seus próprios projetos de IA e programação.
+ferramentas. Algumas delas serão insanamente
+rápido. Então, se você é um desenvolvedor
+construir aplicativos de IA ou simplesmente procurar por
+Acesso gratuito à API, não deixe de assistir.
+até o fim porque há alguns
+Opções realmente úteis aqui. E antes
+Vamos começar, clique no botão "Curtir" e
+Inscreva-se se você achar essas IAs e
+Ferramenta de codificação útil. Vamos começar.
+Então, temos o início. Aqui você pode
+Veja inceptionlabs.ai. Aqui você pode ver
+Seu lema é que cada milissegundo importa.
+O mercúrio é uma nova classe de LLMs de difusão.
+que corresponda à qualidade da velocidade,
+modelos de fronteira otimizados com menos de 300
+Tempo até o primeiro token (ms) é de 5 a 7 vezes maior.
+aumento de produtividade e custo até 70% menor por unidade.
+tarefa. Se você descer, poderá ver
+Aprovado por empresas como Microsoft, Nvidia e AWS.
+Os modelos de difusão de mercúrio introduzem
+interferência extremamente rápida com a fronteira
+Qualidade a uma fração do custo de
+outros modelos principais. Se você descer então
+É possível observar a diferença na difusão.
+De sequencial para paralelo. Todos os outros
+Os LMs geram texto um token por vez.
+e difusão de mercúrio LMS que são
+A difusão LMS gera tokens em paralelo.
+Aumentar a velocidade e maximizar o uso da GPU em
+eficiência. Aqui você pode ver quando eu
+Recarregue e você verá a diferença.
+o que eles estão dizendo que estão usando
+difusão alongs que estão em paralelo
+geração, mas Chad ou qualquer outro usando
+geração sequencial, é por isso que eles
+são muito rápidos, extremamente rápidos
+É possível notar o desempenho, e estes são...
+não apenas o ditado que eu testei em
+Em tempo real, mostrarei a você o
+Aqui você pode ver a performance de um raio.
+agentes rápidos em tempo real código instantâneo inteligente
+Edição rápida, piloto criativo, conheça nossa
+família de modelos de difusão. Mercúrio 2.5,
+Mercury Vice, Mercury Router. Se você for
+Para experimentar a API, você poderá criar uma API.
+chaves e verificar o modelo delas. Aqui, se eu
+mostrar a interface de bate-papo deles, se você for
+para chat.inceptionlabs.ai,
+Então aqui você pode ver que eu enviei um
+mensagem e olá, eu sou Mercury para
+te ajudar. E aqui eu envio uma mensagem direta.
+uma pergunta como: você consegue escrever uma cobra simples?
+jogo em um único arquivo HTML? E aqui você pode.
+veja isso apenas por 3 segundos e
+Em apenas três segundos, ele havia criado algo.
+o jogo da cobra-touro. Aqui você pode conferir
+a qualidade do código é muito boa, código limpo com
+comentários e mais é verificar o CSS
+qualidade e tudo mais é muito
+Limpo e perfeito, e o tempo de resposta...
+Você pode verificar aqui em apenas 3 segundos.
+gerou o jogo da cobra-touro em
+Menos de 5 segundos. Inacreditável. Deixe
+Vou te mostrar a prévia também. É
+Funcionando. Se você clicar em iniciar jogo,
+então você poderá verificar cada detalhe.
+Também está funcionando perfeitamente. E é muito bom.
+clássico e com um visual elegante e o
+O modelo Mercury cumpriu muito bem o seu papel.
+rapidamente, os resultados e o código
+A qualidade é muito boa. A segunda
+O provedor é Manus Im. Depois de ir para
+manus.im, você pode ver aqui o chat deles.
+interface e aqui está o login e
+opções de inscrição e então você clicará em
+Para se cadastrar, você pode usar sua conta do Gmail.
+conta e depois de se inscrever após
+Ao se cadastrar, você será redirecionado para o site deles.
+painel principal e eu já
+Criei um tutorial sobre isso.
+mais de 10 animações e simatics
+sites que usam isso e fornecem informações precisas
+Com cada resultado, você receberá 300 créditos.
+dia. E esses três créditos do Android são
+mais do que suficiente para criar dois
+Páginas de destino animadas totalmente gratuitas
+e com resultados precisos. E obviamente.
+Você não ficará preso a uma única conta.
+E você pode verificar os planos de pagamento deles como
+Bem, eles são muito bons. E se eu mostrar
+você pode consultar o uso da API, a documentação da API ou você pode
+Use a API deles daqui. Você precisa ir
+para este URL. E depois de acessar este
+Com a URL, você poderá criar a API.
+chave. E aqui estão as habilidades de API. E
+Tudo é demonstrado em
+Aqui está o URL base deles. Você pode copiar o
+URL base daqui. E você também pode usar
+A habilidade API para Codeex. Você pode usar
+A API deles está dentro do Codeex e isso irá
+dar instruções automaticamente para
+o agente de codificação para integrar o
+Diretrizes atuais de integração da API do Manus.
+Instale a skill da API. Aqui você pode ver
+Todas as instruções estão listadas aqui.
+É muito simples e fácil. E depois
+Temos o Agnes AI. Agnes 3.0 flash a
+Plano de tokens econômico e personalizado para
+desenvolvedores. API gratuita. A partir daqui você pode
+Acesse a API gratuita deles. E se clicarmos
+Em modelos, então você pode ver surpreendentemente
+Existe um flash Agnes 2.5 2. 2.5 pro
+beta Agnes 2.5 pro e 3.0 Z flash e
+Eles possuem modelos de geração de imagens como
+Bem, eles também têm modelos em vídeo.
+E aqui estão os resultados de referência deles. Você
+Você pode verificar aqui. Agnes 3.0 flash 3, GM
+5.3, GP5 e deepse v4. Atualmente, Agnes
+A API é totalmente gratuita. A partir daqui você
+Não pode tentar. E a partir daqui você pode criar.
+nova chave secreta. E aqui está a
+documentação. Depois de ir para o
+documentação, vamos clicar em rápido
+começar. E aqui você pode ver que eles têm
+explicou todo o processo passo a passo.
+e é muito fácil e caso você
+Preso em algum lugar, então você simplesmente pode
+Você pode simplesmente copiar este URL e perguntar.
+seu agente que instala este agi para
+e fará todos os passos, só você
+É necessário fornecer a chave da API. Todos os outros também precisam.
+etapas que o agente seguirá
+esta documentação da URL. Se voltarmos
+Para acessar a página inicial deles, você poderá ver aqui.
+Se clicarmos em "Próximo", você poderá verificar.
+Os resultados deles, a qualidade da imagem aqui você
+podem verificar a qualidade dos seus vídeos.
+Confira este, é muito interessante.
+Veja os resultados, são muito legais! Então, depois...
+Vamos verificar isso no próximo que tivermos.
+Para acessar a plataforma Nvidia, você precisa ir para...
+buildenvidia.com
+e aqui você encontrará os modelos depois
+Ao acessar os modelos, você poderá ver todos os...
+Os modelos listados aqui são K3.
+Deepseek V4. Eles têm Neotronone 3.5.
+Se clicarmos em mais ferramentas, mais modelos,
+Eles têm todos os modelos listados aqui. Se
+clicamos no endpoint gratuito, então você pode
+Veja aqui a lista de 37 endpoints gratuitos.
+Aqui. Eles têm GLM 5.3, eles têm Pumo.
+relacional, eles têm PR 2.0,
+Kim 3. Você simplesmente fará login e você
+criaremos sua chave de API. Quando você
+Tente se cadastrar, eles vão pedir...
+verificação. O código de verificação será
+será enviado para o seu e-mail. Se você estiver tentando
+Para se cadastrar usando seu e-mail, então você
+Você precisa fornecer seu código de verificação.
+E depois de se inscrever, você será direcionado para...
+aqui. E você pode simplesmente... você vai
+simplesmente vá até lá, você simplesmente irá para lá
+as chaves da API da conta do usuário e aqui você
+criará uma chave de API. Em seguida, você irá
+Crie sua chave de API. Você abrirá seu
+Agente de codificação. No meu caso, eu tenho aberto
+Código instalado. Então, a partir daqui você irá
+Para acessar os arquivos e configurações, ou você pode ir...
+para as configurações. A partir daqui também você
+Você clicará em provedores. Você irá
+para baixo e a partir daqui você clicará em
+Mostrar mais fornecedores. Você irá pesquisar por
+Nvidia. Você clicará nela e aqui está.
+Você fornecerá sua chave de API e clicará em
+Ao continuar, após fornecer sua API.
+A lista completa de modelos será
+listado aqui. Aqui, depois da Nvidia, nós
+tem o fornecedor, o fornecedor de cabras que
+É código aberto e você provavelmente já sabe disso.
+Sobre código aberto. O código aberto fornece um
+Existem muitos modelos como este se você instalar
+o aplicativo de desktop de código aberto então
+Aqui você pode ver que encontrará muita coisa.
+dos três modelos listados aqui. Por exemplo
+Temos o Neotronone parte 1.3 que é um
+modelo de fronteira jornal 1.2 dois, você tem
+No mínimo, você tem um grande selecionador. Se nós
+Clique em novo local 1.3, a partir daqui você pode
+Selecione construir ou planejar. Você pode anexar.
+Imagens e arquivos. Você pode adicionar contexto.
+comandos. Você pode definir o raciocínio.
+esforço de médio a alto ou muito alto. Se
+Se você quiser mais modelos, então você pode
+Basta clicar em "Abrir código Zen". E depois
+Ao clicar em "Abrir código Zen", o site irá
+ser aberto. E no Open Code Zen você pode
+Basta criar uma conta gratuita usando seu
+conta do Gmail. E depois de criar
+Na conta lá você encontrará muitas coisas
+Aqui também há mais modelos gratuitos. A partir daqui.
+Você pode adicionar recursos de bate-papo de modelo aberto.
+O Google Studios Cloud e você também pode
+Conecte-se à sua conta do GitHub Copilot.
+também. Então, todos os kota gratuitos serão
+usado aqui em um só lugar. Então vamos em frente.
+ao nosso próximo fornecedor que está aberto
+roteador. Roteador aberto também é uma ótima opção.
+provedor de modelos gratuitos. Aqui, quando você
+Ao clicar em "grátis", você encontrará...
+toda a lista está aqui. Depois disso, aqui você...
+É possível ver muitos modelos gratuitos listados.
+Aqui. Você clicará neste roteador aberto.
+logotipo. Você estará na página inicial e aqui
+Você pode criar a chave da API. Depois
+Você pode criar a chave de API a partir daqui.
+Crie a chave da API. Você definirá o
+nome expiração cada um e tudo apenas
+Você deverá fornecer o nome e a data de validade.
+e criar a fortaleza. Depois de criar e
+Ao copiar a chave, você abrirá o seu
+Agente de codificação como o OpenCode e aqui o
+mesmas configurações de arquivo de processo e aqui
+Dentro dos provedores você se conectará.
+o roteador aberto daqui você irá
+Forneça a chave da API e clique em Continuar.
+e todos os mods gratuitos serão listados.
+aqui dentro deste. Depois disso, temos
+dezenas e alto. Aqui está o chat
+interface. Você pode testar o modelo a partir de
+aqui. Os modelos são altos três e altos
+quatro. E a partir daqui você pode criar o
+Chave de API. Depois disso, temos a IA básica. Você
+Você pode simplesmente criar uma conta aqui. E
+Após se cadastrar usando sua conta do Gmail, você
+Serão feitas algumas perguntas.
+O cadastro é totalmente gratuito. E aqui você...
+Você pode ver que foram adicionados US$ 40 à sua conta.
+Aqui você pode pesquisar modelos.
+Aqui você pode ver que receberá quatro grátis.
+modelos como DC 4.1, DC 4 flash, nuvem
+Soner 4.6 e Agonista 3.0 Flash. Somente
+Você precisa verificar sua conta em
+Aqui. Você verificará sua conta a partir de
+discord usando o discord e depois
+Ao verificar sua conta, você poderá
+para acessar esses quatro modelos gratuitos que
+são modelos de vanguarda. E depois disso
+Você irá acessar as chaves da API. Você irá
+Clique em Nova chave de API. Dê um nome à chave como
+teste e você simplesmente clicará em criar.
+chave. Sua chave será criada e você
+Você pode simplesmente copiar daqui e pronto.
+Use-o dentro do seu editor e aqui você
+também pode ir ao parque infantil. Aqui
+Dentro do parque infantil você pode ver o
+modelos 5.6 Astra, GB 5.6 Terra 4.6 todos
+Os modelos listados aqui. Você pode testar o
+GP6 Astra também, mas talvez seja
+É necessário um pneu pago, mas você pode usar todos.
+Outros modelos de ponta de ponta são gratuitos. Então.
+Aqui estão as integrações que você pode simplesmente usar.
+Integre seu IDE como um cursor de código aberto
+ou extensão de código kilo dentro do VS
+código. Então, aqui está o ID do provedor,
+Nome de exibição, URL base, chaves de API. Você
+Podem copiar tudo daqui. Eles têm
+explicou tudo muito bem.
+Exatamente. Depois disso, temos
+Brokified. Você pode começar com $10 grátis.
+saldo da conta. Você clicará em iniciar.
+prédio. E aqui está o saldo de $10.
+Você pode simplesmente acessar as chaves de acesso.
+E a partir daqui você pode criar a chave.
+Após criar a chave, você pode copiá-la.
+URL base e integre-a ao seu
+Seu IDE favorito, como o OpenCode. Você
+irá acessar as configurações do arquivo de código aberto.
+provedores. Aqui, depois de consultar os provedores.
+Você clicará em "Conectar personalizado".
+fornecedores este e aqui será
+ID do provedor. Você pode inserir qualquer provedor.
+ID como você pode escrever e aqui você pode
+Escreva-o como roificado e URL base I
+mostrei a você anteriormente. Você irá copiar o
+Cole o URL base aqui e você irá
+Cole aqui sua chave de API e o ID do modelo e
+O nome de exibição deve ser escolhido por você. E o
+O ID do modelo você encontrará aqui, como modelo
+E aqui está o ID do modelo, como gx1 max
+Este é o ID do modelo, depois disso nós
+O cliente tem seu próprio computador.
+agora eles também o introduziram.
+e IDE, eles têm CLI que você pode usar.
+extensão dentro do seu código do Visual Studio
+ou você pode usar a área de trabalho ou você pode
+use o cliente dentro do terminal usando
+então você clicará em mais
+dentro dos modelos
+Você pode usar o CLA dentro do seu espaço aberto.
+código ou seu editor de código de IA favorito.
+Dentro dos modelos de cliente, você pode ver
+Eles possuem GLM 5.2, Gimk 3, código K2.7 e
+muito mais. Mas você estará usando
+apenas modelos gratuitos como JLM 5.2 e muitos outros
+outros. Depois disso, temos o token
+porto. Você simplesmente se cadastrará usando
+sua conta do Gmail e então você irá
+para os modelos aqui. Quando você clicar
+Lá você encontrará gratuitamente o flash DC 4.1.
+que é limitado e flash B4 que irá
+ser ilimitado e gratuito e MIMO 2.5 como
+Bem, eu também expliquei o token.
+método de conexão do porto para abrir o código ou
+qualquer outra IDE de sua escolha. Assim você pode
+Basta acessar a integração e pronto.
+a integração para o PowerShell
+Windows ou, se você usa Mac OS, clique aqui.
+é o comando para Mac OS e aqui está
+a curvatura também, mas você irá para o
+modelos gratuitos, você clicará no modelo
+Aqui está o nome do modelo que você terá.
+A chave da API também está disponível se você acessar o token.
+placa rígida se você fizer login usando o Google
+conta após se cadastrar usando seu
+conta do Gmail ou qualquer outra de sua escolha
+encontrará a chave da API. Aqui você irá
+para a chave da API e simplesmente crie uma API.
+chave. Depois de criar a chave da API, você
+fornecerá a chave da API e a base
+URL aqui. A URL base será o token.
+porto/b1
+e http/
+tipo de token harbor.ai/v1.
+Aqui dentro do token estão
+documentação dentro do quickart você pode
+Confira aqui o URL base deles. Você irá
+Forneça a URL base. Você deverá fornecer
+Obtenha sua chave de API aqui e você irá
+para o modelo e a partir daqui você copiará
+O ID do modelo. Este é o ID do modelo.
+Então você clicará e ele será copiado.
+e você colará o ID do modelo aqui e
+Aqui você poderá inserir qualquer nome seu.
+escolha. Então, eu lhe forneci a opção completa.
+processar o método para conectar a API
+chaves usando provedores personalizados. Ok, em
+caso você ainda não saiba. Então isso
+Será um processo simples. Depois disso.
+Por fim, teremos o programador. O
+O programador fornecerá o desktop.
+tanto o aplicativo quanto a CLI. Aqui.
+dentro do produto você pode verificar eles
+Eles têm IDE para desktop ou dispositivos móveis.
+Além disso, você usará o CLA deles. Então.
+Ao clicar em produto e CLI, você verá
+Encontre o processo completo. Aqui está para
+No Windows, você simplesmente copiará o arquivo.
+Pronto. Então é isso por hoje. Agora você
+têm diversas opções para acessar recursos poderosos.
+Modelos de IA e APIs para seus projetos. Se
+Este vídeo te ajudou, não se esqueça de
+Curta, inscreva-se e nos vemos em breve!
+o próximo
