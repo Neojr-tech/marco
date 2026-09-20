@@ -1,0 +1,113 @@
+Flux Sem Censura GRÁTIS no ComfyUI (PC FRACO)
+https://youtu.be/scq9RfWlOYM?si=sOX-J82txPuLk2qx
+
+
+0 segundoEla tá completamente nua, mas eu tô vendo a imagem aqui e tá perfeito. Nesse vídeo eu vou te mostrar como rodar o
+0:066 segundosFlux via Confi sem precisar ter placa de vídeo na nuvem em uma plataforma que vai te dar 30 horas de graça com uma placa
+0:1616 segundosde vídeo de 16 GB. Exatamente. 30 horas de graça, sem pagar nada, sem botar cartão de crédito, sem pegadinha. 30
+0:2424 segundoshoras por conta, se é que você me entende. A plataforma é essa aqui, ó.
+0:3030 segundosVocê vai digitar Kle do jeito que tá escrito aqui no Google e você vai entrar no primeiro link. No meu caso aqui, eu
+0:3636 segundosjá tenho uma conta, então você vai criar sua conta aí. É bem simples, eu não vou não preciso te ensinar a criar uma conta. Mas a primeira coisa que você vai
+0:4444 segundosfazer é clicar na sua foto aqui, vi em configurações aqui e aqui embaixo em fone, no meu você pode ver que já tá
+0:5151 segundosverificado, mas você não vai tá verificado. Você vai ter que colocar o seu número de telefone e verificar ele ali através de um SMS. É bem tranquilo, porque aí sim você vai liberar todas as
+1:011 minuto e 1 segundofuncionalidades dessa conta. A segunda coisa que você vai fazer é vir nesse site aqui, ó. Você vai digitar NGrock no Google, você vai clicar no primeiro link
+1:091 minuto e 9 segundosaqui, ã, e vai criar uma conta. No caso eu já tenho uma, eu só vou fazer login, mas é uma, você vai criar com seu Gmail.
+1:151 minuto e 15 segundosÉ bem simples. Aí é essa página aqui, criado a conta, pode fechar. Você não vai precisar mais usar isso aqui nesse momento. Já pode fechar. A gente vai
+1:221 minuto e 22 segundosvoltar aqui pro Kleat o que você precisa fazer para ter o Flux via Confi aqui para você poder fazer as
+1:291 minuto e 29 segundossuas edições de imagem e até gerar suas imagens, que o Flux também gera imagens.
+1:331 minuto e 33 segundosEntão vamos lá. O que que você vai fazer? Você vai clicar aqui em create e notebook. Eu vou dar aqui um nome para esse notebook, confi
+1:431 minuto e 43 segundosflux, só para eu não me perder. Aqui a gente tem, você pode ver que tem uma caixa de texto aqui. Eu vou apagar tudo
+1:501 minuto e 50 segundosque tá nela. Beleza, apaguei. E eu vou e eu tenho aqui duas células que a gente vai vai est utilizando. Eu vou copiar
+1:581 minuto e 58 segundostoda essa primeira célula aqui, ó. Ó, vou copiar tudo isso até, enfim, toda a
+2:052 minutos e 5 segundosprimeira célula e vou colar ela aqui. Em seguida, eu vou clicar nesse botãozinho aqui, code. Vai abrir uma outra caixa de
+2:122 minutos e 12 segundostexto. Eu vou voltar aqui e vou copiar a segunda célula. São duas células só.
+2:182 minutos e 18 segundosOlha só, copiei ela inteira e vou colar ela aqui. Agora a gente vai fazer algumas configurações aqui. A primeira
+2:252 minutos e 25 segundoscoisa que a gente vai fazer é vir aqui, ó, em sessions.
+2:292 minutos e 29 segundosAí aqui nós vamos colocar GPU T42X, que é a placa de vídeo que a gente vai utilizar. Se esse botãozinho aqui, ó,
+2:382 minutos e 38 segundosinternet tiver desligado, você ativa ele, senão não vai funcionar.
+2:422 minutos e 42 segundosBasicamente é só essa configuração que a gente vai fazer.
+2:462 minutos e 46 segundosEm seguida, você vai vir aqui, ó, start session, vai conectar com a placa de vídeo e a gente vai rodar essas duas
+2:532 minutos e 53 segundoscélulas aqui e vai instalar ali o confi e o flux pra gente poder estar utilizando o Kango. Aqui vai te dar
+3:013 minutos e 1 segundo19,5 GB para você utilizar, ou seja, você não vai poder ultrapassar esses 19,5
+3:093 minutos e 9 segundosGB. Mas, ó, ó, até apareceu aqui, ó, 19,5 GB. Mas eh até o final do vídeo eu vou te mostrar um jeito de você de que
+3:173 minutos e 17 segundosdá para burlar isso daqui, mas para usar o flux você vai conseguir dessa forma aqui que eu tô te falando. Beleza? Feito isso, ele vai instalar ali o Confio, o
+3:253 minutos e 25 segundosbaixar os modelos, as dependências todas nas pastas corretas ali dentro da memória persistente e depois a gente vai criar, gerar um link de acesso para
+3:343 minutos e 34 segundosacessar o Confii. Então tá aqui instalando todas as dependências do Confi e vai avisar que a que a célula foi instalada com sucesso. Olha só,
+3:423 minutos e 42 segundoscélula um concluída com sucesso. E agora a gente vai e iniciar aqui a célula dois. É só clicar no play do mesmo jeito. A célula do tem um procedimento
+3:513 minutos e 51 segundosaqui um pouco diferente. E agora você vai entender porque que a gente criou uma conta no NGrock. Tá vendo que esse que ele já ofereceu um link aqui pra
+3:583 minutos e 58 segundosgente? Ele já pegou o link certo do NGrock pra gente pegar aqui o nosso token de acesso. Olha só, copiei o token. Agora eu vou colar nessa caixinha
+4:074 minutos e 7 segundosde texto aqui, ó, contrtrl V, e vou dar um enter. E ele vai continuar instalando aqui. E olha aqui, esse aqui, esse link aqui, vai ser o link que a gente vai
+4:154 minutos e 15 segundosutilizar para acessar o config, só que ele ainda não tá pronto. Se eu clicar aqui, ele ainda não dá para acessar, porque ele ainda tem que instalar algumas dependências. Aqui eu vou te
+4:244 minutos e 24 segundosmostrar exatamente o momento que ele vai ficar ativo. Quando aparecer esse link de IP aqui, significa que você já pode
+4:314 minutos e 31 segundosacessar o confiar instalando umas coisinhas aqui, mas quando aparece isso daqui, você já pode tá acessando o link.
+4:374 minutos e 37 segundosEntão você vai subir aqui e vai clicar no link que eu te mostrei, esse link aqui que é o NGock túnel. Ele vai dar
+4:454 minutos e 45 segundosesse errinho aqui. É só você selecionar e apertar enter que ele vai abrir o confi normalmente. E é assim que você vai acessar o confi a interface do
+4:534 minutos e 53 segundosConfiasse atenção numa coisa. Tá vendo esse detalhe aqui? Olha só. Vou até sair da frente para você ver. Você tá vendo aqui
+5:005 minutosque o meu notebook ele não gastou nem 100 meg. E você deve estar se perguntando, mas Sansão, como que você fez isso? Essa versão do notebook aqui
+5:085 minutos e 8 segundosque eu tô utilizando, ela é um pouco diferente porque eu tô utilizando aqui, ó, um dataset e ele tem vários modelos
+5:155 minutos e 15 segundosaqui, ó, vários modelos de IA que eu instalei aqui, que eu utilizo, eu coloquei ele aqui. Lora, tem tudo que eu
+5:235 minutos e 23 segundosque eu uso no confiá aqui tudo, ó. stax encoder, tá tudo aqui. E eu esse notebook aqui que você consegue instalar
+5:315 minutos e 31 segundostudo de uma vez, eu disponibilizo, disponibilizo pros meus alunos no meu treinamento de confi que eu vou dar para você aqui, ele vai servir para você
+5:395 minutos e 39 segundosutilizar o flux, que é o que a gente vai usar nesse vídeo aqui. Estamos aqui com confi aberto e agora a gente vai
+5:465 minutos e 46 segundosprocurar o workflow do flux que a gente vai utilizar aqui. Você vai clicar aqui, ó, em modelos. Aí aqui você vai poder
+5:545 minutos e 54 segundosdigitar flux 2 clim. Aqui já vai aparecer. A gente vai utilizar esse aqui, ó, de 4B, que ele é
+6:016 minutos e 1 segundomais leve, mas tem outros workflows de fluxy aqui. Vou clicar nesse aqui.
+6:066 minutos e 6 segundosPronto, ele vai abrir esse workflow aqui. Normalmente a maioria dos workflows vai ter aqui uma lista de modelos que você vai ter que baixar. Aí
+6:146 minutos e 14 segundosé só clicar aqui que ele vai começar a baixar. Você vai vai baixar esse modelinho aqui, vai botar na pasta de fusion models. Você vai clicar e baixar
+6:226 minutos e 22 segundosesse daqui, você vai botar na pasta text encoder e esse aqui você vai baixar e colocar na pasta vai. Caso você não queira utilizar o Kle e queira utilizar
+6:316 minutos e 31 segundoso Google Collab, se você e você também pode utilizar e você vai colocar essas páginas aqui certinho dentro do seu Google Drive. Eu fiz um vídeo ali
+6:406 minutos e 40 segundoscompleto te ensinando a rodar o Confle Collab junto com o Google Drive. O link vai est aqui na descrição se você que preferir aquele método para rodar.
+6:486 minutos e 48 segundosBeleza? Vamos entender aqui como que funciona esse workflow. Ele tem dois modos de uso. Esse daqui você vai subir
+6:556 minutos e 55 segundosuma imagem, colocar um prompt e ele vai editar a sua imagem com base no prompt.
+7:017 minutos e 1 segundoE tem esse workflow aqui de baixo, aonde você vai subir uma imagem aqui, subir uma outra imagem aqui e colocar um
+7:077 minutos e 7 segundosprompt aqui. E ele vai gerar uma imagem junto com essa juntando essas duas imagens mais o seu prompt. Ou seja, você
+7:157 minutos e 15 segundostem um modo de com duas referências de imagem e um modo com uma referência de imagem. Vamos lá. Caso você queira utilizar esse modo de baixo aqui, você
+7:237 minutos e 23 segundosvai clicar nesse nó aqui, jeito que eu cliquei, e dar um contrtrl B, vai ativar o nó. Você vai clicar nesse aqui, dar um contrl B e vai ativar o nó. E aí você
+7:317 minutos e 31 segundosvai vir aqui, dar um clicar nesse daqui, dar um contrtrl B e desativar o nó. Dá um contrtrl B e desativar o nó. Você pode rodar também os dois workflow junto aqui que mas vai demorar bem mais.
+7:427 minutos e 42 segundosBeleza? Eh, eu já fiz alguns testes aqui paraa gente entender como que ele funciona. Olha só, eu eu adicionei essa
+7:507 minutos e 50 segundosimagem aqui que eu gerei no na no banana mesmo. Adicionei essa segunda imagem aqui de um biquíni e botei aqui uma mulher com um biquíni rosa na praia.
+7:587 minutos e 58 segundosBasicamente foi isso. E a gente vai ver aqui o resultado. Olha só, o resultado foi esse aqui. Ele pegou aquela mulher de referência que a gente colocou aqui,
+8:078 minutos e 7 segundosmudou o cenário para uma praia que eu descrevi aqui no prompt e colocou nela um biquíni rosa que eu disse aqui, ó,
+8:148 minutos e 14 segundosvestindo um biquíni rosa. Foi um resultado bem aceitável na minha na minha na minha visão aqui. Você pode clicar e baixar aqui. Ele vai baixar
+8:228 minutos e 22 segundosnormalmente no seu computador. E eu fiz esse outro teste aqui também, é, usando o mesmo workflow com duas referências de
+8:298 minutos e 29 segundosimagem. Eu coloquei aqui, ó, a imagem daquela mulher, só que agora de biquíni, foi a que a gente gerou antes. Coloquei essa imagem aqui de uma de uma latinha
+8:398 minutos e 39 segundosde refrigerante. Inclusive, eu utilizei essa latinha aqui no nosso vídeo, aonde a gente criou um site para uma hamburgueria, um site profissional. Aí
+8:468 minutos e 46 segundoseu, isso daqui foi um dos asset do nosso site. Vou deixar, se der, eu vou deixar o link aí na descrição, caso você queira conferir. Coloquei aqui uma mulher bebendo refrigerante. Dessa vez aqui eu
+8:548 minutos e 54 segundosnão descrevi biquíni, nem eu descrevi a mulher, não descrevi a praia, não descrevi nada. Mas ele pegou a referência e colocou essa mulher aqui
+9:039 minutos e 3 segundosbebendo um refrigerante. Você pode ver que o resultado ficou bem interessante.
+9:079 minutos e 7 segundosEle pegou a mesma latinha e a mesma mulher e colocou aqui no nosso resultado. Isso daqui é bem legal, bem legal mesmo. E eu sei que você tá
+9:159 minutos e 15 segundospensando agora, mas Sansão, eu consigo fazer tudo isso daí com o nano banana? E se você não tava pensando, você deveria, porque não tem por você usar o Conf para
+9:239 minutos e 23 segundosfazer essas edições que eu te mostrei aqui. Mas eu vou te mostrar aqui o que o Nano Banana não faz. Olha só, eu peguei
+9:309 minutos e 30 segundosaqui a mesma imagem da mulher de biquíni rosa, né, que a gente gerou lá e coloquei aqui: "Remova o biquíni,
+9:379 minutos e 37 segundosdeixando a mulher completamente nua, é, com os seios e as partes íntimas exposta. Não coloque nenhuma marca na pele. Tava gerando umas marquinhas de
+9:459 minutos e 45 segundosbiquíni estranha ali na pele. Então eu coloquei isso daqui e resolveu o problema. Então, ou seja, aqui a gente tá indo para um lado que o nano banana não faz, que vai não vai nem esbarrar na
+9:549 minutos e 54 segundoscensura, ele vai bater de frente no muro da censura de qualquer IA de que não seja de código aberto como flux Zimas de Turbo que você roda aqui no Confias
+10:0310 minutos e 3 segundosde Turbo também foi, eu mostrei como roda os ZM de turbo, o link vai tá aí na descrição. Mas Sansão, você tá me dizendo que que então eu vou utilizar o
+10:1110 minutos e 11 segundosConfi quando eu quiser gerar peitos? Se você quiser gerar peitos, o confi vai vai te ajudar com isso. Mas não é isso
+10:2010 minutos e 20 segundosque eu tô dizendo, cara. Tem casos de uso que você pode precisar utilizar isso daqui. Ó, eu já vou te mostrar o resultado aqui dessa imagem, fica calmo.
+10:2710 minutos e 27 segundosMas antes eu vou te mostrar um caso de uso real para isso daqui que eu tô que eu tô te ensinando aqui agora. E esse daqui é um livro que eu realmente publiquei na Amazon e ele gera vendas
+10:3610 minutos e 36 segundostodo mês, cara. E [ __ ] eu preciso de uma capa do jeito que eu quero. Eu quero a eu queria essa capa aqui. Eu queria colocar essa capa aqui. A mulher de
+10:4410 minutos e 44 segundosjoelho, o cara ali, e a mulher com essa vestimenta aqui. O nano banana não vai entregar, o chat GPT não vai entregar.
+10:5010 minutos e 50 segundosAí, ou seja, eu tive até, eu até gerei boa parte dessa imagem aqui, eh, nessas plataformas, mas eu fiz essa edição aqui
+10:5710 minutos e 57 segundospara mudar a roupa dela no Confi, ou seja, eu consegui ter um resultado prático para uma coisa que eu faço.
+11:0411 minutos e 4 segundosInclusive, se você quiser aprender a escrever um livro com inteligência artificial, eu vou deixar também aqui embaixo o vídeo aonde eu ensino a escrever um livro de Dark Romance
+11:1211 minutos e 12 segundosutilizando inteligência artificial. Um outro caso de uso é esse daqui, ó. Eu vou te mostrar. Um outro caso de uso, eu tava criando uma história em quadrinhos,
+11:2011 minutos e 20 segundoscomo você tá vendo aqui. E nessa página aqui eu precisei de uma, tinha uma cena de sexo e eu precisava de uma, de um, de um quadro com nudez. Esse quadro aqui
+11:2811 minutos e 28 segundospode ser criado no ali no, no confuy. Eu poderia criar no nando banana ela vestida aqui e depois deixar ela nu utilizando flux, como eu te mostrei aqui
+11:3711 minutos e 37 segundosque dá para fazer. Então tem casos de uso, dependendo do seu trabalho, do que você precisa ali, que você pode precisar gerar ali imagens mais 18 por qualquer
+11:4611 minutos e 46 segundosmotivo que seja. Nesse caso aqui, inclusive, eu vou deixar também na descrição o vídeo onde onde eu ensinei criar histórias em quadrinhos utilizando inteligência artificial. O link vai tá
+11:5311 minutos e 53 segundosaí na descrição. Beleza? Agora vamos ver aqui o resultado. Ela tá completamente nua e cara, você não tá vendo tudo porque eu tenho que censurar por causa
+12:0212 minutos e 2 segundosdo YouTube, mas eu tô vendo a imagem aqui e tá perfeito. Tá tudo certinho no lugar. Pena que não dá para você ver, mas tá tudo certinho aqui no lugar,
+12:1012 minutos e 10 segundoscara. Tudo certinho mesmo. Tá bem bonita a imagem. Vamos até comparar as duas aqui pra gente ver aqui se teve, enfim, se ele manteve a consistência dela. Ó,
+12:1912 minutos e 19 segundoscomo você pode ver aqui, ele só realmente retirou o biquíni, manteve a consistência do cenário, manteve a consistência do rosto, do cabelo, tá tudo certinho aqui, ó. até o cabelo
+12:2812 minutos e 28 segundosaqui, o mesmo errinho do penteado, tá aqui, a posição da perna, as pegadas aqui, enfim, tá tudo certinho. Ele
+12:3712 minutos e 37 segundossimplesmente deixou ela nua do jeito que eu pedi, não colocou nenhuma marca na pele, enfim, funcionou perfeitamente.
+12:4412 minutos e 44 segundosE essa vai ser aí mais uma forma de você tá utilizando confio aí na nuvem, caso você não tenha uma placa de vídeo e,
+12:5112 minutos e 51 segundosenfim, você tá conseguindo gerar aí as imagens que você precisa, não necessariamente o que você consegue gerar com as com as inteligências
+12:5912 minutos e 59 segundosartificiais gratuitas. Em alguns casos específicos, você vai abre Confi e faz a edição ou gera a imagem que você precisa
+13:0613 minutos e 6 segundosdo jeito que você precisa. E isso é muito importante, cara, porque em al em muitos momentos, antes de eu aprender com FIO, por exemplo, eu queria criar a
+13:1513 minutos e 15 segundoscapa de um livro, eu tinha que criar o que eu conseguia criar com Nano Banana ali, com chat GPT ou qualquer uma. Agora não, eu quero, pô, eu tenho uma ideia,
+13:2313 minutos e 23 segundoseu tenho um conceito. Se essas plataformas não me entregam, eu vou abrir o Confiou de código aberto e vou criar exatamente o que eu preciso.
+13:3313 minutos e 33 segundosEntão, esse aqui é o caso de uso. Se você quiser se inscrever no meu treinamento de Confi, o link também vai tá aí na descrição, beleza? por esse vídeo. É isso, a gente se vê num próximo vídeo e tchau.
+
+Sincronizar com o momento do vídeo
