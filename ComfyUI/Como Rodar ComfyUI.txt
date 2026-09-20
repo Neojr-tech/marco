@@ -1,0 +1,112 @@
+Como Rodar ComfyUI Sem Censura Sem GPU (2026)
+https://youtu.be/gZcExW2J6WE?si=myr2lzML_IzSfQ5f
+
+TRANSCRIÇÃO
+
+Capítulo 1: Prova Real: Geração Sem Censura
+0:000 segundoComo você pode ver, completamente sem censura. Nesse vídeo eu vou te mostrar como utilizar o Confi na nuvem com uma
+0:099 segundosplaca de vídeo de 16 GB de RAM de forma gratuita. Você tem aqui, ó, 5:30
+0:1616 segundospor dia, mas fica comigo até o final, porque eu vou te ensinar a multiplicar essas horas para que você tenha horas ilimitadas para utilizar o Confi sem
+0:2525 segundosprecisar fazer nenhum tipo de assinatura paga, de forma totalmente gratuita, limitada e sem censura. Então, se você
+0:3232 segundosnão sabe o que é o confi aqui, ó, e baixar ela na sua, no seu
+0:4040 segundoscomputador. Você clica aqui, ó, ele vai iniciar um download. e você vai instalar ele na sua máquina. É um processo bem simples, é só avançar, avançar, avançar
+Capítulo 2: Preparando o Ambiente (Google Colab)
+0:4848 segundosque você instala na sua máquina. Mas você já sabe que para isso você precisa ter uma placa de vídeo forte. E é por isso que eu tô criando esse vídeo para
+0:5555 segundoste ensinar a utilizar o Confi de forma gratuita e sem placa de vídeo. Para isso a gente vai utilizar a ferramenta
+1:021 minuto e 2 segundosCollab, que é do próprio Google. É só digitar collab, como você tá vendo aqui na na sua tela, e clicar no primeiro
+1:091 minuto e 9 segundoslink, welcome to collab. E ele, você vai entrar nessa página aqui. Se tiver isso daqui, você pode excluir aqui e
+1:161 minuto e 16 segundoscancelar, não vai causar nenhum problema. Eh, eu vou fechar essa essa janelinha aqui pra gente poder ter uma visão um pouquinho mais ampla. E o que é
+1:231 minuto e 23 segundoso collab? Ele vai fornecer para você um ambiente virtual aonde você vai ter acesso a uma placa de vídeo para você poder rodar diversas coisas. E nesse
+1:321 minuto e 32 segundoscaso aqui, a gente vai utilizar o confiar aqui, ó, nesse botãozinho aqui, ó, código. Vai criar aqui uma aba para você
+1:391 minuto e 39 segundosdigitar um código. Mas eu já facilitei a sua vida. Eu criei essa página aqui para você saber exatamente o que você vai ter que colar lá. Você vai copiar esse
+1:471 minuto e 47 segundosprimeira célula aqui, ó. Copiou. Já tá aqui na área de transferências. A gente vai voltar para cá e vai colar essa célula aqui. Vamos descer a tela um
+Capítulo 3: Configuração do Workflow Inicial
+1:561 minuto e 56 segundospouquinho e clicar novamente aqui em código pra gente adicionar uma segunda célula. E a segunda célula também tá aqui. Eu vou copiar. Pronto. E vou
+2:042 minutos e 4 segundosvoltar aqui. E vou adicionar a segunda célula. Agora nós vamos clicar nessa setinha para baixo aqui e nós vamos
+2:122 minutos e 12 segundosalterar tipo de ambiente de execução. E aqui a gente vai escolher a GPU T4 e salvar. Essa daqui é a placa de vídeo de
+2:212 minutos e 21 segundos16 GB que nós vamos utilizar nesse processo aqui. Agora o que você precisa fazer é clicar aqui em conectar e
+2:282 minutos e 28 segundosesperar um pouquinho aqui que você vai est conectando na sua na sua pasta.
+2:332 minutos e 33 segundosPronto, ele tá conectado. Você pode ver aqui algumas informações. Olha só, ele fornece pra gente aqui 5:30.
+2:412 minutos e 41 segundosNormalmente essa essas horas se renovam ao eh de um dia pro outro. Pela minha experiência. Nem sempre vão ser 5 horas.
+2:482 minutos e 48 segundosàs vezes vão ser 4 horas e pouquinho, enfim, de um modo geral vai se renovar algumas horas durante o dia aqui. Mas de novo, fica até o final porque eu vou te
+2:562 minutos e 56 segundosmostrar como que você vai ter horas ilimitadas para utilizar essa placa de vídeo. Com a placa conectada aqui, a gente vai clicar nesse botãozinho de play aqui e executar a primeira célula.
+3:063 minutos e 6 segundosEla vai começar a rodar aqui, vai pedir acesso ao seu Google Drive e você vai permitir o acesso. Vai permitir aqui, ó,
+Capítulo 4: Conectando o Google Drive com Segurança
+3:143 minutos e 14 segundosselecionar tudo e você vai continuar. E aí você vai, enfim, ela vai continuar girando aqui. Então ela vai conectar ao
+3:223 minutos e 22 segundosseu drive, vai fazer uma série de instalações aqui e essa célula vai parar de girar quando ela tiver completa, tiver concluído todo o processo. Mas
+3:293 minutos e 29 segundosenquanto isso, a gente vai fazer o seguinte, a gente vai vir aqui nessa plataforma aqui, ó, NGrock, você vai colocar isso daqui no Google, você vai
+3:373 minutos e 37 segundosacessar o primeiro link, você vai criar uma conta nessa plataforma aqui. No meu caso aqui eu já tenho, vou botar login, vou conectar com o Google, mas é bem
+3:453 minutos e 45 segundossimples de você criar uma conta aqui. É só você conectar com o Google mesmo e a gente vai poder est tendo uma conta nessa plataforma que vai ser muito útil.
+3:553 minutos e 55 segundosNesse caso aqui eu vou deixar um pouquinho de lado por enquanto e vamos esperar aqui a instalação da nossa célula. E muito bem, a célula foi
+4:034 minutos e 3 segundosinstalada e aparece essa mensagem aqui, ó, célula um concluída com sucesso. E você vai fazer o seguinte, você vai instalar a célula dois e ela vai iniciar
+4:134 minutos e 13 segundosaqui também. E olha que interessante, a gente vai acessar o confi NGOC. E olha só, é só clicar nesse link aqui que ele
+4:204 minutos e 20 segundosdá pra gente. Já vai abrir aqui uma pasta onde a gente cola, o copia o nosso código de de autenticação. Você não pode deixar ninguém ver esse código. Nós
+4:294 minutos e 29 segundosvamos voltar aqui e colar esse código aqui, ó, nessa caixinha de texto que aparece e dar um enter. E ele vai seguir
+4:374 minutos e 37 segundosaqui a instalação. E ele já forneceu pra gente aqui o link que a gente vai acessar o confi aqui, ó. Mas se eu clicar aqui agora,
+Capítulo 5: Entendendo a Estrutura de Pastas
+4:444 minutos e 44 segundosele não vai abrir porque ainda falta algumas instalações. Olha só, ele ainda tá ele ainda não terminou de instalar tudo. Então ele vai continuar instalando
+4:534 minutos e 53 segundosalgumas coisas aqui. O mais interessante de tudo é que esse método aqui ele vai criar uma pasta no seu Google Drive com
+5:005 minutostodos os arquivos do Confial fica quando você instalar no computador. Você pode abrir aqui, vai ter todas as todas as suas pastas, inclusive inclusive a pasta
+5:095 minutos e 9 segundosmodels, que é para você instalar aqui os seus modelos, mas também vai abrir essa pasta aqui com o próprio notebook que você acabou de criar. E quando você
+5:175 minutos e 17 segundosquiser acessar o confi novamente, você abre aqui o drive e clica duas vezes nesse link aqui que vai abrir essa página aqui do Google Collab. Você pode
+5:255 minutos e 25 segundosver aqui que ele tá fazendo algumas instalações ainda. Aqui, ó, na minha pasta models, eu tenho vários modelos.
+5:325 minutos e 32 segundosPor exemplo, se eu vir aqui em checking point, ó, você pode ver aqui que tem o Juggernout. Se se a gente vir aqui na pasta Tex Encoder, eu tenho esse Queen e 3 4B que ele tem mais ou menos uns 7 GB.
+5:435 minutos e 43 segundosMas olha que interessante, a minha conta ela não tá gastando praticamente nada.
+5:475 minutos e 47 segundosEu tô com meus 15 GB praticamente intactos aqui. E fica até o final porque eu vou te mostrar como você vai fazer
+5:545 minutos e 54 segundospara burlar essa limitação de 15 GB do Drive de forma totalmente gratuita para você colocar quantos modelos você quiser
+6:016 minutos e 1 segundona sua Confi. Fica até o final para você não perder nada, porque esse tutorial tá bem bem bem completo. Olha só, galera,
+6:096 minutos e 9 segundosse ele passar de 2 minutos e meio aqui rodando essa segunda célula, você faz o seguinte, você vem aqui, você fecha ela
+Capítulo 6: Executando o ComfyUI na Nuvem
+6:176 minutos e 17 segundose roda de novo, que na segunda vez normalmente ela flui ali de uma maneira bem mais tranquila. Então, olha só, na
+6:256 minutos e 25 segundossegunda vez que eu rodei a célula, ela já chegou aqui no ponto de abrir em pouco mais de um minuto. Normalmente, quando aparece esse link aqui, é, já
+6:326 minutos e 32 segundosvocê já pode clicar para abrir, mas não é nesse link que você vai clicar. Você vai clicar aqui, você vai voltar aqui em cima e você vai clicar nesse link aqui, ó. Clique nesse link para abrir o
+6:416 minutos e 41 segundosconfiar nesse aqui, ó. E aí ele vai abrir o confi normalmente dá esse erro na primeira, você dá um enter que ele
+6:486 minutos e 48 segundosvai abrir normalmente. O confiá aberto, você pode clicar duas vezes aqui para criar os seus workflows, mas vamos fazer um teste aqui com o workflow pronto.
+6:576 minutos e 57 segundosVamos vir aqui em templates, vamos vir aqui em imag selecionar aqui o meu modelo favorito
+7:047 minutos e 4 segundosque é o Z Image Turbo. Pronto. Olha só que interessante. Nesse caso aqui eu já
+7:117 minutos e 11 segundostenho os modelos, mas você pode perceber que você, no seu caso, você ainda não vai ter. Então você vai vir aqui nesse,
+7:207 minutos e 20 segundosnesse cantinho aqui e você vai ver os modelos que você precisa baixar, que é esse text encoder. Isso daqui é a pasta
+7:267 minutos e 26 segundosque esse modelo vai, que é o Queen 3 e 4B. Você vai clicar aqui e ele vai começar a baixar. E você também vai ter
+Capítulo 7: Interface e Primeiros Comandos
+7:347 minutos e 34 segundosque baixar esse modelinho aqui, ó, que é o Z image de Turbo, que vai ficar na pasta de fusion models. Você vai começar
+7:417 minutos e 41 segundosa baixar também. E o que vai ficar na pasta vai, aqui é a pasta de indicação, ele vai começar a baixar. Então, presta
+7:507 minutos e 50 segundosatenção. Você vai colocar esse modelo aqui, Queen 3, no na pasta text encoder, o Z image Turbo na pasta de fusion
+7:597 minutos e 59 segundosmodels e o e o Ice. Safe tensor na pasta vai. Eu vou não vou terminar de baixar
+8:068 minutos e 6 segundosaqui porque eu não vou precisar. Se você tiver no seu computador, você vai entrar na sua pasta models. No seu computador, clicando aqui, ó, tá vendo? No confi
+8:148 minutos e 14 segundosmodels. Você vai vir aqui adicionar o modelo do Z Image Turbo nessa pasta aqui, ó, que é a pasta de fusion models.
+8:228 minutos e 22 segundosOlha aqui o Z imago. Tá aqui. Você vai adicionar o Queen 3.B na pasta Text
+8:298 minutos e 29 segundosEncoder. No meu caso, ele já está aqui também. E você vai adicionar o outro arquivo, né, na pasta vai. E ele também já tá aqui, ó. Você pode ver que o arquivo vai está aqui nessa nessa pasta.
+8:418 minutos e 41 segundosE mais uma vez você pode ver que todos esses arquivos estão aqui nas pastas corretas e eu não tô gastando o meu armazenamento de 15 GB. E é isso que eu
+8:498 minutos e 49 segundosvou te mostrar até o final do vídeo, como você vai fazer para burlar essa limitação aqui e multiplicar as suas horas de quebra. Então fica até o final.
+8:588 minutos e 58 segundosEnfim, eu colei esse prompt aqui paraa gente testar o Z imago. E já vai ser um teste de censura também. Eu vou, já
+9:059 minutos e 5 segundoscolei o prompt aqui. Aqui você pode configurar aqui o tamanho da imagem. E eu vou clicar em run pra gente começar a
+9:139 minutos e 13 segundosnossa geração. Enquanto ele tá gerando aqui a imagem, eu vou te mostrar como que eu fiz para burlar a limitação de armazenamento do drive, que é a mesma
+Capítulo 8: O Hack do Drive Ilimitado (Dica de Ouro)
+9:219 minutos e 21 segundosforma que eu utilizo para aumentar as minhas horas diariamente também. Muito bem, eu tenho aqui uma conta no Google Drive em outro e-mail. Eu tô até em outro navegador aqui. E o que eu fiz?
+9:329 minutos e 32 segundosVocê pode ver aqui, ó. Eu adicionei o modelo do Zimas de Turbo nessa conta aqui. Para falar a verdade, eu tenho várias contas no Google Drive. Eu só
+9:419 minutos e 41 segundosadicionei ele aqui. Não tem confião não tem nada, só o modelo aqui. E o que eu fiz? Eu vim nesses três pontinhos aqui e
+9:489 minutos e 48 segundoscliquei em compartilhar. Aí eu vim aqui, ó, compartilhar. E aqui você pode adicionar o e-mail da conta Google que
+9:559 minutos e 55 segundosvocê quer compartilhar. No caso, aqui eu adicionei e eu adicionei essas três contas aqui. Essa daqui é a principal. E eu adicionei essas três contas aqui.
+10:0210 minutos e 2 segundosVocê vem aqui, ó, e coloca como editor para não dar nenhum problema. Você vai adicionar as contas aqui e você vai compartilhar. Vai chegar um e-mail em
+10:1110 minutos e 11 segundoscada uma dessas contas com um link que você vai clicar lá e vai aceitar normalmente. E o que acontece no drive da sua conta principal? Você vai vir
+10:1910 minutos e 19 segundosaqui, ó, compartilhados comigo. E olha só, tem vários modelos aqui, inclusive o
+10:2610 minutos e 26 segundosZ imago. E o que eu fiz? Eu cliquei aqui, ó, nesses três pontinhos. Vim aqui, ó, em organizar, adicionar,
+10:3610 minutos e 36 segundosatalho. E aqui vai aparecer todas as suas pastas. E você pode vir aqui, ó, clicar na pasta confias aqui. Você vai procurar a pasta models.
+10:4710 minutos e 47 segundosNesse caso do Zimas de Turbo é na diffusion models. Você vai selecionar ela e vai clicar em adicionar. Ou seja, eu não vou fazer isso porque eu já fiz.
+Capítulo 9: Gerando Imagens em Alta Velocidade
+10:5810 minutos e 58 segundosComo você pode ver, o Z Image Turbo está aqui dentro da minha pasta models, mas com esse simbolozinho de atalho aqui que
+11:0511 minutos e 5 segundospro Google Collab aqui vai funcionar normalmente. Ele vai funcionar como se ele tivesse aqui nessa pasta, só que ele tá sendo puxado de uma outra conta. E aí
+11:1411 minutos e 14 segundosjá entra a dica. Você pode instalar aqui, né, o Google Collab em todas essas contas aqui. Olha, ó, tem três contas aqui que eu instalei o Google Collab.
+11:2411 minutos e 24 segundosCada uma aí vai te dar 5 horas e pouquinho por dia. Então você vai ter mais de 16 horas para você trabalhar por dia com o Google Colab. Você vai usar
+11:3311 minutos e 33 segundosali uma conta de cada vez. Você vai usar as horas numa conta, depois você vai usar as horas em outra. Eu particularmente nunca cheguei a utilizar todas as horas de uma única conta, nem
+11:4111 minutos e 41 segundoscheguei a a precisar usar as outras contas, mas aí depende do seu uso. Como você pode ver, completamente sem
+11:4711 minutos e 47 segundoscensura. Obviamente eu tô censurando a imagem para, enfim, pro YouTube não encrencar, mas eu que tô vendo aqui a imagem em tempo real, eu posso te dizer
+11:5511 minutos e 55 segundosque ela ficou perfeita. Tá tudo perfeito aqui e completamente sem censura. Usei meu de turbo, na minha opinião, é um dos
+12:0312 minutos e 3 segundosmelhores geradores de imagem de código aberto que tem. Já queria te dar uma dica aqui, que normalmente com esse método aqui, a primeira geração vai
+12:1212 minutos e 12 segundosdemorar um pouquinho mais porque você precisa carregar o modelo na Vran e, enfim, vai demorar um pouquinho porque ele vai puxar lá do drive até carregar
+Capítulo 10: Como ter Horas Ilimitadas e Conclusão
+12:2012 minutos e 20 segundosna Vran demora, mas aí a partir da segunda geração ele costuma ser bem mais rápido. Então, normalmente, quando eu
+12:2712 minutos e 27 segundospreciso gerar uma imagem um pouquinho mais sem censura ali, que esbarra nos limites das plataformas, eu utilizo
+12:3612 minutos e 36 segundosconfi e é esse o método, esse método que eu utilizo aqui para poder utilizar essa placa de vídeo com 16 GB de ver RAM do
+12:4312 minutos e 43 segundosGoogle. É o método que eu mais utilizo aqui para gerar imagens e vídeos e músicas. Eu posso até trazer aulas aí sobre geração de música, de áudio,
+12:5112 minutos e 51 segundosenfim, com confi também. Deixa aqui nos comentários se você quer, se você quer esse tipo de aula também.

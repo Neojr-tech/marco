@@ -1,0 +1,88 @@
+Ambiente_Virtual_Células 1 e 2
+
+TOKEM
+3ILgF9VOWFbnbKOcBViI32WsSc0_3Hn3HwJDzSfSocyweF7nj
+
+https://www.youtube.com/watch?v=gZcExW2J6WE&t=2s
+https://sites.google.com/view/sansoseara/aula-comfyui-colab
+
+Copiar Prompt
+
+Ambiente_Virtual_Células 1 e 2
+https://www.youtube.com/watch?v=gZcExW2J6WE&t=2s
+https://sites.google.com/view/sansoseara/aula-comfyui-colab
+
+Copiar Prompt
+
+Célula 1: Preparação
+
+# CÉLULA 1: CONECTAR DRIVE E PREPARAR SISTEMA
+from google.colab import drive
+import os
+import shutil
+
+print("🔄 Conectando ao seu Google Drive...")
+drive.mount('/content/drive')
+
+DRIVE_PATH = "/content/drive/MyDrive/ComfyUI"
+
+os.makedirs(f"{DRIVE_PATH}/custom_nodes", exist_ok=True)
+os.makedirs(f"{DRIVE_PATH}/models/checkpoints", exist_ok=True)
+os.makedirs(f"{DRIVE_PATH}/models/loras", exist_ok=True)
+
+%cd {DRIVE_PATH}
+
+if not os.path.exists(f"{DRIVE_PATH}/main.py"):
+    print("📥 Baixando ComfyUI principal...")
+    !git clone https://github.com/comfyanonymous/ComfyUI.git .
+else:
+    print("✅ ComfyUI detectado. Atualizando...")
+    !git reset --hard origin/master || git pull
+
+if not os.path.exists(f"{DRIVE_PATH}/custom_nodes/ComfyUI-Manager"):
+    !git clone https://github.com/ltdrdata/ComfyUI-Manager.git custom_nodes/ComfyUI-Manager
+
+!pip install -r requirements.txt
+print("\n✅ Célula 1 concluída!")
+Célula 2: Ngrok e Inicialização
+Copiar Prompt
+
+
+Célula 2: Ngrok e Inicialização
+
+# CÉLULA 2: AUTENTICAR NGROK E LIGAR COMFYUI
+!pip install pyngrok
+from pyngrok import ngrok
+import getpass
+
+print("🔑 Cole seu Authtoken do Ngrok:")
+NGROK_TOKEN = getpass.getpass("Token: ")
+
+ngrok.kill()
+ngrok.set_auth_token(NGROK_TOKEN)
+public_url = ngrok.connect(8188)
+
+print(f"\n🚀 LINK DE ACESSO: {public_url}")
+
+%cd /content/drive/MyDrive/ComfyUI
+!python main.py --listen 127.0.0.1 --port 8188
+
+
+Célula 2: Ngrok e Inicialização
+
+# CÉLULA 2: AUTENTICAR NGROK E LIGAR COMFYUI
+!pip install pyngrok
+from pyngrok import ngrok
+import getpass
+
+print("🔑 Cole seu Authtoken do Ngrok:")
+NGROK_TOKEN = getpass.getpass("Token: ")
+
+ngrok.kill()
+ngrok.set_auth_token(NGROK_TOKEN)
+public_url = ngrok.connect(8188)
+
+print(f"\n🚀 LINK DE ACESSO: {public_url}")
+
+%cd /content/drive/MyDrive/ComfyUI
+!python main.py --listen 127.0.0.1 --port 8188
