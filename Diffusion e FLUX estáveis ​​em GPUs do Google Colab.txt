@@ -1,0 +1,566 @@
+ComfyUI ONLINE, Flux e Stable Diffusion para quem não tem Placa de Vídeo! Google Colab
+https://youtu.be/WrvYtYRvqOU?si=p7OItXcwth4Fcm2O
+
+
+
+Estou muito interessado no seu curso mas
+estou com medo de não conseguir colocar
+o aprendizado em prática porque eu ainda
+não tenho um computador só um notebook
+fraco com Ram de 4 GB consigo usar o
+confy online vamos agora nesse vídeo
+aprender como utilizar o Google cab para
+você conseguir est utilizando aí o confu
+de uma maneira prática rápida e sem
+precisar de uma um sistema muito
+complexo aí no seu computador ou
+notebook eu vou destrinchar tudo aqui
+nesse vídeo falar o que você pode usar
+gratuitamente o que você tem que pagar
+mensalmente vou estar comprando aqui os
+pacotes para você ver e também ensinando
+você a pegar desconto no Google Drive
+porque você vai precisar de um Google
+Drive para mexer bem legal no confy Eu
+sou Pereira De Volta ao Mundo oficial
+certo vocês vão clicar no segundo link
+da descrição Aonde vocês vão conseguir
+tá entrando aqui no Google colab do
+confu certo lembrando existe a opção de
+você usar gratuitamente eu vou mostrando
+aqui para vocês a opção gratuita depois
+eu vou comprar e vou mostrar todas as
+opções pagas aqui eu vou comprar para
+você vocês verem como é que é então
+vamos lá primeiramente nós temos clicar
+aqui ó Nessa setinha e alterar tipo de
+tempo de execução nós clicamos aqui e
+aqui nós vamos escolher entre CPU e GPU
+nós vamos pegar GPU para rodar o nosso
+confi ele precisa sim de uma GPU para
+est rodando potente nós clicamos aqui em
+salvar Lembrando que o seu pode est
+escrito aqui conectar tá o meu tá
+escrito ligar por conta de tradução
+mesmo aqui da ferramenta não sei porque
+o meu fica dessa forma então depois que
+você escolheu aqui né alterar tipo de
+execução a segunda opção Caso não esteja
+igual ao meu é a segunda opção aqui
+alterar tipo de execução tá alterou Aqui
+você clica em conectar que aqui no meu
+caso est ligar você clica em conectar e
+ele vai começar aqui a conectar para
+você tá bom espera um pouquinho e aí vai
+aparecer aqui ó Ram e disco clica aqui
+para você ver então aqui está o a
+potência da nossa GPU ela tem aí 15 GB
+de vram é muito legal isso vai dar para
+fazer até utilizar o o flux no seu confi
+dá para fazer vídeos é mais potente que
+o meu computador para você ter ideia Tá
+bom então você tem aí muito acesso e
+muita facilidade de tá usando o Google
+colab certo aqui se você clicar aqui em
+atualizar para o o cab ele vai abrir uma
+outra aba onde nós vamos fazer o
+pagamento depois tá então primeiro vou
+fazer sem pagar nada depois vou mostrar
+para vocês pagando Então vamos fazer
+primeiro gratuito aqui comprou eh fez
+isso aqui certo agora você vai vir aqui
+ó copiar para drive o que que isso aqui
+vai fazer vai copiar o o seu confu para
+o seu Google Drive já aqui ó e aí abre
+outra tela né como você pode ver abri
+outra tela vou tá ligando novamente aqui
+ele vai falar que eu vou tá em outro
+local você clica aqui em gerenciador
+você aqui fecha o gerenciador certo e
+aqui ó olha só você liga novamente tá
+Por que você tem que fazer isso para
+você colocar no seu Google Drive tá
+então você vai vir aqui então aí depois
+de você fazer isso você abre lá sua aba
+do Google Drive né É só ir lá no Google
+clicar aqui em drive tá que você vem
+direto pra sua conta do Google Drive E
+aí você vai ver que tem uma pastinha
+agora como tem aqui no meu ó colab
+notebook tá então veio para cá uma pasta
+certo então aqui ó nós vamos clicar
+agora em instalar tá instalar
+dependências e nós clicamos bem aqui
+nesse botãozinho de Play e ele vai
+começar
+a conectar e a colocar o conf no seu
+Google Drive aí vai aparecer essa
+informação aqui que a é pra gente
+liberar os acessos na nossa conta Google
+ligar com Google Drive vai aparecer aqui
+uma informaçãozinha e você clica aqui na
+sua
+conta aceita todos os
+termos seleciona tudo aqui ó seleciona
+tudo vai aceitando tudo mesmo tá pessoal
+verifica
+certinho E aí muito importante que a
+instalação você fique aqui olhando a
+tela e não deixe de mexer o mouse ou
+mexer aqui tá pessoal porque o Google
+collab ele desliga você se você deixar
+offline aqui pois ele tem aqui um tempo
+de execução ó como nós podemos ver se a
+gente clicar aqui em Ram e disco nós
+podemos ver aqui o tempo que nós podemos
+utilizar aí essa CPU né Essa GPU na
+verdade que a gente adquiriu né para est
+rodando aí o confu tá então nós temos
+esse tempo ali de 4 horas para est
+utilizando se nós ficamos offline aqui
+parado você vai ser desconectado se você
+ficar muito tempo parado
+ossos aqui no Google collab beleza
+pronto a instalação terminou Demorou 3
+minutos tá pessoal então fiquei 3
+minutos aqui esperando como vocês podem
+ver ali embaixo eu vou descer agora aqui
+ó vou descer vou descer vou descer vou
+descer e aqui nós chegamos em algumas
+coisas legais né aqui ele tá sugerindo
+pra gente fazer Instalações né
+Eh de checkpoints essas coisas isso aqui
+vocês não precisam fazer certo porque eu
+vou estar ajudando vocês a instalar
+outras coisas aqui pra gente começar a
+tá mexendo a gente vai começar a mexer
+no Flux aqui direto tá então se você
+quiser estar instalando esses modelos e
+tudo mais você clica aqui ó e espera tá
+eu não vou est fazendo isso não acho
+necessário mas se você quiser é só dar
+play aqui e agora eu vou dar room confy
+aqui certo vou dar um conf lembrando se
+você for e baixar esses modelos já você
+tem que lembrar que você tem que ter
+espaço no seu Google Drive para
+conseguir esses modelos então aqui eu
+não sei quanto tá pesando esses modelos
+sabe então se você já paga o Google
+Drive você já pode baixar esses aqui
+para testar caso ao contrário não faça
+isso senão você não vai conseguir e tá
+utilizando Então vamos continuar aqui
+normalmente depois você faz isso ou
+baixa diretamente desses links caso você
+ficou curioso para ver o que que é isso
+aqui bem fazendo isso ele vai aparecer
+essa URL aqui para você clicar tá
+lembrando se aparecer esse erro que tá
+na tela aí para você também que apareceu
+para mim você tem que fazer o seguinte
+tá eu não coloquei isso no começo porque
+pode ser que só tá correndo para mim mas
+existe a possibilidade de ser para todo
+mundo então você vai fazer o seguinte
+você vai vir aqui e vai colocar esse
+código aqui que eu vou prô aí na
+descrição você vai pôr esse código bem
+aqui tá Então você vai clicar nessa
+parte preta com tudo parado tá você
+pausa aqui o o room confy se ele não
+tiver funcionando mais dá uma olhada vê
+se tá tudo ligado tudo certinho aqui
+continua vendo aí você vem aqui ó clica
+aqui ó procura instal dependen clica
+aqui ó pode clicar aqui ou clica aqui e
+aperta para baixo não aperta Enter tá
+pessoal de jeito nenhum nem com shift
+nem com nada depois Cola aqui o PIP stal
+E aí você cola esse código aqui para ele
+instalar roda aqui primeiro e depois de
+rodar ali primeiro você vem aqui e roda
+isso aqui de novo que vai estar
+funcionando tá depois que você rodar de
+novo você espera um pouco vai aparecer
+uns links assim igual essa mensagem ó
+des URL vai vou colocar na tela aí para
+vocês verem que vai aparecer talvez você
+para o seu confu e aí você para aqui ó
+clica aqui para parar e você aperta de
+novo para rodar novamente e aí vai tá
+aparecendo essa única URL tá tem que
+aparecer apenas uma url ligada aí para
+você certo para garantir que apareça
+caso apareça essa aqui de primeira você
+já já tá rodando aí no seu conf já tá
+rodando tá aqui no canto direito ó se
+vocês quiserem ver os recursos né eles
+vão tá aparecendo bem aqui nesse canto
+Tá clicando aqui em Ram aí você vai ver
+ali que eu tenho ó duas horas para est
+usando conf certo então Você clicou aqui
+nessa ell vai abrir isso aqui demora um
+pouquinho para abrir tá pessoal deixa
+aqui rodando você abre uma vez dá uma
+atualizada e deixa aqui rodando tá aqui
+ele vai sugerir para você baixar o
+modelo tá bom não vamos baixar ele agora
+eu vou est ensinando vocês a colocar um
+modelo próprio aqui então aqui está o
+confu para você começar a tá utilizando
+né Vamos pegar um modelo próprio aqui do
+civt para estar colocando aqui para
+fazer ele rodar então você vai vir aqui
+no site do civt tá bom como nós estamos
+usando aqui o conf né o Google collab
+gratuito nós não temos muito espaço
+Então a gente vai usar aqui o Dream
+shaper tá bom que é esse modelo aqui
+base bem levezinho ele tem aqui ó
+quantos gigas ele tem acho que é 4 GB
+que ele tem se não me engano então ele é
+bem levezinho e aí você vai ter que ir
+lá no seu Google Drive Então você vai lá
+no seu Google Drive vai em confi e aí
+vai ter aqui ó models tá vai ter aqui
+models E aí você coloca aqui em check
+points ess aqui é uma pasta errada que
+eu fiz tá check points e coloca ele aqui
+então você baixa no seu computador e
+envia para cá tem outra maneira de fazer
+isso pelo Google colab só que eu achei
+mais fácil assim e bem mais intuitivo
+fazer dessa maneira tá então todos os
+modelos que for baixar vou est abrindo
+aqui um outro workflow para vocês verem
+Olha só vou est colocando esse aqui do
+xl ó XL simples por exemplo né vou
+colocar para baixar para eu usar esse
+workflow aqui ele vai avisar tá vendo ó
+Ele vai avisar que eu tenho que baixar
+esse arquivo e esse arquivo e colocar os
+dois no checkpoint no caso mas tem
+alguns Alguns que eu tenho que pôr em
+outras pastas e ele vai te avisar aqui
+tá então você baixa e procura lá para
+onde você vai instalar essas pastas e
+esses modelos beleza abri aqui né
+novamente o meu Google o meu conf Y tá
+lembra de reiniciar tudo fazer todo o
+processo de novo de de inicialização
+instalando as dependências e depois
+colocar ele para rodar e agora ele vai
+abrir novamente aqui e você vai
+conseguir estar gerando vamos gerar aqui
+uma rapidamente para vocês verem como é
+tá gerando aqui em cima tá tá entrando
+na fila carrega e é muito rápido tá tá
+muito rápido mesmo tá olha aí ó gerou a
+nossa imagem tá com o Dream Shape certo
+agora eu vou estar comprando tanto o
+Google Drive para colocar o flux entre
+outras coisas e também eu vou estar
+comprando o google collab para poder
+usar uma placa de vídeo muito mais
+potente de 40 GB de vram vamos ver a
+velocidade aqui no seu drive você vai
+vir aqui em comprar mais armazenamento
+como a gente fez uma conta nova lembra
+que eu falei para vocês fazerem uma
+conta nova vocês vão estar conseguindo
+aqui aqui ó 100 GB por 2,50 ó tá vendo
+r50 ou anualmente r$ 94 tá varia de
+conta PR conta tá eu V pegar aqui os R 2
+mas eu falo para vocês pegarem aqui pelo
+menos os R 100 aqui no anual vou pegar
+esse aqui agora pronto já peguei aqui o
+espaço a mais pra gente colocar modelos
+mais pesados vamos rodar aqui o flux
+certo e agora eu vou tá atualizando aqui
+para o Google colab pro tá para ver se
+vai fazer alguma diferença na velocidade
+que a gente tá utilizando aqui ó gpus
+mais rápidos atualizo para gpus mais
+potentes mais memória acesso e etc etc
+etc vamos ver se vai ser mais rápido
+ainda que meu computador aqui então
+vamos pedir aqui certo então vamos aqui
+agora em alterar tipo de tempo de
+exibição outras gpus olha só a gente tem
+essa GPU aqui vamos coisar aqui ligar
+ela vamos ver aqui a potência dela Então
+olha só ela tem 40 GB div vram por conta
+do Google collab que a gente adquiriu e
+agora é nós podemos acessar mais de uma
+sessão a gente tem agora 8 horas tá bom
+para tá ativando hoje aqui para tá
+utilizando o Google collab e vamos ver
+se vai ser mais rápido vamos iniciar
+aqui o nosso Google colab antes disso
+antes de iniciar tudo vamos instalar
+aqui o flux nas pastas corretas tá cara
+eu gostei muito do Google colab acho que
+vale a pena esse aqui é o c que você vai
+gastar anualmente Se você usar o Google
+collab e você vai usar 8 9 horas 10
+horas por vez por mês tá vale a pena
+porque ele vai gerar as imagens muito
+rápidas tá Então vale a pena você tá
+pegando e para começar a aprender você
+vai tá conseguindo sim tá aprendendo
+bastante com o Google colab tá então é
+isso esse foi o vídeo e não esqueça de
+comprar o nosso curso né Agora você
+consegue Tá sim aí iniciando o nosso
+treinamento clica aqui para você tá
+adquirindo ele ou Veja a minha Live onde
+eu explico tudo sobre o nosso
+treinamento como eu conheci o confu tudo
+que eu já trabalhei com inteligência
+artificial se você não me conhecia eu
+mostro alguns projetos meu com Renato
+cariano e divers diversas outras coisas
+clica aí para você tá vendo o vídeo
+
+
+Como usar o Wan-Animate gratuitamente no Google Colab (Passo a Passo)
+https://youtu.be/Yl1FdFqw1i8?si=OWghxof_wBFMu3Dt
+
+
+Olá, neste vídeo vou abordar...
+Como executar uma animação gratuitamente
+nível do Google Collab. Eu não pensei nisso
+Era possível, mas eu não deveria ter feito isso.
+subestimou as otimizações de memória
+em Wonggp porque funciona e eu vou
+Vamos ver como você também pode fazer isso. Então, vamos lá.
+para o Square Zero Labs um togp em
+Repositório colaborativo. Vou colocar o link lá.
+descrição e clique na colaboração
+clicar no botão abrirá um caderno.
+Em seguida, clique em "Executar tudo".
+E correr mesmo assim.
+Ele instalará tudo para você e
+Instale o WGP. Assim, ele estará baixando o arquivo.
+código. Está instalando as dependências.
+E nesta instância de colaboração, eu acho que
+A conexão com a internet não era muito boa.
+porque demorou mais do que o normal para
+Instale as dependências. Assim que estiverem instaladas.
+instalado, ele lançará o Wong 1gp em
+perfil 5 que é o que tem mais memória
+otimizado. Portanto, as gerações serão lentas.
+Mas espero que funcionem. E então
+Você verá isso no registro de eventos eventualmente.
+Teremos um link para você simplesmente abrir o
+interface de usuário para pós-graduação. Assim que você vir esse link, você pode
+Clique nele. E então estaremos no consultório médico de Wong.
+Queremos executar uma animação. Então, estamos
+vai passar por baixo de um 2.2 dois e depois
+A animação aparecerá. E a primeira
+A coisa que vamos fazer é ir para o
+criador de máscara de vídeo para criar uma máscara de
+nosso vídeo de controle. Então arraste-o para cá.
+E isso deveria ser alguém se mudando ou
+Conversa. Funciona melhor se for uma pessoa só.
+e são as dimensões do vídeo
+O resultado que você deseja. Clique em "Carregar vídeo".
+E o vídeo deverá aparecer no
+Certo. Se não funcionar, há um problema.
+Então, vamos analisar os registros e, sim, vemos...
+que ocorreu um erro porque tentamos
+para gerar a máscara antes do modelo
+Os pesos para a criação da máscara foram
+baixou. Então podemos ver ali que
+diz que tentou encontrar esse caminho e
+Não há nada lá. Então vamos ver se temos
+esses pesos agora. E se nós afundarmos
+pontos de controle
+máscara que vemos agora temos esse arquivo que
+Era o que estava procurando. Então, se formos e pararmos.
+o processo apenas naquele caderno
+A célula para e depois inicia novamente,
+O WGP será reiniciado e poderemos
+Espero que façam a máscara porque agora
+têm os pontos de verificação. Quando você vir o
+O link para a interface do usuário aparecerá na saída.
+Clique ali e depois iremos para o vídeo.
+Criador de máscaras novamente. Arraste para o nosso controle.
+vídeo. Novamente, você quer que este seja o
+dimensões para o seu vídeo de saída. Então
+Estamos fazendo um 9x6. Então, nosso vídeo de controle.
+é 9x6. Clique em carregar vídeo.
+E espere um segundo. E sim, então
+Obtemos a interface de usuário que esperamos. E clicamos em
+onde queremos que a máscara seja criada. Então nós
+Clique na pessoa no vídeo. Casal
+Mais alguns cliques para delineá-la completamente.
+E isso parece bom. Então clique em adicionar.
+máscara
+Em seguida, clique em "Gerar máscara de vídeo".
+E então isso levará um tempo para ser criado.
+a máscara.
+E então o resultado fica assim. Nós
+Veja nosso vídeo sobre máscaras.
+Parece bom. Então, vamos exportar.
+E agora que estamos de volta a um
+animar,
+Estamos selecionando o Exora Fusion. Então
+Após selecionar essa opção, clique em Aplicar.
+Isso nos permitirá gerar em 10
+passos. E então vamos selecionar
+imagem de referência de pessoa animada usando
+movimento da pessoa visada. E então isso
+fará com que nossa máscara que criamos apareça.
+Bem ali em cima.
+Em seguida, arrastamos nossa imagem de referência.
+Nossa imagem de referência também deve ser a
+mesmas dimensões que nosso vídeo de controle.
+e a saída. Então aqui é 9 por 6. Eu
+ter a imagem de uma mulher diferente em um
+mesma formação e posição que o
+controlar o vídeo e solicitar apenas à mulher
+está dançando em 480p 9x6.
+É muito importante que você seja consistente.
+vídeo de controle de saída e imagem de referência
+todos nas mesmas dimensões para o número de
+frames. Eu tive falhas na colaboração se eu
+Tentamos fazer demais. Então vamos...
+Mantenha em 81. E porque nós aplicamos
+Laura, isso já estabeleceu algumas boas condições.
+configurações padrão. Temos o 10
+As etapas de inferência já estão definidas. Já está configurado.
+tem o CFG em um e a escala de mudança
+Às sete. Então não precisamos tocar.
+Qualquer coisa. E podemos simplesmente clicar em gerar.
+Isso vai demorar bastante. Você pode
+Confira os registros enquanto o programa estiver em execução.
+e observar a utilização de recursos para fazer
+Claro, tudo está indo bem. E então
+Um mapa de poses será criado antes do
+etapa de difusão. Então você pode ver que isso
+A saída serve para garantir que esteja funcionando.
+Bem, terminou em cerca de 44 minutos.
+E aí vemos o resultado. E então eu
+executei outro com o prumo polar
+urso. Então você pode ver algo muito diferente.
+O personagem também pode ser usado na cena.
+Espero que isso tenha sido útil. Obrigado por
+assistindo.
+
+
+06. [LLM - Engenheiro] - (Semana 3) - Dia 1 - Executando Diffusion e FLUX estáveis ​​em GPUs do Google Colab
+https://youtu.be/ZDwodQ01q7U?si=lA-C945OqJ2pblOA
+
+
+0:000 segundoOk, acabou de terminar e você pode ver que a memória RAM da GPU aumentou para 8,5 GB. Só mais uma coisa.
+0:099 segundosIsso é importante, eu não mencionei, que este parâmetro aqui é o número de etapas de inferência. Então, isso é um pouco vago, mas você pode saber o que é...
+0:1818 segundosO funcionamento desses modelos de difusão se baseia em uma imagem que, por sua vez, era descrita como algo semelhante a um diagrama.
+0:2424 segundosum estímulo e então eles gradualmente o dissolvem em ruído branco através de várias etapas. E a maneira como um
+0:3232 segundosO modelo de difusão é treinado e, em seguida, realiza o processo inverso, começando com a aproximação inicial com um estímulo e tentando iterar.
+0:3939 segundospara se chegar ao quadro completo. E o número de etapas de inferência é quantas dessas etapas de mudança são necessárias.
+0:4747 segundosTransformar algo ruidoso em uma imagem real com base em um estímulo.
+0:5252 segundosEntão este modelo, este modelo SDXL turbo muito, muito pequeno, conseguiu isso [risos]
+1:001 minutoO que é bem divertido. Hum, este é você? Você se parece com isso? Esta é a turma de cientistas de dados em um ambiente vibrante.
+1:071 minuto e 7 segundosEstilo pop art, colorido e vibrante, e claro que não é como aquelas imagens incríveis de Londres feitas com IA aberta que vimos por aí.
+1:161 minuto e 16 segundosParis e Nova York, mas, mas, é grátis, é um modelo gratuito e você tem todo o código, este código do abraço virtual, nós somos
+1:241 minuto e 24 segundosusando aqui, mas este pipeline, que faz parte de uma dessas bibliotecas Hugging Face, tem todo o código Python rodando nesta máquina, gerando isso.
+1:321 minuto e 32 segundosA imagem é bem legal. É... sim, com certeza parece muito palpável. Ok, a próxima coisa que vamos fazer é reiniciar o kernel para...
+1:411 minuto e 41 segundosReinicie tudo e execute outro modelo. Você pode reiniciar o kernel acessando o modo de execução e reiniciando a sessão.
+1:481 minuto e 48 segundosEu também coloquei aqui um código que você pode executar, basta fazer isso. Ele vai me avisar que o kernel sumiu. E pronto.
+1:581 minuto e 58 segundosSua sessão foi interrompida. Aparece a mensagem de reinicialização automática e, ao retornar, tudo volta a zero. O mesmo acontece quando o sistema reinicia em tempo de execução.
+2:072 minutos e 7 segundosOk, agora vamos começar outro modelo, que também é um modelo de estabilidade, ou melhor, de difusão estável.
+2:142 minutos e 14 segundosÉ a base XL de difusão estável, que é um modelo maior. E nós...
+2:222 minutos e 22 segundosDeixe o programa rodar. Desta vez, faremos 30 etapas de inferência.
+2:262 minutos e 26 segundosNa verdade, a imagem que vai produzir é maior. A qualidade não é significativamente diferente desta. Caso você esteja esperando algo grande...
+2:342 minutos e 34 segundoscoisas, não. Estamos usando um dispositivo muito pequeno quando se trata de geração de imagens.
+2:392 minutos e 39 segundosElas consomem muita energia, mas ainda assim é legal poder usar esse kit gratuito para funcionar por conta própria. E espero que você também esteja fazendo isso. E você sabe que existe
+2:472 minutos e 47 segundosDefinitivamente, há algo muito tangível em fazer isso. Nos vemos para o resultado. E aqui estamos nós, assistindo ao final. Está tudo carregado. Você pode ver.
+2:552 minutos e 55 segundosAs 30 iterações que ele está realizando. Esta foi a 30ª iteração, dividida em etapas diferentes.
+2:592 minutos e 59 segundosEles estão correndo bem rápido. E no final, a imagem aparece. Espero.
+3:043 minutos e 4 segundosPronto. Então, sabe, é uma imagem maior. Tem mais coisas acontecendo.
+3:093 minutos e 9 segundosAinda está um pouco bagunçado, mas acho que isso talvez faça parte do estilo pop art. E tem algo meio surreal e estranho acontecendo por aqui que parece...
+3:173 minutos e 17 segundosParece um artefato de IA. Mas, mesmo assim, é algo bem legal de se construir. Está chegando em breve.
+3:253 minutos e 25 segundosNovamente, em nosso dispositivo gratuito. E então, você também pode ver, veja a GPU, que chegou a 12,7 GHz.
+3:343 minutos e 34 segundosVamos reiniciar o kernel novamente e voltar ao estado inicial. E agora eu acho...
+3:413 minutos e 41 segundosProvavelmente estamos chegando à parte em que executaremos o próximo passo. Pode ser que não funcione em um computador comum. Talvez seja a hora.
+3:503 minutos e 50 segundosPara que possamos executar o programa em um computador potente, que eu tenho, mas que você provavelmente não tem, e que eu quero ter, só para mostrar como é executar o programa em um computador mais potente.
+3:583 minutos e 58 segundoscaixa. Vou testar primeiro em um T4 para ver se funciona. Então, enquanto estiver funcionando, deixe-me dizer que...
+4:064 minutos e 6 segundosNovamente, é o mesmo Excel base 10, que é um modelo maior.
+4:134 minutos e 13 segundosCapazes de construir este visual maior, e também estamos trazendo um segundo modelo para atuar como refinador.
+4:224 minutos e 22 segundosE você pode ver que nós dividimos em 80/20 e que... sim, o
+4:294 minutos e 29 segundosA refinaria então começa a trabalhar para torná-la um pouco melhor.
+4:344 minutos e 34 segundosEntão, está rodando agora e vamos ver se funciona neste servidor T4. Acho que provavelmente não. Provavelmente funcionará em
+4:424 minutos e 42 segundosmemória, o que será um bom momento para mostrar como fica quando você executa em memória em um T4. E nesse ponto, mudarei para um A100.
+4:504 minutos e 50 segundosUma caixa poderosa, em vez disso. Mas veremos o que acontece. Já te vejo.
+4:544 minutos e 54 segundosCerto, então essa difusão em dois estágios foi concluída com sucesso no T4 livre.
+5:015 minutos e 1 segundocaixa. Aqui está o resultado. E definitivamente é um passo à frente. Sem dúvida. Ainda tem artefatos e algumas estranhezas, mas é bem legal.
+5:105 minutos e 10 segundosBem. E, novamente, quando se trata de um modelo de código aberto gratuito em hardware gratuito, é muito legal estar fazendo isso. Então
+5:185 minutos e 18 segundosEspero que você também já tenha tido essa experiência. Você também deve ter visto algumas fotos interessantes. Talvez você consiga estimular melhor a situação e obter algo ainda mais inusitado ou mais...
+5:265 minutos e 26 segundosDiversão ou algo assim. Bem, este é o nosso cientista de dados em estilo pop art, aspirando a se tornar um engenheiro de IA especialista. Esse seria você.
+5:395 minutos e 39 segundosMuito bem. Então, com isso, vamos agora mudar e seguir em frente.
+5:455 minutos e 45 segundosAh, não. Antes de passarmos para o A100, tenho mais uma coisa para lhe mostrar no seu T4. Deixe-me mostrar.
+5:535 minutos e 53 segundosOutra coisa. Então, desta vez vou fazer do outro jeito. Menu de tempo de execução, reiniciar sessão, reiniciar. Ok, de novo,
+6:026 minutos e 2 segundosVeja como estávamos perto do limite da memória. Na verdade, mal coube no nosso T4. Mas agora reiniciamos o kernel.
+6:116 minutos e 11 segundosTudo deve voltar a zero imediatamente. E agora vou executar a próxima célula. Então, agora estamos usando transformadores, o principal
+6:206 minutos e 20 segundosBiblioteca da Hugging Face, não difusores, não geração de imagens, mas voltamos aos transformadores normais, só que não os estamos usando para geração de texto.
+6:306 minutos e 30 segundosVamos usar um sistema gratuito de conversão de texto em fala. Vocês se lembram do modelo de TTS que vimos da última vez? Da última vez, usamos um modelo pago. Desta vez, é um modelo gratuito da Microsoft.
+6:416 minutos e 41 segundosÉ o Microsoft Speech 5 TTS. Vamos carregá-lo e vamos dizer olá.
+6:486 minutos e 48 segundospara um engenheiro de inteligência artificial a caminho da maestria. E, claro, isso
+6:556 minutos e 55 segundosPrimeiro, é necessário realizar um carregamento considerável. E isso seria algo feito apenas uma vez. Isso não aconteceria se você já tivesse esse modelo carregado na memória.
+7:037 minutos e 3 segundosNão precisaríamos fazer todo esse download do Hugging Face que estamos fazendo agora. Só precisaríamos fazer a parte que executa o modelo, que esperamos que seja relativamente rápida. Hum, mas
+7:127 minutos e 12 segundosVamos deixar isso terminar. Pronto.
+7:167 minutos e 16 segundosEstou chegando. Ah, e hum, ok, ainda preciso baixar mais do modelo. Está baixando muito rápido.
+7:267 minutos e 26 segundosEu sei que assim que eu parar, vai terminar, mas já te vejo. E na verdade, para isso funcionar, eu tive que fazer um pequeno `pip install` aqui. Então, eu adicionei isso ali. Você
+7:347 minutos e 34 segundosVocê precisará executar isso primeiro para que funcione corretamente. Mas quando você fizer isso e executar o programa, você verá o resultado. E então, quando eu clicar em reproduzir, veremos o que acontece.
+7:427 minutos e 42 segundosOlá para um engenheiro de inteligência artificial a caminho da maestria.
+7:477 minutos e 47 segundosPronto. Acabamos de gerar um áudio excelente em nosso dispositivo T4 gratuito que era
+7:557 minutos e 55 segundosSucesso! Parabéns! Você usou o Google Collab para se conectar a uma GPU gratuita.
+8:028 minutos e 2 segundosVocê colocou uma caixa na nuvem e a usou para gerar várias imagens, além de gerar áudio usando difusores e um transformador.
+8:128 minutos e 12 segundosSó mais uma coisa a fazer. Ok. Agora vou me conectar a um dispositivo A100 potente.
+8:188 minutos e 18 segundosEntão, vou deixar vocês enquanto vou verificar isso. Se quiserem, podem vir comigo. Ah, então, vou fazer isso agora. Alterar o tipo de tempo de execução A 100.
+8:298 minutos e 29 segundosDesconecte e exclua o runtime. Sim. E salve. E você ainda está aí? Eu não sou um robô. Pronto. Conecta. Eu me movo.
+8:368 minutos e 36 segundosTão rápido que pensa que sou um robô. Então, aconteceu. Está conectado a um A100. Você pode ver porque eu tenho 40
+8:448 minutos e 44 segundosTenho gigabytes de RAM na minha placa de vídeo, o que é enorme. E isso vai...
+8:518 minutos e 51 segundoscusta cinco unidades de computação por hora. E 10 dólares custam cerca de cem, desculpe, 10 dólares.
+9:009 minutosVocê obtém 100 unidades de computação. Portanto, US$ 1 lhe dá 10 unidades de computação. Basicamente,
+9:089 minutos e 8 segundosUma hora custa cerca de 50. É mais ou menos o que você paga por uma hora de uso. Vamos lá, não é tão ruim assim. Eu disse que achava que custava uns dois dólares. É...
+9:169 minutos e 16 segundosNão é tão ruim. E só para provar, vamos imprimir o nome da GPU.
+9:209 minutos e 20 segundosO mesmo código de antes. Agora você pode ver que se trata de uma GPU Nvidia A100 e que ela deve ter 40 GB de RAM.
+9:329 minutos e 32 segundosE agora vou executar outro gerador de imagens, e estou usando o famoso Black.
+9:399 minutos e 39 segundosO Forest Labs Flux One é um modelo que as pessoas adoram comentar. Ele vem em três versões diferentes.
+9:469 minutos e 46 segundostamanhos, Chanel, Dev e Pro. E vamos optar pelo Chanel, que é o menor e mais barato, porque nós
+9:549 minutos e 54 segundosNão tenho muito tempo para deixar isso rodando. Uma turma de cientistas de dados aprendendo engenharia em um ambiente de ensino vibrante.
+10:0110 minutos e 1 segundoenergia estilo pop art uh e uh com apenas quatro etapas de inferência. Então, deixando isso
+10:0910 minutos e 9 segundosExecutando. Acabei de conseguir um código para cronometrar também. Novamente, estamos usando algo chamado pipeline, que é a maneira mais fácil de usar o código do Hugging Face. Vamos...
+10:1810 minutos e 18 segundosNos próximos dias, falaremos sobre o jeito fácil e o jeito difícil. O jeito fácil são esses pipelines que já vêm meio que pré-configurados. Então, o pipeline é...
+10:2710 minutos e 27 segundosEm execução. Começa baixando um monte de coisas, tudo chega e então o A100 entra em ação. Isso é um
+10:3510 minutos e 35 segundosUma caixa superpotente e robusta à qual estamos nos conectando remotamente aqui. E eu vou me retirar e esperar por um
+10:4310 minutos e 43 segundosEnquanto isso, preciso concluir o processo e nos vemos quando estiver pronto. Ok, acabei de concluir. Então, este era o famoso modelo Flux One Channel da Black Forest Labs.
+10:5410 minutos e 54 segundosA proposta, como você deve se lembrar, era uma turma de cientistas de dados aprendendo engenharia de IA em um estilo pop art vibrante e cheio de energia.
+11:0111 minutos e 1 segundoOlha só. Ele usou 36,8 GB dos 40 GB disponíveis no A100. Então, certamente, aproveitamos ao máximo o nosso espaço.
+11:1011 minutos e 10 segundosHardware. Vamos ver o que a Chanel conseguiu criar. Aqui está o resultado. E devo dizer, acho isso muito legal. Definitivamente.
+11:1911 minutos e 19 segundosParece uma imagem vibrante de arte pop de um grupo de aspirantes a engenheiros de IA. Eu diria.
+11:2611 minutos e 26 segundosIsso é ótimo. E desta vez não estava rodando em hardware gratuito, mas o modelo era gratuito. Modelo gratuito de código aberto.
+11:3411 minutos e 34 segundoscorrendo. E eu imagino que você esteja se perguntando quanto custa fazer isso. Então, fiz um pequeno cálculo aqui. Obtive o número total de segundos,
+11:4211 minutos e 42 segundoscalculou as unidades por hora e, em seguida, transformou isso em um custo estimado com base no fato de que custa cerca de
+11:5011 minutos e 50 segundosUS$ 10 para ter 100 unidades. E assim, no final das contas, levou-se...
+11:5711 minutos e 57 segundos240 segundos. E, segundo minhas estimativas, se meus cálculos estiverem corretos, isso nos custou 4 centavos de dólar em termos de tempo gasto no Google Collab para criar essa imagem.
+12:0912 minutos e 9 segundosAh, o que é bastante semelhante ao custo, se você se lembra que pagamos pelo Open AAI, o que só mostra que todas essas coisas acabam sendo...
+12:1712 minutos e 17 segundosNo final, ficou bem parecido. Então é isso. Aí está. Esse é o resultado da nossa geração de imagens em
+12:2512 minutos e 25 segundosuma GPU A100 robusta à qual tivemos acesso por meio da execução na nuvem do Google Collab.
+12:3212 minutos e 32 segundosE essa colaboração, claro, é compartilhada com vocês. Então vocês podem participar, executar o programa e ter toda a experiência T4 por si mesmos e, se quiserem...
+12:4012 minutos e 40 segundosSe você investir um pouquinho mais, também poderá ter essa experiência A100.
+12:4412 minutos e 44 segundosE claro, o que eles querem dizer é que, sim, custa apenas 4 centavos para gerar essa imagem. Mas eu ainda estou...
+12:5112 minutos e 51 segundosEstou usando o A100. Você precisa se lembrar de ir em tempo de execução, clicar em desconectar e excluir o tempo de execução para parar de pagar por ele.
+12:5912 minutos e 59 segundosBem, a qualquer momento você pode vir aqui e ir em gerenciar sessões para ver todas as sessões que estão em execução e certificar-se de interrompê-las, assim: encerrar.
+13:1013 minutos e 10 segundosEle é desativado quando você termina a sessão. E com isso, concluímos nossa exploração do Google Collab por hoje. Ok, e conseguimos fazer muita coisa.
+13:1913 minutos e 19 segundosA terceira semana, primeiro dia, chega ao fim. Não foi tão ruim quanto arrancar dentes no consultório do dentista. Teve algumas coisas legais. E enquanto isso, você...
+13:2713 minutos e 27 segundosVocê já teve contato com a plataforma Hugging Face. Deu uma primeira olhada em algumas das bibliotecas do Hugging Face, embora ainda não tenhamos nos aprofundado nelas.
+13:3413 minutos e 34 segundosVocê ainda não os conhece, mas já executou código no Google Collab. E, além disso, é claro que você pode programar com confiança com
+13:4213 minutos e 42 segundosModelos de fronteira e construção de um assistente de IA multimodal com ferramentas.
+13:4613 minutos e 46 segundosParabéns! Na próxima vez, falaremos sobre as duas versões diferentes da API do Hugging Face. Vamos explorar...
+13:5213 minutos e 52 segundosem pipelines e usá-los para diversas tarefas de IA, como geração de texto, imagens e áudio. Há muito o que fazer. Até lá.
+
+
