@@ -1,0 +1,8 @@
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510>dir /s /b "models\*"
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf\diffusion
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf\llm
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf\vae
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf\diffusion\readme.txt
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf\llm\readme.txt
+F:\FastSDCPU\fastsdcpu-1.0.0-beta.510\models\gguf\vae\readme.txt
